@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ushaia — AI for small businesses, built by a small business owner</title>
+<meta name="description" content="I run five small businesses with AI. Now I help other owners do the same. Productized AI audits, sprints, and embedded advisory — built by an operator, not an agency." />
+<meta property="og:title" content="Ushaia — AI for small businesses" />
+<meta property="og:description" content="I run five small businesses with AI. Now I help other owners do the same." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      '#0B1220',
+          midnight: '#0F1A2E',
+          mist:     '#E7ECF2',
+          copper:   '#D78B4A',
+          amber:    '#F2B66B',
+          sage:     '#7AA08E',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'serif'],
+          sans:  ['Inter', 'ui-sans-serif', 'system-ui'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', ui-sans-serif, system-ui; }
+  .font-display { font-family: 'Fraunces', ui-serif, serif; font-optical-sizing: auto; letter-spacing: -0.02em; }
+  .gradient-bg {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(215,139,74,0.18), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(122,160,142,0.16), transparent 60%),
+      linear-gradient(180deg, #0B1220 0%, #0F1A2E 100%);
+  }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.08); }
+  .card:hover { border-color: rgba(242,182,107,0.4); }
+  .btn-primary { background: linear-gradient(180deg, #F2B66B 0%, #D78B4A 100%); color: #0B1220; }
+  .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  .pill { background: rgba(242,182,107,0.10); color: #F2B66B; border: 1px solid rgba(242,182,107,0.25); }
+  .divider { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
+  .glow { box-shadow: 0 30px 80px -30px rgba(215,139,74,0.35); }
+</style>
+</head>
+<body class="bg-ink text-mist antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 backdrop-blur-md bg-ink/60 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber group-hover:scale-110 transition"></span>
+      <span class="font-display font-semibold text-xl tracking-tight">Ushaia</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-mist/80">
+      <a href="#why" class="hover:text-amber transition">Why me</a>
+      <a href="#offerings" class="hover:text-amber transition">Offerings</a>
+      <a href="#how" class="hover:text-amber transition">How it works</a>
+      <a href="#proof" class="hover:text-amber transition">Proof</a>
+      <a href="#founder" class="hover:text-amber transition">Founder</a>
+    </nav>
+    <a href="#book" class="btn-primary text-sm font-semibold px-4 py-2 rounded-lg transition">Book a call</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="gradient-bg relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 pt-24 pb-32 relative">
+    <span class="pill inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
+      For owners of 1–50 person businesses
+    </span>
+    <h1 class="font-display text-5xl md:text-7xl font-semibold mt-6 leading-[1.05] max-w-4xl">
+      I run five small businesses with AI.<br/>
+      <span class="text-amber">Now I help owners like you do the same.</span>
+    </h1>
+    <p class="mt-8 text-lg md:text-xl text-mist/80 max-w-2xl leading-relaxed">
+      Ushaia is AI consulting built by an operator, not an agency. I'll audit your business, build the automations that actually move the needle, and ride alongside you while they earn back their cost.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="#book" class="btn-primary px-6 py-3.5 rounded-xl font-semibold transition">Book a 30-min call</a>
+      <a href="#offerings" class="px-6 py-3.5 rounded-xl font-semibold border border-white/15 hover:border-amber/50 hover:text-amber transition">See the three ways we work</a>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
+      <div>
+        <div class="font-display text-3xl text-amber font-semibold">5</div>
+        <div class="text-sm text-mist/60 mt-1">Active businesses I run with AI</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl text-amber font-semibold">525+</div>
+        <div class="text-sm text-mist/60 mt-1">Production automation steps shipped</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl text-amber font-semibold">30+</div>
+        <div class="text-sm text-mist/60 mt-1">Years building real companies</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl text-amber font-semibold">3</div>
+        <div class="text-sm text-mist/60 mt-1">Languages I work in (EN · FR · ES)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section id="why" class="py-28 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Why Ushaia</p>
+        <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">
+          Most AI consultants have never met payroll.
+        </h2>
+        <p class="mt-6 text-lg text-mist/80 leading-relaxed">
+          I have. Five times over. I run a boutique hotel, an ecotourism company in Costa Rica, a US real estate portfolio, a French book launch, and a litigation file that would put most people in the ground. AI is not an experiment for me — it's how I survive the week.
+        </p>
+        <p class="mt-4 text-lg text-mist/80 leading-relaxed">
+          When I build something for you, it's because I've already shipped it for myself.
+        </p>
+      </div>
+      <div class="grid gap-4">
+        <div class="card rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber/15 flex items-center justify-center text-amber font-display text-xl">①</div>
+            <div>
+              <h3 class="font-semibold text-lg">Operator first, technologist second</h3>
+              <p class="text-mist/70 mt-1 text-sm leading-relaxed">I won't sell you a tool you don't need. I'll find the one workflow that's costing you the most time and fix that.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber/15 flex items-center justify-center text-amber font-display text-xl">②</div>
+            <div>
+              <h3 class="font-semibold text-lg">Productized — no surprise invoices</h3>
+              <p class="text-mist/70 mt-1 text-sm leading-relaxed">Three offerings, each with a fixed scope and a fixed price. You know what you're buying before you start.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber/15 flex items-center justify-center text-amber font-display text-xl">③</div>
+            <div>
+              <h3 class="font-semibold text-lg">Eat my own cooking</h3>
+              <p class="text-mist/70 mt-1 text-sm leading-relaxed">Every system I recommend is one I've used in production across my own businesses, often for years.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber/15 flex items-center justify-center text-amber font-display text-xl">④</div>
+            <div>
+              <h3 class="font-semibold text-lg">English · Français · Español</h3>
+              <p class="text-mist/70 mt-1 text-sm leading-relaxed">I work between the United States, Costa Rica, and France. Cross-border small business is my native habitat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section id="offerings" class="py-28 border-t border-white/5 bg-midnight/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Three ways to work together</p>
+      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Pick the lane that fits where you are.</h2>
+      <p class="mt-6 text-lg text-mist/80 leading-relaxed">Most owners start with the audit and graduate from there. You can stop after any tier.</p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+
+      <!-- Tier 1 -->
+      <div class="card rounded-2xl p-8 flex flex-col">
+        <div class="flex items-center justify-between">
+          <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase">Tier 1</span>
+          <span class="text-mist/50 text-sm">1 day</span>
+        </div>
+        <h3 class="font-display text-3xl mt-6">AI Audit</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">A focused, one-day deep dive into your business. I find the three workflows where AI will pay for itself fastest, and hand you a written plan with ROI math you can act on alone or with me.</p>
+        <ul class="mt-6 space-y-2 text-sm text-mist/80">
+          <li class="flex gap-2"><span class="text-amber">→</span> 90-min discovery call</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Workflow & systems review</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Top 3 automation candidates ranked by ROI</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> 1-page executive summary + 5-page tech plan</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> 30-day email follow-up included</li>
+        </ul>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <div class="flex items-baseline gap-2">
+            <span class="font-display text-4xl font-semibold">$1,500</span>
+            <span class="text-mist/50 text-sm">fixed</span>
+          </div>
+          <a href="#book" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Start with an audit</a>
+        </div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="card rounded-2xl p-8 flex flex-col relative glow" style="border-color: rgba(242,182,107,0.45)">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 pill px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Most popular</span>
+        <div class="flex items-center justify-between">
+          <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase">Tier 2</span>
+          <span class="text-mist/50 text-sm">2–3 weeks</span>
+        </div>
+        <h3 class="font-display text-3xl mt-6">AI Sprint</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">One specific automation, built end to end and shipped to production. Guest comms, lead capture, reservations, internal SOPs, AI-drafted reports — pick the one that's bleeding the most time and we close it.</p>
+        <ul class="mt-6 space-y-2 text-sm text-mist/80">
+          <li class="flex gap-2"><span class="text-amber">→</span> Scoped from your audit (or a fresh one)</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Build in your stack — no lock-in</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Live training for you and one team member</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> 30-day post-launch support</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Documentation you actually understand</li>
+        </ul>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <div class="flex items-baseline gap-2">
+            <span class="font-display text-4xl font-semibold">$7,500</span>
+            <span class="text-mist/50 text-sm">starting</span>
+          </div>
+          <a href="#book" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Scope a sprint</a>
+        </div>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="card rounded-2xl p-8 flex flex-col">
+        <div class="flex items-center justify-between">
+          <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase">Tier 3</span>
+          <span class="text-mist/50 text-sm">Monthly · 3-mo min</span>
+        </div>
+        <h3 class="font-display text-3xl mt-6">AI Operator</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">An embedded retainer. I become the AI Chief of Staff your business doesn't have — building, maintaining, and steering your stack as your business changes. Best for owners who want compounding leverage, not one-off fixes.</p>
+        <ul class="mt-6 space-y-2 text-sm text-mist/80">
+          <li class="flex gap-2"><span class="text-amber">→</span> Up to 2 builds shipped per month</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Weekly working sessions</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Direct access on WhatsApp / email</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Quarterly strategy review</li>
+          <li class="flex gap-2"><span class="text-amber">→</span> Roadmap that compounds — no thrash</li>
+        </ul>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <div class="flex items-baseline gap-2">
+            <span class="font-display text-4xl font-semibold">$5,000</span>
+            <span class="text-mist/50 text-sm">/ month</span>
+          </div>
+          <a href="#book" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Talk about a retainer</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="mt-10 text-center text-mist/60 text-sm">Custom scopes available. If your situation doesn't fit, tell me on the call — I'll either size it or send you somewhere better.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="py-28 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">How it works</p>
+      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">No agency theater. Four clean steps.</h2>
+    </div>
+    <div class="mt-16 grid md:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-6">
+        <div class="font-display text-amber text-5xl">01</div>
+        <h3 class="font-semibold mt-4">Free 30-min call</h3>
+        <p class="text-mist/70 mt-2 text-sm leading-relaxed">You tell me what's eating your week. I tell you whether I'm the right person to fix it.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="font-display text-amber text-5xl">02</div>
+        <h3 class="font-semibold mt-4">Pick a tier</h3>
+        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Audit, Sprint, or Operator. Fixed price. No statements of work that read like ransom notes.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="font-display text-amber text-5xl">03</div>
+        <h3 class="font-semibold mt-4">Build in the open</h3>
+        <p class="text-mist/70 mt-2 text-sm leading-relaxed">You see progress weekly. You own everything. No black boxes, no "trust me bro."</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="font-display text-amber text-5xl">04</div>
+        <h3 class="font-semibold mt-4">Ship & measure</h3>
+        <p class="text-mist/70 mt-2 text-sm leading-relaxed">We track time saved or revenue moved. If it doesn't earn its cost back, we did it wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof" class="py-28 border-t border-white/5 bg-midnight/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Proof — my own businesses</p>
+      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">The case studies are my own companies.</h2>
+      <p class="mt-6 text-lg text-mist/80 leading-relaxed">I don't have a wall of fake logos. I have five businesses I'm running right now with the systems I'll build for you.</p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-2 gap-6">
+      <div class="card rounded-2xl p-8">
+        <p class="text-amber text-sm font-medium uppercase tracking-wider">Hospitality</p>
+        <h3 class="font-display text-2xl mt-2">Jane's Beach Resort</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">Boutique hotel. Guest-comms automation, occupancy reporting, marketing flows, AI-drafted responses across booking platforms. Lodgify + Make.com + Claude API in production.</p>
+      </div>
+      <div class="card rounded-2xl p-8">
+        <p class="text-amber text-sm font-medium uppercase tracking-wider">Ecotourism</p>
+        <h3 class="font-display text-2xl mt-2">Theleme Experience</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">Costa Rica adventure operator. Booking flow, multilingual guest communications, and operations dashboards stitched into a single AI-orchestrated system.</p>
+      </div>
+      <div class="card rounded-2xl p-8">
+        <p class="text-amber text-sm font-medium uppercase tracking-wider">Real Estate</p>
+        <h3 class="font-display text-2xl mt-2">9-Property US Portfolio</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">Tenant tracking, deadline automation, financial roll-ups across nine properties. AI handles the bookkeeping triage that used to take a full day a week.</p>
+      </div>
+      <div class="card rounded-2xl p-8">
+        <p class="text-amber text-sm font-medium uppercase tracking-wider">Publishing</p>
+        <h3 class="font-display text-2xl mt-2">French Book Launch</h3>
+        <p class="text-mist/70 mt-3 leading-relaxed">Author marketing for a French-market title on parental alienation. Outreach research, contact validation, multilingual content pipeline — all AI-assisted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="py-28 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-1">
+        <div class="aspect-square rounded-2xl bg-gradient-to-br from-copper/40 to-sage/30 border border-white/10 flex items-center justify-center">
+          <span class="font-display text-6xl text-amber">VG</span>
+        </div>
+        <p class="text-mist/50 text-sm mt-3 text-center italic">Replace with your photo</p>
+      </div>
+      <div class="md:col-span-2">
+        <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Founder</p>
+        <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Vaillant Gicqueau</h2>
+        <p class="mt-6 text-lg text-mist/80 leading-relaxed">
+          I started my first company at 30. Three decades later I run businesses on three continents in three languages. I have nine real-estate properties, a boutique hotel, an ecotourism operator, a published book, and an AI infrastructure I built to keep all of it from collapsing on top of me.
+        </p>
+        <p class="mt-4 text-lg text-mist/80 leading-relaxed">
+          I'm not selling you a vision of AI. I'm selling you what I had to build to stay sane.
+        </p>
+        <p class="mt-4 text-lg text-mist/80 leading-relaxed">
+          If you run a small business — fewer than 50 people, real cash flow, real customers — and you suspect you're using 10% of what AI can actually do for you: you're right. Let's go fix that.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3 text-sm">
+          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">Costa Rica · United States</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">English · Français · Español</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">30+ years entrepreneur</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">5 active businesses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book" class="py-28 border-t border-white/5 gradient-bg">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Book a call</p>
+    <h2 class="font-display text-4xl md:text-6xl mt-4 leading-[1.05]">
+      30 minutes.<br/>You'll know if I'm the one.
+    </h2>
+    <p class="mt-6 text-lg text-mist/80 leading-relaxed">
+      No pitch deck. No agency play. We talk about your business, the workflows that are eating you alive, and whether AI is the lever that fixes it. If I'm not the right person, I'll tell you and try to point you somewhere better.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://cal.com/vaillant-gicqueau/30min" target="_blank" rel="noopener" class="btn-primary px-7 py-4 rounded-xl font-semibold transition text-lg">Pick a time on my calendar →</a>
+      <a href="mailto:gicqueau@gmail.com?subject=Ushaia%20%E2%80%94%20Intro%20call" class="px-7 py-4 rounded-xl font-semibold border border-white/15 hover:border-amber/50 hover:text-amber transition text-lg">Or email me</a>
+    </div>
+    <p class="text-mist/50 text-sm mt-6">Replies typically within one business day. EN · FR · ES.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-10">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-mist/50">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-amber"></span>
+      <span class="font-display font-semibold text-mist">Ushaia</span>
+      <span>· AI consulting for small businesses</span>
+    </div>
+    <div class="flex gap-6">
+      <a href="#offerings" class="hover:text-amber transition">Offerings</a>
+      <a href="#book" class="hover:text-amber transition">Book a call</a>
+      <a href="mailto:gicqueau@gmail.com" class="hover:text-amber transition">Contact</a>
+    </div>
+    <div>© 2026 Ushaia. Built by an operator.</div>
+  </div>
+</footer>
+
+</body>
+</html>
