@@ -1,814 +1,1487 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>USHAIA — Supercharge Your Small Business with AI</title>
-<meta name="description" content="AI consulting from an entrepreneur who's run many businesses, not just studied one. Skin in the game. Not slides in a deck." />
-<meta property="og:title" content="USHAIA — Supercharge Your Small Business with AI" />
-<meta property="og:description" content="AI advice and operational implementation from someone who's run many businesses, not just studied one." />
-<meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          ink:      '#0B1220',
-          midnight: '#0F1A2E',
-          mist:     '#E7ECF2',
-          copper:   '#D78B4A',
-          amber:    '#F2B66B',
-          sage:     '#7AA08E',
-        },
-        fontFamily: {
-          serif: ['Fraunces', 'ui-serif', 'serif'],
-          sans:  ['Inter', 'ui-sans-serif', 'system-ui'],
-        },
-      }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USHAIA — Supercharge Your Small Business with AI</title>
+  <meta name="description" content="AI consulting from an entrepreneur who's run many businesses, not just studied one. Skin in the game. Not slides in a deck." />
+  <meta property="og:title" content="USHAIA — Supercharge Your Small Business with AI" />
+  <meta property="og:description" content="AI advice and operational implementation from someone who's run many businesses, not just studied one." />
+  <meta property="og:type" content="website" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:  #1d1d1f;
+      --gray:   #6e6e73;
+      --lgray:  #f5f5f7;
+      --border: #d2d2d7;
+      --blue:   #0071e3;
+      --blue-h: #0077ed;
+      --white:  #ffffff;
     }
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', ui-sans-serif, system-ui; }
-  .font-display { font-family: 'Fraunces', ui-serif, serif; font-optical-sizing: auto; letter-spacing: -0.02em; }
-  .gradient-bg {
-    background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(215,139,74,0.18), transparent 60%),
-      radial-gradient(900px 500px at 0% 110%, rgba(122,160,142,0.16), transparent 60%),
-      linear-gradient(180deg, #0B1220 0%, #0F1A2E 100%);
-  }
-  .card { background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.08); }
-  .card:hover { border-color: rgba(242,182,107,0.4); }
-  .btn-primary { background: linear-gradient(180deg, #F2B66B 0%, #D78B4A 100%); color: #0B1220; }
-  .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
-  .pill { background: rgba(242,182,107,0.10); color: #F2B66B; border: 1px solid rgba(242,182,107,0.25); }
-  .divider { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
-  .glow { box-shadow: 0 30px 80px -30px rgba(215,139,74,0.35); }
 
-  /* Mobile nav */
-  .mobile-nav { display: none; }
-  .mobile-nav.active { display: flex; }
+    html { scroll-behavior: smooth; }
 
-  /* Fade-in on scroll */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .fade-up-delay-1 { transition-delay: 0.1s; }
-  .fade-up-delay-2 { transition-delay: 0.2s; }
-  .fade-up-delay-3 { transition-delay: 0.3s; }
-  .fade-up-delay-4 { transition-delay: 0.4s; }
-  .fade-up-delay-5 { transition-delay: 0.5s; }
+    body {
+      background: var(--white);
+      font-family: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* Hero parallax overlay */
-  .hero-bg {
-    background-image:
-      linear-gradient(180deg, rgba(11,18,32,0.6) 0%, rgba(11,18,32,0.85) 50%, rgba(15,26,46,1) 100%),
-      url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=80');
-    background-size: cover;
-    background-position: center 30%;
-  }
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  /* Section image overlays */
-  .services-bg {
-    background-image:
-      linear-gradient(180deg, rgba(11,18,32,0.95) 0%, rgba(11,18,32,0.92) 100%),
-      url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-  }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      text-decoration: none;
+    }
 
-  .da-bg {
-    background-image:
-      linear-gradient(180deg, rgba(15,26,46,0.95) 0%, rgba(15,26,46,0.92) 100%),
-      url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-  }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
 
-  /* Timeline */
-  .timeline-line { position: relative; }
-  .timeline-line::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, rgba(242,182,107,0.4), rgba(122,160,142,0.3));
-    transform: translateX(-50%);
-  }
-  @media (max-width: 768px) {
-    .timeline-line::before { left: 20px; }
-  }
+    .nav-links a {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.76rem;
+      transition: color 0.15s;
+    }
 
-  /* USHAIA letter cards */
-  .ushaia-letter {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .ushaia-letter:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 20px 60px -20px rgba(242,182,107,0.3);
-  }
+    .nav-links a:hover { color: var(--gray); }
 
-  /* Contact form styling */
-  .contact-form input,
-  .contact-form textarea {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 0.75rem;
-    padding: 0.875rem 1rem;
-    color: #E7ECF2;
-    font-size: 1rem;
-    width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    outline: none;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: rgba(242,182,107,0.5);
-    box-shadow: 0 0 0 3px rgba(242,182,107,0.1);
-  }
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: rgba(231,236,242,0.4);
-  }
-  .contact-form textarea {
-    min-height: 140px;
-    resize: vertical;
-  }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
 
-  /* Credential link styling */
-  .credential-link {
-    transition: color 0.2s ease, transform 0.2s ease;
-  }
-  .credential-link:hover {
-    color: #F2B66B;
-    transform: translateX(2px);
-  }
-</style>
+    .nav-lang {
+      font-size: 0.72rem;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-lang:hover { color: var(--black); }
+    .nav-lang.active { color: var(--black); font-weight: 600; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 980px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--blue-h); transform: scale(1.02); }
+
+    .btn-primary.large {
+      font-size: 0.95rem;
+      padding: 0.78rem 1.8rem;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.78rem 0.4rem;
+      color: var(--blue);
+      font-size: 0.92rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-link:hover { opacity: 0.75; }
+
+    /* ── MOBILE NAV ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2.5rem 1.5rem;
+      gap: 1rem;
+      z-index: 99;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-size: 0.88rem;
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.3rem 0;
+    }
+
+    .mobile-nav .mobile-lang {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 0.2rem;
+    }
+
+    .mobile-nav .mobile-lang a {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    .mobile-nav .mobile-lang a.active {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    /* ── FADE-UP SCROLL ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d4 { transition-delay: 0.4s; }
+    .fade-up-d5 { transition-delay: 0.5s; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--white);
+      padding: 6rem 2rem 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      color: var(--black);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.55;
+      max-width: 560px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 0 auto 4rem;
+      max-width: 720px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--gray);
+      line-height: 1.4;
+      margin-top: 0.2rem;
+    }
+
+    /* Hero image */
+    .hero-image-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.12), 0 6px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.96));
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-headline {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── USHAIA ACRONYM ── */
+    .acronym-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .acronym-section .section-body { margin-bottom: 3rem; }
+
+    .acronym-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .acronym-card {
+      background: var(--white);
+      padding: 2.2rem 1.8rem;
+    }
+
+    .acronym-card:first-child  { border-radius: 14px 0 0 0; }
+    .acronym-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .acronym-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .acronym-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .acronym-letter {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .acronym-word {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.8rem;
+    }
+
+    .acronym-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .acronym-card p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Credential badges */
+    .credential-badges {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 980px;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    /* ── WHY ME ── */
+    .why-me-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .why-me-photo {
+      position: sticky;
+      top: 72px;
+    }
+
+    .why-me-photo img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    .why-me-photo .photo-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .bio-text p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.72;
+      margin-bottom: 1rem;
+    }
+
+    .pull-quote {
+      margin: 2rem 0;
+      padding: 1.4rem 1.6rem;
+      border-left: 3px solid var(--blue);
+      background: var(--lgray);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .pull-quote p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.55;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .why-me-sidebox {
+      margin-top: 2rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--lgray);
+      border-radius: 12px;
+    }
+
+    .why-me-sidebox h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+    }
+
+    .why-me-sidebox p {
+      font-size: 0.86rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── TRACK RECORD ── */
+    .track-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .track-card {
+      background: var(--white);
+      padding: 1.8rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.2s;
+    }
+
+    .track-card:hover { box-shadow: inset 0 0 0 2px var(--blue); }
+
+    .track-card:nth-child(1) { border-radius: 14px 0 0 0; }
+    .track-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .track-card:nth-child(7) { border-radius: 0 0 0 14px; }
+    .track-card:nth-child(9) { border-radius: 0 0 14px 0; }
+
+    .track-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .track-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .track-card p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .media-bar {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2.5rem;
+      opacity: 0.45;
+    }
+
+    .media-bar span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--black);
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+    .service-card.popular { border-color: var(--blue); }
+
+    .service-tag {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 980px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      background: var(--lgray);
+      color: var(--gray);
+    }
+
+    .service-card.popular .service-tag {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card > p {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.2rem;
+    }
+
+    .service-price-note {
+      font-size: 0.72rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 1.8rem;
+    }
+
+    .service-features li {
+      font-size: 0.78rem;
+      color: var(--gray);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .service-features li:last-child { border-bottom: none; }
+
+    /* ── DIGITAL ASSISTANT ── */
+    .da-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .da-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .da-card {
+      background: var(--white);
+      padding: 2rem 1.6rem;
+    }
+
+    .da-card:first-child  { border-radius: 14px 0 0 0; }
+    .da-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .da-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .da-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .da-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .da-card p {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    .da-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    /* How it works */
+    .how-it-works {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .how-it-works h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 2.5rem;
+    }
+
+    .how-nodes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .how-node {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      text-align: center;
+      width: 220px;
+    }
+
+    .how-arrow { font-size: 1.4rem; color: var(--gray); margin: 0 1rem; }
+
+    .how-node-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+
+    .how-node h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+
+    .how-node p { font-size: 0.72rem; color: var(--gray); line-height: 1.5; }
+
+    .da-tags {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* ── CASE STUDY ── */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .case-card {
+      background: var(--lgray);
+      padding: 2.2rem 1.8rem;
+    }
+
+    .case-card:first-child  { border-radius: 14px 0 0 0; }
+    .case-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .case-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .case-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .case-stat {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-card h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-card p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .case-closing {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .case-closing p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 4rem;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-inner span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .ticker-inner strong { color: #fff; font-weight: 600; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── GEO BANNER ── */
+    .geo-banner {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .geo-banner h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+
+    .geo-banner p { font-size: 0.88rem; color: var(--gray); }
+
+    .geo-flags { font-size: 2rem; margin-bottom: 1rem; letter-spacing: 0.3rem; }
+
+    /* ── CONTACT ── */
+    .contact-section { text-align: center; }
+
+    .contact-body {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 500px;
+      margin: 1rem auto 2.5rem;
+      line-height: 1.65;
+    }
+
+    .contact-sub { font-size: 0.8rem; color: var(--gray); margin-top: 0.8rem; }
+
+    .contact-socials {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-socials a {
+      font-size: 0.82rem;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .contact-socials a:hover { opacity: 0.7; }
+
+    .contact-divider {
+      margin: 3rem auto;
+      max-width: 400px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-form-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    form textarea { resize: vertical; min-height: 100px; }
+
+    .form-note { font-size: 0.72rem; color: var(--gray); margin-top: 0.4rem; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 800px; margin: 0 auto; }
+
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a { font-size: 0.72rem; color: var(--blue); text-decoration: none; }
+
+    footer p { font-size: 0.72rem; color: var(--gray); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-me-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .why-me-photo { position: static; }
+      .why-me-photo img { max-width: 260px; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .nav-right .nav-lang { display: none; }
+      .nav-right .btn-primary { display: none; }
+      .hamburger { display: flex; }
+      .acronym-grid, .track-grid, .da-grid, .case-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .how-nodes { flex-direction: column; }
+      .how-arrow { transform: rotate(90deg); }
+      .stats-bar { flex-direction: column; border-radius: 14px; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .acronym-card, .track-card, .da-card, .case-card { border-radius: 0 !important; }
+    }
+  </style>
 </head>
-<body class="bg-ink text-mist antialiased">
+<body>
 
-<!-- NAV -->
-<header class="sticky top-0 z-40 backdrop-blur-md bg-ink/60 border-b border-white/5">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2 group">
-      <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber group-hover:scale-110 transition"></span>
-      <span class="font-display font-semibold text-xl tracking-tight">USHAIA</span>
-    </a>
-    <nav class="hidden md:flex items-center gap-7 text-sm text-mist/80">
-      <a href="#" class="hover:text-amber transition">Home</a>
-      <a href="#ushaia" class="hover:text-amber transition">USHAIA</a>
-      <a href="#why-me" class="hover:text-amber transition">Why Me</a>
-      <a href="#services" class="hover:text-amber transition">Services</a>
-      <a href="#digital-assistant" class="hover:text-amber transition">Digital Assistant</a>
-      <a href="#case-studies" class="hover:text-amber transition">Case Studies</a>
-      <a href="#contact" class="hover:text-amber transition">Contact</a>
-    </nav>
-    <div class="hidden sm:flex items-center gap-3">
-      <div class="flex items-center gap-1.5 text-xs text-mist/60 mr-2">
-        <a href="index.html" class="text-amber font-semibold">EN</a>
-        <span class="text-mist/30">|</span>
-        <a href="fr.html" class="hover:text-amber transition">FR</a>
-        <span class="text-mist/30">|</span>
-        <a href="es.html" class="hover:text-amber transition">ES</a>
-      </div>
-      <a href="#contact" class="btn-primary text-sm font-semibold px-4 py-2 rounded-lg transition">Book a call</a>
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">USHAIA</a>
+    <ul class="nav-links">
+      <li><a href="#ushaia">USHAIA</a></li>
+      <li><a href="#why-me">Why Me</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#digital-assistant">Digital Assistant</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html" class="nav-lang active">EN</a>
+      <a href="fr.html" class="nav-lang">FR</a>
+      <a href="es.html" class="nav-lang">ES</a>
+      <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary">Book a call</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <!-- Mobile hamburger -->
-    <button onclick="document.getElementById('mobileNav').classList.toggle('active')" class="md:hidden text-mist/80 hover:text-amber">
-      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </div>
-  <!-- Mobile nav dropdown -->
-  <div id="mobileNav" class="mobile-nav flex-col gap-4 px-6 pb-6 text-sm text-mist/80 md:hidden">
-    <a href="#" class="hover:text-amber transition">Home</a>
-    <a href="#ushaia" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">USHAIA</a>
-    <a href="#why-me" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">Why Me</a>
-    <a href="#services" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">Services</a>
-    <a href="#digital-assistant" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">Digital Assistant</a>
-    <a href="#case-studies" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">Case Studies</a>
-    <a href="#contact" class="hover:text-amber transition" onclick="document.getElementById('mobileNav').classList.remove('active')">Contact</a>
-    <div class="flex items-center gap-2 pt-2 border-t border-white/10 text-xs">
-      <a href="index.html" class="text-amber font-semibold">EN</a>
-      <span class="text-mist/30">|</span>
-      <a href="fr.html" class="hover:text-amber transition">FR</a>
-      <span class="text-mist/30">|</span>
-      <a href="es.html" class="hover:text-amber transition">ES</a>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#ushaia" onclick="closeMobileNav()">USHAIA</a>
+    <a href="#why-me" onclick="closeMobileNav()">Why Me</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#digital-assistant" onclick="closeMobileNav()">Digital Assistant</a>
+    <a href="#case-studies" onclick="closeMobileNav()">Case Studies</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary" style="text-align:center; justify-content:center;">Book a call</a>
+    <div class="mobile-lang">
+      <a href="index.html" class="active">EN</a>
+      <a href="fr.html">FR</a>
+      <a href="es.html">ES</a>
     </div>
   </div>
-</header>
 
-<!-- ================================================================ -->
-<!-- HERO -->
-<!-- ================================================================ -->
-<section class="hero-bg relative overflow-hidden">
-  <div class="gradient-bg absolute inset-0 pointer-events-none"></div>
-  <div class="max-w-6xl mx-auto px-6 pt-28 pb-36 relative z-10">
-    <span class="pill inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase fade-up">
-      <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
-      AI consulting for small business owners
-    </span>
-    <h1 class="font-display text-5xl md:text-7xl font-semibold mt-6 leading-[1.05] max-w-4xl fade-up fade-up-delay-1">
-      Supercharge Your Small Business<br/>
-      <span class="text-amber">with AI.</span>
-    </h1>
-    <p class="mt-8 text-lg md:text-xl text-mist/80 max-w-2xl leading-relaxed fade-up fade-up-delay-2">
-      Skin in the game. Not slides in a deck. AI advice and operational implementation from someone who's run many businesses, not just studied one.
-    </p>
-    <div class="mt-10 flex flex-wrap gap-4 fade-up fade-up-delay-3">
-      <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary px-6 py-3.5 rounded-xl font-semibold transition">Book a Free 30-Min Strategy Call</a>
-      <a href="#ushaia" class="px-6 py-3.5 rounded-xl font-semibold border border-white/15 hover:border-amber/50 hover:text-amber transition">What is USHAIA?</a>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <span class="eyebrow fade-up">AI Consulting for Small Business Owners</span>
+    <h1 class="fade-up fade-up-d1">Supercharge Your Small Business<br>with AI.</h1>
+    <p class="hero-sub fade-up fade-up-d2">Skin in the game. Not slides in a deck. AI advice and operational implementation from someone who's run many businesses, not just studied one.</p>
+    <div class="hero-actions fade-up fade-up-d3">
+      <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary large">Book a Free 30-Min Strategy Call</a>
+      <a href="#ushaia" class="btn-link">What is USHAIA? &rsaquo;</a>
     </div>
 
-    <!-- Trust strip -->
-    <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl fade-up fade-up-delay-4">
-      <div>
-        <div class="font-display text-3xl text-amber font-semibold">30+</div>
-        <div class="text-sm text-mist/60 mt-1">Years as entrepreneur & executive</div>
+    <div class="stats-bar fade-up fade-up-d4">
+      <div class="stat">
+        <span class="stat-number">30+</span>
+        <span class="stat-label">Years as entrepreneur &amp; executive</span>
       </div>
-      <div>
-        <div class="font-display text-3xl text-amber font-semibold">$4.5M</div>
-        <div class="text-sm text-mist/60 mt-1">Company sold (Clinovo, 2015)</div>
+      <div class="stat">
+        <span class="stat-number">$4.5M</span>
+        <span class="stat-label">Company sold (Clinovo, 2015)</span>
       </div>
-      <div>
-        <div class="font-display text-3xl text-amber font-semibold">10</div>
-        <div class="text-sm text-mist/60 mt-1">Properties managed with AI</div>
+      <div class="stat">
+        <span class="stat-number">10</span>
+        <span class="stat-label">Properties managed with AI</span>
       </div>
-      <div>
-        <div class="font-display text-3xl text-amber font-semibold">160K+</div>
-        <div class="text-sm text-mist/60 mt-1">Documents indexed by my AI</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- WHAT IS USHAIA -->
-<!-- ================================================================ -->
-<section id="ushaia" class="py-32 border-t border-white/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-2xl mb-20 fade-up">
-      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">What is USHAIA</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Six letters. Six principles.</h2>
-      <p class="mt-6 text-lg text-mist/80 leading-relaxed">USHAIA isn't a brand exercise. It's a filter for every decision I make and every piece of advice I give.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">U</div>
-        <h3 class="font-semibold text-xl mt-6">Unbullshitted</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Straight talk, no fluff. I won't wrap bad news in consultant-speak. You get the truth, fast, so you can act on it.</p>
-      </div>
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up fade-up-delay-1">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">S</div>
-        <h3 class="font-semibold text-xl mt-6">Street-smart</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Learned in the field, not the classroom. My expertise comes from decades of building, failing, pivoting, and shipping.</p>
-      </div>
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up fade-up-delay-2">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">H</div>
-        <h3 class="font-semibold text-xl mt-6">Human-first</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">AI that serves real people, real businesses. Technology is a tool, not the destination. People always come first.</p>
-      </div>
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up fade-up-delay-3">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">A</div>
-        <h3 class="font-semibold text-xl mt-6">Accountable</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">We've met payroll -- we know what's at stake. I don't give advice I wouldn't follow with my own money on the line.</p>
-      </div>
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up fade-up-delay-4">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">I</div>
-        <h3 class="font-semibold text-xl mt-6">Impact-driven</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Not theoretical, measurable. Every recommendation has an ROI attached. If we can't measure it, we don't do it.</p>
-      </div>
-      <div class="ushaia-letter card rounded-2xl p-8 transition fade-up fade-up-delay-5">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber/25 to-copper/15 flex items-center justify-center text-amber font-display text-3xl font-semibold shadow-lg shadow-amber/10">A</div>
-        <h3 class="font-semibold text-xl mt-6">Actionable</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Advice you can use Monday morning. No 60-page decks that collect dust. Concrete steps you implement this week.</p>
+      <div class="stat">
+        <span class="stat-number">160K+</span>
+        <span class="stat-label">Documents indexed by my AI</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ================================================================ -->
-<!-- WHY ME -->
-<!-- ================================================================ -->
-<section id="why-me" class="py-32 border-t border-white/5 bg-midnight/30">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-14">
-      <!-- Photo -->
-      <div class="md:col-span-1 fade-up">
-        <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-ink/50">
-          <img src="img/vaillant-gicqueau.png" alt="Vaillant Gicqueau" class="w-full h-full object-cover" />
+    <div class="hero-image-wrap fade-up fade-up-d5">
+      <img
+        src="https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?fm=jpg&q=85&w=1800&auto=format&fit=crop"
+        alt="Robot and human hands reaching toward AI"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- ── USHAIA ACRONYM ── -->
+  <section class="acronym-section" id="ushaia">
+    <div class="section-inner">
+      <p class="section-label fade-up">What is USHAIA</p>
+      <h2 class="section-headline fade-up fade-up-d1">Six letters. Six principles.</h2>
+      <p class="section-body fade-up fade-up-d2">USHAIA isn&rsquo;t a brand exercise. It&rsquo;s a filter for every decision I make and every piece of advice I give.</p>
+      <div class="acronym-grid">
+        <div class="acronym-card fade-up">
+          <div class="acronym-letter">U</div>
+          <div class="acronym-word">Unbullshitted</div>
+          <h3>Straight talk, no fluff.</h3>
+          <p>I won&rsquo;t wrap bad news in consultant-speak. You get the truth, fast, so you can act on it.</p>
         </div>
-        <div class="mt-6 flex flex-wrap gap-2 text-xs">
-          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">Ecole Centrale Paris</span>
-          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">M.S. UC Davis</span>
-          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">IBM Alumni</span>
-          <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/80">EN / FR / ES</span>
+        <div class="acronym-card fade-up fade-up-d1">
+          <div class="acronym-letter">S</div>
+          <div class="acronym-word">Street-smart</div>
+          <h3>Learned in the field, not the classroom.</h3>
+          <p>My expertise comes from decades of building, failing, pivoting, and shipping.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d2">
+          <div class="acronym-letter">H</div>
+          <div class="acronym-word">Human-first</div>
+          <h3>AI that serves real people, real businesses.</h3>
+          <p>Technology is a tool, not the destination. People always come first.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d3">
+          <div class="acronym-letter">A</div>
+          <div class="acronym-word">Accountable</div>
+          <h3>We&rsquo;ve met payroll &mdash; we know what&rsquo;s at stake.</h3>
+          <p>I don&rsquo;t give advice I wouldn&rsquo;t follow with my own money on the line.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d4">
+          <div class="acronym-letter">I</div>
+          <div class="acronym-word">Impact-driven</div>
+          <h3>Not theoretical, measurable.</h3>
+          <p>Every recommendation has an ROI attached. If we can&rsquo;t measure it, we don&rsquo;t do it.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d5">
+          <div class="acronym-letter">A</div>
+          <div class="acronym-word">Actionable</div>
+          <h3>Advice you can use Monday morning.</h3>
+          <p>No 60-page decks that collect dust. Concrete steps you implement this week.</p>
         </div>
       </div>
-
-      <!-- Bio content -->
-      <div class="md:col-span-2">
-        <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium fade-up">Why me</p>
-        <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1] fade-up">Vaillant (Ale) Gicqueau</h2>
-        <p class="mt-2 text-lg text-mist/60 italic fade-up">Franco-American entrepreneur, 52</p>
-
-        <p class="mt-6 text-lg text-mist/80 leading-relaxed fade-up">
-          I started as a software engineer at IBM, spent 7 years in startups across multiple roles, then 22 years as an entrepreneur and business executive. I sold Clinovo in 2015 for $4.5M and founded ClinCapture -- the leading AI platform for clinical research, a profitable company I still run today.
-        </p>
-        <p class="mt-4 text-lg text-mist/80 leading-relaxed fade-up">
-          Today I manage a US real estate portfolio (6 properties including a 4-plex), a Costa Rica portfolio (4 properties including Jane's Beach Resort boutique hotel), a personal coaching practice at vaillant.blog, and multiple cross-border ventures. I work across high-tech AND traditional industries, and I've navigated complex legal matters as both plaintiff and defendant.
-        </p>
-        <p class="mt-4 text-lg text-mist/80 leading-relaxed fade-up">
-          I'm an ex-husband and friend of famous influencer Teal Swan. I was recently featured on Europe 1 radio (Libre Antenne, April 28, 2026) and I'm the author of <em>"Alienation Parentale: de l'ombre a la lumiere"</em> (Amazon, 2025). Based between Costa Rica, the United States, and Europe -- the magic triangle.
-        </p>
-
-        <!-- Key message -->
-        <div class="card rounded-2xl p-8 mt-10 fade-up">
-          <p class="text-amber font-display text-xl font-semibold leading-snug">
-            "AI has transformed my entrepreneur mindset -- lowering financial risk considerably because I can do much more with fewer employees. I want other small business owners to do the same."
-          </p>
-          <p class="mt-4 text-mist/80 leading-relaxed">
-            Work by passion, not obligation. Leave the tedious tasks to AI to focus on the exciting parts of your business.
-          </p>
-        </div>
-
-        <!-- The paradox -->
-        <div class="card rounded-2xl p-8 mt-5 fade-up">
-          <h3 class="font-semibold text-lg text-sage">The Paradox: AI Makes Us More Human</h3>
-          <p class="mt-3 text-mist/80 leading-relaxed">
-            AI makes us more human, not less. We focus more on human contact and creative endeavors. We drastically improve profit margins by cutting operational overhead. The businesses that embrace AI aren't cold and robotic -- they're the ones where the owner finally has time to be present.
-          </p>
-        </div>
-
-        <!-- Holistic approach -->
-        <div class="card rounded-2xl p-8 mt-5 fade-up">
-          <h3 class="font-semibold text-lg text-sage">Holistic Consulting</h3>
-          <p class="mt-3 text-mist/80 leading-relaxed">
-            I don't just consult on technology. I consult on your whole business -- and your whole life, because everything is connected. AI is just a tool. My consulting is holistic: financial strategy, legal navigation, operational efficiency, personal development, and human connection.
-          </p>
-        </div>
+      <div class="credential-badges fade-up">
+        <span class="badge">Ecole Centrale Paris</span>
+        <span class="badge">M.S. UC Davis</span>
+        <span class="badge">IBM Alumni</span>
+        <span class="badge">EN / FR / ES</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================================================================ -->
-<!-- VISIBLE FOR 30 YEARS — Credentials & Timeline -->
-<!-- ================================================================ -->
-<section class="py-32 border-t border-white/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-20 fade-up">
-      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Track Record</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Visible for 30 years.</h2>
-      <p class="mt-6 text-lg text-mist/80 leading-relaxed max-w-2xl mx-auto">Not an overnight expert. A career of building, leading, publishing, and being recognized -- in public, on the record.</p>
-    </div>
-
-    <!-- Credentials Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <a href="https://consulofmonaco.com/2011/03/22/las-vegas-consulate-welcomes-monacos-san-francisco-vice-consul/" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up">
-        <div class="w-10 h-10 rounded-lg bg-amber/15 flex-shrink-0 flex items-center justify-center text-amber text-lg">&#9734;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">Vice Consul of Monaco</h3>
-          <p class="text-mist/60 text-sm mt-1">Principality of Monaco, San Francisco. 9 years of diplomatic service.</p>
-        </div>
-      </a>
-
-      <a href="https://monacodc.org/news13.html" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up fade-up-delay-1">
-        <div class="w-10 h-10 rounded-lg bg-amber/15 flex-shrink-0 flex items-center justify-center text-amber text-lg">&#9734;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">Monaco Diplomatic Club</h3>
-          <p class="text-mist/60 text-sm mt-1">Member of the Monaco Diplomatic Club international network.</p>
-        </div>
-      </a>
-
-      <a href="https://www.lejdd.fr/Economie/Ces-Francais-caches-de-la-Silicon-Valley-90113-3085784" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up fade-up-delay-2">
-        <div class="w-10 h-10 rounded-lg bg-amber/15 flex-shrink-0 flex items-center justify-center text-amber text-lg">&#9998;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">Le Journal du Dimanche</h3>
-          <p class="text-mist/60 text-sm mt-1">"Ces Francais caches de la Silicon Valley" -- featured profile in major French newspaper.</p>
-        </div>
-      </a>
-
-      <div class="card rounded-2xl p-7 flex gap-4 items-start fade-up fade-up-delay-3">
-        <div class="w-10 h-10 rounded-lg bg-amber/15 flex-shrink-0 flex items-center justify-center text-amber text-lg">&#9835;</div>
-        <div>
-          <h3 class="font-semibold text-base">Europe 1 Radio</h3>
-          <p class="text-mist/60 text-sm mt-1">Featured on Libre Antenne, April 28, 2026. National French radio interview.</p>
-        </div>
-      </div>
-
-      <a href="https://www.lexjansen.com/wuss/2011/applications/Papers_Gicqueau_A_75003.pdf" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up fade-up-delay-4">
-        <div class="w-10 h-10 rounded-lg bg-sage/25 flex-shrink-0 flex items-center justify-center text-sage text-lg">&#9998;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">Published Academic Papers</h3>
-          <p class="text-mist/60 text-sm mt-1">WUSS 2011 conference publication on clinical data systems.</p>
-        </div>
-      </a>
-
-      <a href="https://www.anjusoftware.com/insights/eclinical/edc/the-anatomy-of-an-electronic-data-capture-system-edcs/" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up fade-up-delay-5">
-        <div class="w-10 h-10 rounded-lg bg-sage/25 flex-shrink-0 flex items-center justify-center text-sage text-lg">&#9998;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">Published Tech Author</h3>
-          <p class="text-mist/60 text-sm mt-1">Authored "The Anatomy of an EDC System" -- definitive guide to electronic data capture.</p>
-        </div>
-      </a>
-
-      <a href="https://www.globenewswire.com/fr/news-release/2016/08/09/862627/0/en/clincapture-appoints-scott-weidley-chief-executive-officer.html" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up">
-        <div class="w-10 h-10 rounded-lg bg-sage/25 flex-shrink-0 flex items-center justify-center text-sage text-lg">&#9432;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">ClinCapture in the Press</h3>
-          <p class="text-mist/60 text-sm mt-1">GlobeNewsWire 2016 -- company leadership and growth covered by global news wire.</p>
-        </div>
-      </a>
-
-      <div class="card rounded-2xl p-7 flex gap-4 items-start fade-up fade-up-delay-1">
-        <div class="w-10 h-10 rounded-lg bg-copper/20 flex-shrink-0 flex items-center justify-center text-copper text-lg">&#9997;</div>
-        <div>
-          <h3 class="font-semibold text-base">Author: Alienation Parentale</h3>
-          <p class="text-mist/60 text-sm mt-1"><em>"De l'ombre a la lumiere"</em> -- published on Amazon (2025). Parental alienation advocacy.</p>
-        </div>
-      </div>
-
-      <a href="https://www.investinprovence.com/download/interfrenchgb.pdf" target="_blank" rel="noopener" class="credential-link card rounded-2xl p-7 flex gap-4 items-start group fade-up fade-up-delay-2">
-        <div class="w-10 h-10 rounded-lg bg-copper/20 flex-shrink-0 flex items-center justify-center text-copper text-lg">&#9733;</div>
-        <div>
-          <h3 class="font-semibold text-base group-hover:text-amber transition">InterFrench SV Leader</h3>
-          <p class="text-mist/60 text-sm mt-1">Silicon Valley French-American business community leadership.</p>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- Media mentions strip -->
-    <div class="mt-16 flex flex-wrap justify-center gap-8 items-center text-mist/40 text-sm fade-up">
-      <span class="font-display text-xl text-mist/25">Europe 1</span>
-      <span class="text-mist/15">|</span>
-      <span class="font-display text-xl text-mist/25">Le Journal du Dimanche</span>
-      <span class="text-mist/15">|</span>
-      <span class="font-display text-xl text-mist/25">GlobeNewsWire</span>
-      <span class="text-mist/15">|</span>
-      <span class="font-display text-xl text-mist/25">WUSS Conference</span>
-      <span class="text-mist/15">|</span>
-      <span class="font-display text-xl text-mist/25">Monaco DC</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SERVICES -->
-<!-- ================================================================ -->
-<section id="services" class="services-bg py-32 border-t border-white/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-2xl fade-up">
-      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Services</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Clear offerings. Clear ROI.</h2>
-      <p class="mt-6 text-lg text-mist/80 leading-relaxed">I match my offering to you with clear ROI to eliminate risk. Pick the engagement that fits where you are.</p>
-    </div>
-
-    <div class="mt-16 grid md:grid-cols-2 gap-8">
-
-      <!-- Service 1: AI Audit -->
-      <div class="card rounded-2xl p-8 flex flex-col fade-up">
-        <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase w-fit">2 weeks</span>
-        <h3 class="font-display text-3xl mt-6">AI Audit & Strategy</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">A 2-week deep dive into your business. I identify the top 5 AI opportunities with detailed ROI projections. You walk away with a prioritized roadmap you can execute alone or with me.</p>
-        <ul class="mt-6 space-y-2 text-sm text-mist/80">
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Full business process audit</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Top 5 AI opportunities ranked by ROI</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Implementation roadmap with timelines</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Technology stack recommendations</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Executive summary + detailed tech plan</li>
-        </ul>
-        <div class="mt-auto pt-8 border-t border-white/10">
-          <div class="flex items-baseline gap-2">
-            <span class="font-display text-4xl font-semibold">$2,500</span>
-            <span class="text-mist/50 text-sm">fixed</span>
+  <!-- ── WHY ME ── -->
+  <section id="why-me">
+    <div class="section-inner">
+      <p class="section-label fade-up">Why Me</p>
+      <h2 class="section-headline fade-up fade-up-d1">Vaillant (Ale) Gicqueau</h2>
+      <p class="section-body fade-up fade-up-d2" style="color:var(--gray); margin-bottom:0;">Franco-American entrepreneur, 52</p>
+      <div class="why-me-layout">
+        <div class="why-me-photo fade-up">
+          <img src="img/vaillant-gicqueau.png" alt="Vaillant Gicqueau" />
+          <div class="photo-badges">
+            <span class="badge">Ecole Centrale Paris</span>
+            <span class="badge">M.S. UC Davis</span>
+            <span class="badge">IBM Alumni</span>
+            <span class="badge">EN / FR / ES</span>
           </div>
-          <a href="#contact" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Start with an audit</a>
         </div>
-      </div>
-
-      <!-- Service 2: Implementation Sprint -->
-      <div class="card rounded-2xl p-8 flex flex-col relative glow fade-up fade-up-delay-1" style="border-color: rgba(242,182,107,0.45)">
-        <span class="absolute -top-3 left-1/2 -translate-x-1/2 pill px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Most popular</span>
-        <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase w-fit">4-8 weeks</span>
-        <h3 class="font-display text-3xl mt-6">Implementation Sprint</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Build and deploy AI systems in your business. End-to-end implementation from design to production. You get working systems, not PowerPoint promises.</p>
-        <ul class="mt-6 space-y-2 text-sm text-mist/80">
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Scoped from audit or fresh assessment</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Built in your stack -- no vendor lock-in</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Live training for you and your team</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> 30-day post-launch support included</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Documentation you actually understand</li>
-        </ul>
-        <div class="mt-auto pt-8 border-t border-white/10">
-          <div class="flex items-baseline gap-2">
-            <span class="font-display text-4xl font-semibold">$5K-$15K</span>
-            <span class="text-mist/50 text-sm">depending on scope</span>
+        <div class="bio-text fade-up fade-up-d1">
+          <p>I started as a software engineer at IBM, spent 7 years in startups across multiple roles, then 22 years as an entrepreneur and business executive. I sold Clinovo in 2015 for $4.5M and founded ClinCapture &mdash; the leading AI platform for clinical research, a profitable company I still run today.</p>
+          <p>Today I manage a US real estate portfolio (6 properties including a 4-plex), a Costa Rica portfolio (4 properties including Jane&rsquo;s Beach Resort boutique hotel), a personal coaching practice at vaillant.blog, and multiple cross-border ventures. I work across high-tech AND traditional industries, and I&rsquo;ve navigated complex legal matters as both plaintiff and defendant.</p>
+          <p>I&rsquo;m an ex-husband and friend of famous influencer Teal Swan. I was recently featured on Europe 1 radio (Libre Antenne, April 28, 2026) and I&rsquo;m the author of <em>&ldquo;Alienation Parentale: de l&rsquo;ombre a la lumiere&rdquo;</em> (Amazon, 2025). Based between Costa Rica, the United States, and Europe &mdash; the magic triangle.</p>
+          <div class="pull-quote">
+            <p>&ldquo;AI has transformed my entrepreneur mindset &mdash; lowering financial risk considerably because I can do much more with fewer employees. I want other small business owners to do the same.&rdquo;</p>
           </div>
-          <a href="#contact" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Scope a sprint</a>
-        </div>
-      </div>
-
-      <!-- Service 3: Embedded Advisor -->
-      <div class="card rounded-2xl p-8 flex flex-col fade-up">
-        <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase w-fit">Monthly retainer</span>
-        <h3 class="font-display text-3xl mt-6">Embedded AI Advisor</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">Ongoing monthly advisory, system maintenance, and new opportunity identification. I become your AI Chief of Staff on retainer -- building, maintaining, and steering as your business evolves.</p>
-        <ul class="mt-6 space-y-2 text-sm text-mist/80">
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Weekly working sessions</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> System monitoring & maintenance</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> New AI opportunities surfaced monthly</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Direct access via WhatsApp / email</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Quarterly strategy review</li>
-        </ul>
-        <div class="mt-auto pt-8 border-t border-white/10">
-          <div class="flex items-baseline gap-2">
-            <span class="font-display text-4xl font-semibold">$2,000</span>
-            <span class="text-mist/50 text-sm">/ month</span>
+          <p style="font-size:0.88rem; color:var(--black); font-weight:500;">Work by passion, not obligation. Leave the tedious tasks to AI to focus on the exciting parts of your business.</p>
+          <div class="why-me-sidebox" style="margin-top:2rem;">
+            <h3>The Paradox: AI Makes Us More Human</h3>
+            <p>AI makes us more human, not less. We focus more on human contact and creative endeavors. We drastically improve profit margins by cutting operational overhead. The businesses that embrace AI aren&rsquo;t cold and robotic &mdash; they&rsquo;re the ones where the owner finally has time to be present.</p>
           </div>
-          <a href="#contact" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Talk about a retainer</a>
-        </div>
-      </div>
-
-      <!-- Service 4: Digital Assistant Build -->
-      <div class="card rounded-2xl p-8 flex flex-col fade-up fade-up-delay-1">
-        <span class="pill inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase w-fit">Premium</span>
-        <h3 class="font-display text-3xl mt-6">Digital Assistant Build</h3>
-        <p class="text-mist/70 mt-3 leading-relaxed">A custom Personal AI Assistant built for you -- like Pat, the system that runs my businesses. Your own AI Chief of Staff. <a href="#digital-assistant" class="text-amber hover:underline">See full details below.</a></p>
-        <ul class="mt-6 space-y-2 text-sm text-mist/80">
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Full business data indexing</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> 24/7 autonomous operation</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Phone, voice & desktop access</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Runs on your hardware -- fully private</li>
-          <li class="flex gap-2"><span class="text-amber">&#8594;</span> Multi-language: EN, FR, ES</li>
-        </ul>
-        <div class="mt-auto pt-8 border-t border-white/10">
-          <div class="flex items-baseline gap-2">
-            <span class="font-display text-4xl font-semibold">$10K-$25K</span>
-            <span class="text-mist/50 text-sm">custom build</span>
+          <div class="why-me-sidebox">
+            <h3>Holistic Consulting</h3>
+            <p>I don&rsquo;t just consult on technology. I consult on your whole business &mdash; and your whole life, because everything is connected. AI is just a tool. My consulting is holistic: financial strategy, legal navigation, operational efficiency, personal development, and human connection.</p>
           </div>
-          <a href="#contact" class="mt-5 block text-center btn-primary px-5 py-3 rounded-lg font-semibold transition">Discuss your DA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRACK RECORD ── -->
+  <section class="track-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Track Record</p>
+      <h2 class="section-headline fade-up fade-up-d1">Visible for 30 years.</h2>
+      <p class="section-body fade-up fade-up-d2">Not an overnight expert. A career of building, leading, publishing, and being recognized &mdash; in public, on the record.</p>
+      <div class="track-grid">
+        <a href="https://consulofmonaco.com/2011/03/22/las-vegas-consulate-welcomes-monacos-san-francisco-vice-consul/" target="_blank" rel="noopener" class="track-card fade-up">
+          <span class="track-icon">&#9734;</span>
+          <h4>Vice Consul of Monaco</h4>
+          <p>Principality of Monaco, San Francisco. 9 years of diplomatic service.</p>
+        </a>
+        <a href="https://monacodc.org/news13.html" target="_blank" rel="noopener" class="track-card fade-up fade-up-d1">
+          <span class="track-icon">&#9734;</span>
+          <h4>Monaco Diplomatic Club</h4>
+          <p>Member of the Monaco Diplomatic Club international network.</p>
+        </a>
+        <a href="https://www.lejdd.fr/Economie/Ces-Francais-caches-de-la-Silicon-Valley-90113-3085784" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+          <span class="track-icon">&#9998;</span>
+          <h4>Le Journal du Dimanche</h4>
+          <p>&ldquo;Ces Francais caches de la Silicon Valley&rdquo; &mdash; featured profile in major French newspaper.</p>
+        </a>
+        <div class="track-card fade-up fade-up-d3">
+          <span class="track-icon">&#9835;</span>
+          <h4>Europe 1 Radio</h4>
+          <p>Featured on Libre Antenne, April 28, 2026. National French radio interview.</p>
+        </div>
+        <a href="https://www.lexjansen.com/wuss/2011/applications/Papers_Gicqueau_A_75003.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d4">
+          <span class="track-icon">&#9998;</span>
+          <h4>Published Academic Papers</h4>
+          <p>WUSS 2011 conference publication on clinical data systems.</p>
+        </a>
+        <a href="https://www.anjusoftware.com/insights/eclinical/edc/the-anatomy-of-an-electronic-data-capture-system-edcs/" target="_blank" rel="noopener" class="track-card fade-up fade-up-d5">
+          <span class="track-icon">&#9998;</span>
+          <h4>Published Tech Author</h4>
+          <p>Authored &ldquo;The Anatomy of an EDC System&rdquo; &mdash; definitive guide to electronic data capture.</p>
+        </a>
+        <a href="https://www.globenewswire.com/fr/news-release/2016/08/09/862627/0/en/clincapture-appoints-scott-weidley-chief-executive-officer.html" target="_blank" rel="noopener" class="track-card fade-up">
+          <span class="track-icon">&#9432;</span>
+          <h4>ClinCapture in the Press</h4>
+          <p>GlobeNewsWire 2016 &mdash; company leadership and growth covered by global news wire.</p>
+        </a>
+        <div class="track-card fade-up fade-up-d1">
+          <span class="track-icon">&#9997;</span>
+          <h4>Author: Alienation Parentale</h4>
+          <p><em>&ldquo;De l&rsquo;ombre a la lumiere&rdquo;</em> &mdash; published on Amazon (2025). Parental alienation advocacy.</p>
+        </div>
+        <a href="https://www.investinprovence.com/download/interfrenchgb.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+          <span class="track-icon">&#9733;</span>
+          <h4>InterFrench SV Leader</h4>
+          <p>Silicon Valley French-American business community leadership.</p>
+        </a>
+      </div>
+      <div class="media-bar fade-up">
+        <span>Europe 1</span>
+        <span>Le Journal du Dimanche</span>
+        <span>GlobeNewsWire</span>
+        <span>WUSS Conference</span>
+        <span>Monaco DC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label fade-up">Services</p>
+      <h2 class="section-headline fade-up fade-up-d1">Clear offerings. Clear ROI.</h2>
+      <p class="section-body fade-up fade-up-d2">I match my offering to you with clear ROI to eliminate risk. Pick the engagement that fits where you are.</p>
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <span class="service-tag">2 Weeks</span>
+          <h3>AI Audit &amp; Strategy</h3>
+          <p>A 2-week deep dive into your business. I identify the top 5 AI opportunities with detailed ROI projections.</p>
+          <div class="service-price">$2,500</div>
+          <div class="service-price-note">Fixed price</div>
+          <ul class="service-features">
+            <li>Full business process audit</li>
+            <li>Top 5 AI opportunities ranked by ROI</li>
+            <li>Implementation roadmap with timelines</li>
+            <li>Technology stack recommendations</li>
+            <li>Executive summary + detailed tech plan</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Start with an audit</a>
+        </div>
+
+        <div class="service-card popular fade-up fade-up-d1">
+          <span class="service-tag">Most Popular &middot; 4&ndash;8 Weeks</span>
+          <h3>Implementation Sprint</h3>
+          <p>Build and deploy AI systems in your business. End-to-end implementation from design to production.</p>
+          <div class="service-price">$5K&ndash;$15K</div>
+          <div class="service-price-note">Depending on scope</div>
+          <ul class="service-features">
+            <li>Scoped from audit or fresh assessment</li>
+            <li>Built in your stack &mdash; no vendor lock-in</li>
+            <li>Live training for you and your team</li>
+            <li>30-day post-launch support included</li>
+            <li>Documentation you actually understand</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Scope a sprint</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d2">
+          <span class="service-tag">Monthly Retainer</span>
+          <h3>Embedded AI Advisor</h3>
+          <p>Ongoing monthly advisory, system maintenance, and new opportunity identification.</p>
+          <div class="service-price">$2,000<span style="font-size:1rem;font-weight:400"> / mo</span></div>
+          <div class="service-price-note">Month-to-month</div>
+          <ul class="service-features">
+            <li>Weekly working sessions</li>
+            <li>System monitoring &amp; maintenance</li>
+            <li>New AI opportunities surfaced monthly</li>
+            <li>Direct access via WhatsApp / email</li>
+            <li>Quarterly strategy review</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Talk about a retainer</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d3">
+          <span class="service-tag">Premium</span>
+          <h3>Digital Assistant Build</h3>
+          <p>A custom Personal AI Assistant built for you &mdash; like Pat, the system that runs my businesses.</p>
+          <div class="service-price">$10K&ndash;$25K</div>
+          <div class="service-price-note">Custom build</div>
+          <ul class="service-features">
+            <li>Full business data indexing</li>
+            <li>24/7 autonomous operation</li>
+            <li>Phone, voice &amp; desktop access</li>
+            <li>Runs on your hardware &mdash; fully private</li>
+            <li>Multi-language: EN, FR, ES</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Discuss your DA</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIGITAL ASSISTANT ── -->
+  <section class="da-section" id="digital-assistant">
+    <div class="section-inner">
+      <p class="section-label fade-up">Premium Offering</p>
+      <h2 class="section-headline fade-up fade-up-d1">Your Own AI Chief of Staff</h2>
+      <p class="section-body fade-up fade-up-d2">A custom-built Digital Assistant that knows your business inside out. Not a chatbot. Not a template. A purpose-built system that works for you 24/7.</p>
+      <div class="da-grid">
+        <div class="da-card fade-up">
+          <span class="da-icon">&#128194;</span>
+          <h4>Index Everything</h4>
+          <p>Index ALL your business data &mdash; emails, messages, documents, CRM. Answer any question about your business in seconds.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d1">
+          <span class="da-icon">&#9997;&#65039;</span>
+          <h4>Draft in Your Voice</h4>
+          <p>Draft emails, proposals, and contracts that sound like you. Your DA learns your tone, style, and preferences.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d2">
+          <span class="da-icon">&#128065;&#65039;</span>
+          <h4>Monitor 24/7</h4>
+          <p>Monitor systems around the clock and alert you to issues before they become problems. Never miss a deadline, filing, or renewal.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d3">
+          <span class="da-icon">&#127769;</span>
+          <h4>Work Overnight</h4>
+          <p>Research, analysis, and reports generated while you sleep. Wake up to an executive briefing every morning.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d4">
+          <span class="da-icon">&#128172;</span>
+          <h4>Auto-Communicate</h4>
+          <p>Manage customer communications automatically across email, booking platforms, and messaging apps.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d5">
+          <span class="da-icon">&#128274;</span>
+          <h4>Fully Private</h4>
+          <p>Runs on your own hardware. Your data never leaves your network. Fully secure, fully yours.</p>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- DIGITAL ASSISTANT -->
-<!-- ================================================================ -->
-<section id="digital-assistant" class="da-bg py-32 border-t border-white/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-2xl mb-20 fade-up">
-      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Premium offering</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">Your Own AI Chief of Staff</h2>
-      <p class="mt-6 text-lg text-mist/80 leading-relaxed">A custom-built Digital Assistant that knows your business inside out. Not a chatbot. Not a template. A purpose-built system that works for you 24/7.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="card rounded-2xl p-6 fade-up">
-        <h3 class="font-semibold text-lg text-amber">Index Everything</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Index ALL your business data -- emails, messages, documents, CRM. Answer any question about your business in seconds.</p>
-      </div>
-      <div class="card rounded-2xl p-6 fade-up fade-up-delay-1">
-        <h3 class="font-semibold text-lg text-amber">Draft in Your Voice</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Draft emails, proposals, and contracts that sound like you. Your DA learns your tone, style, and preferences.</p>
-      </div>
-      <div class="card rounded-2xl p-6 fade-up fade-up-delay-2">
-        <h3 class="font-semibold text-lg text-amber">Monitor 24/7</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Monitor systems around the clock and alert you to issues before they become problems. Never miss a deadline, filing, or renewal.</p>
-      </div>
-      <div class="card rounded-2xl p-6 fade-up fade-up-delay-3">
-        <h3 class="font-semibold text-lg text-amber">Work Overnight</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Research, analysis, and reports generated while you sleep. Wake up to an executive briefing every morning.</p>
-      </div>
-      <div class="card rounded-2xl p-6 fade-up fade-up-delay-4">
-        <h3 class="font-semibold text-lg text-amber">Auto-Communicate</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Manage customer communications automatically across email, booking platforms, and messaging apps.</p>
-      </div>
-      <div class="card rounded-2xl p-6 fade-up fade-up-delay-5">
-        <h3 class="font-semibold text-lg text-amber">Fully Private</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Runs on your own hardware. Your data never leaves your network. Fully secure, fully yours.</p>
-      </div>
-    </div>
-
-    <!-- Architecture diagram -->
-    <div class="mt-16 card rounded-2xl p-8 md:p-12 fade-up">
-      <h3 class="font-display text-2xl text-center mb-8">How It Works</h3>
-      <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 text-center">
-        <div class="card rounded-xl p-6 min-w-[180px]">
-          <div class="text-amber font-display text-2xl mb-2">You</div>
-          <p class="text-mist/60 text-sm">Phone / Desktop<br/>Telegram / Voice</p>
+      <div class="how-it-works fade-up">
+        <h3>How It Works</h3>
+        <div class="how-nodes">
+          <div class="how-node">
+            <div class="how-node-icon">&#128100;</div>
+            <h4>You</h4>
+            <p>Phone / Desktop<br>Telegram / Voice</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#129302;</div>
+            <h4>Your DA</h4>
+            <p>Dedicated machine<br>Always running</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#128451;&#65039;</div>
+            <h4>Your Data</h4>
+            <p>Business data + AI models<br>+ Tools &amp; integrations</p>
+          </div>
         </div>
-        <div class="text-amber text-3xl hidden md:block">&#8594;</div>
-        <div class="text-amber text-3xl md:hidden">&#8595;</div>
-        <div class="card rounded-xl p-6 min-w-[180px] glow" style="border-color: rgba(242,182,107,0.45)">
-          <div class="text-amber font-display text-2xl mb-2">Your DA</div>
-          <p class="text-mist/60 text-sm">Dedicated machine<br/>Always running</p>
-        </div>
-        <div class="text-amber text-3xl hidden md:block">&#8594;</div>
-        <div class="text-amber text-3xl md:hidden">&#8595;</div>
-        <div class="card rounded-xl p-6 min-w-[180px]">
-          <div class="text-amber font-display text-2xl mb-2">Your Data</div>
-          <p class="text-mist/60 text-sm">Business data + AI models<br/>+ Tools & integrations</p>
+        <div class="da-tags">
+          <span class="badge">Multi-language: EN / FR / ES</span>
+          <span class="badge">Learns &amp; improves over time</span>
+          <span class="badge">Accessible from anywhere in the world</span>
         </div>
       </div>
-      <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs">
-        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/60">Multi-language: EN / FR / ES</span>
-        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/60">Learns & improves over time</span>
-        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-mist/60">Accessible from anywhere in the world</span>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================================================================ -->
-<!-- CASE STUDIES -->
-<!-- ================================================================ -->
-<section id="case-studies" class="py-32 border-t border-white/5" style="background-image: linear-gradient(180deg, rgba(11,18,32,0.97) 0%, rgba(11,18,32,0.94) 100%), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80'); background-size: cover; background-position: center;">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-2xl mb-20 fade-up">
-      <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Case study</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.1]">My AI Chief of Staff: How Pat Runs My Businesses While I Sleep</h2>
-      <p class="mt-6 text-lg text-mist/80 leading-relaxed">Pat is my own Digital Assistant. I built Pat to manage 10 properties across 2 countries, handle legal defense, launch a book, and deliver an executive briefing every morning. Here's what Pat actually does.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="card rounded-2xl p-8 fade-up">
-        <div class="font-display text-amber text-4xl font-semibold">160,000+</div>
-        <h3 class="font-semibold text-lg mt-3">Documents Indexed</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">108K emails, 20K SMS, 15K WhatsApp messages -- all searchable, all contextual. Pat knows my business history better than I do.</p>
-      </div>
-      <div class="card rounded-2xl p-8 fade-up fade-up-delay-1">
-        <div class="font-display text-amber text-4xl font-semibold">10</div>
-        <h3 class="font-semibold text-lg mt-3">Properties Managed</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Autonomous property management across the US and Costa Rica. Dynamic pricing adjusts rates based on demand. Guest communications handled 24/7.</p>
-      </div>
-      <div class="card rounded-2xl p-8 fade-up fade-up-delay-2">
-        <div class="font-display text-amber text-4xl font-semibold">24/7</div>
-        <h3 class="font-semibold text-lg mt-3">Guest Auto-Response</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Auto-responds to hotel guests around the clock on Booking.com, Airbnb, and WhatsApp. No guest waits. No message missed.</p>
-      </div>
-      <div class="card rounded-2xl p-8 fade-up fade-up-delay-3">
-        <div class="font-display text-amber text-4xl font-semibold">$100K+</div>
-        <h3 class="font-semibold text-lg mt-3">Legal Fees Saved</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Pat prepared legal defense documents, organized evidence, drafted motions -- saving over $100K in attorney fees across active litigations.</p>
-      </div>
-      <div class="card rounded-2xl p-8 fade-up fade-up-delay-4">
-        <div class="font-display text-amber text-4xl font-semibold">5hrs</div>
-        <h3 class="font-semibold text-lg mt-3">Night Sessions</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">Pat works 5 hours every night: research, analysis, task execution. Delivers an executive briefing by 7:30 AM so I start the day informed.</p>
-      </div>
-      <div class="card rounded-2xl p-8 fade-up fade-up-delay-5">
-        <div class="font-display text-amber text-4xl font-semibold">20+</div>
-        <h3 class="font-semibold text-lg mt-3">Book Marketing Campaigns</h3>
-        <p class="text-mist/70 mt-2 text-sm leading-relaxed">20+ podcast pitches crafted and sent. 7 bookstore proposals. Interview preparation for national radio on Europe 1. All AI-assisted.</p>
-      </div>
-    </div>
-
-    <div class="mt-10 card rounded-2xl p-8 text-center fade-up">
-      <p class="text-mist/70 leading-relaxed">Pat is accessible via phone (Telegram), voice commands, and desktop -- from anywhere in the world. This is what I build for my clients.</p>
-      <a href="#contact" class="inline-block mt-6 btn-primary px-6 py-3 rounded-xl font-semibold transition">I want my own Pat</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SOCIAL PROOF -->
-<!-- ================================================================ -->
-<section class="py-24 border-t border-white/5 bg-midnight/30">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center fade-up">
-      <div>
-        <div class="font-display text-2xl md:text-3xl text-amber font-semibold">Europe 1</div>
-        <p class="text-mist/60 text-sm mt-2">Featured on Libre Antenne<br/>April 2026</p>
-      </div>
-      <div>
-        <div class="font-display text-2xl md:text-3xl text-amber font-semibold">$4.5M</div>
-        <p class="text-mist/60 text-sm mt-2">Sold ClinCapture<br/>2015 exit</p>
-      </div>
-      <div>
-        <div class="font-display text-2xl md:text-3xl text-amber font-semibold">10</div>
-        <p class="text-mist/60 text-sm mt-2">Properties managed<br/>across 2 countries</p>
-      </div>
-      <div>
-        <div class="font-display text-2xl md:text-3xl text-amber font-semibold">17,586</div>
-        <p class="text-mist/60 text-sm mt-2">LinkedIn<br/>connections</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- COSTA RICA IMAGE BREAK -->
-<!-- ================================================================ -->
-<section class="relative h-72 md:h-96 overflow-hidden">
-  <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1400&q=80'); background-size: cover; background-position: center 60%;"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/80"></div>
-  <div class="relative z-10 flex items-center justify-center h-full">
-    <div class="text-center px-6 fade-up">
-      <p class="font-display text-3xl md:text-5xl font-semibold text-white/90">Based between Costa Rica, the United States, and Europe</p>
-      <p class="mt-4 text-lg text-white/60">The magic triangle.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- CONTACT / BOOK A CALL -->
-<!-- ================================================================ -->
-<section id="contact" class="py-32 border-t border-white/5 gradient-bg">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16">
-
-      <!-- Left: CTA + Calendly -->
-      <div class="fade-up">
-        <p class="text-sm uppercase tracking-[0.2em] text-amber font-medium">Get in touch</p>
-        <h2 class="font-display text-4xl md:text-5xl mt-4 leading-[1.05]">
-          Let's talk about<br/>your business.
-        </h2>
-        <p class="mt-6 text-lg text-mist/80 leading-relaxed">
-          We talk about your business, the workflows eating your week alive, and whether AI is the lever that fixes it. If I'm not the right person, I'll tell you and point you somewhere better.
-        </p>
-        <div class="mt-8">
-          <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary inline-block px-7 py-4 rounded-xl font-semibold transition text-lg">Book a Free 30-Min Strategy Call</a>
+  <!-- ── CASE STUDY ── -->
+  <section id="case-studies">
+    <div class="section-inner">
+      <p class="section-label fade-up">Case Study</p>
+      <h2 class="section-headline fade-up fade-up-d1">My AI Chief of Staff: How Pat Runs My Businesses While I Sleep</h2>
+      <p class="section-body fade-up fade-up-d2">Pat is my own Digital Assistant. I built Pat to manage 10 properties across 2 countries, handle legal defense, launch a book, and deliver an executive briefing every morning.</p>
+      <div class="case-grid">
+        <div class="case-card fade-up">
+          <div class="case-stat">160,000+</div>
+          <h4>Documents Indexed</h4>
+          <p>108K emails, 20K SMS, 15K WhatsApp messages &mdash; all searchable, all contextual. Pat knows my business history better than I do.</p>
         </div>
-        <p class="text-mist/50 text-sm mt-4">Free. No pitch. No obligation. EN / FR / ES.</p>
-
-        <!-- Social links -->
-        <div class="mt-10 flex gap-5 text-mist/60">
-          <a href="https://www.linkedin.com/in/vaillant/" target="_blank" rel="noopener" class="hover:text-amber transition text-sm">LinkedIn</a>
-          <a href="https://www.youtube.com/@coachvaillant" target="_blank" rel="noopener" class="hover:text-amber transition text-sm">YouTube</a>
-          <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener" class="hover:text-amber transition text-sm">Instagram</a>
+        <div class="case-card fade-up fade-up-d1">
+          <div class="case-stat">10</div>
+          <h4>Properties Managed</h4>
+          <p>Autonomous property management across the US and Costa Rica. Dynamic pricing adjusts rates based on demand. Guest communications handled 24/7.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d2">
+          <div class="case-stat">24/7</div>
+          <h4>Guest Auto-Response</h4>
+          <p>Auto-responds to hotel guests around the clock on Booking.com, Airbnb, and WhatsApp. No guest waits. No message missed.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d3">
+          <div class="case-stat">$100K+</div>
+          <h4>Legal Fees Saved</h4>
+          <p>Pat prepared legal defense documents, organized evidence, drafted motions &mdash; saving over $100K in attorney fees across active litigations.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d4">
+          <div class="case-stat">5 hrs</div>
+          <h4>Night Sessions</h4>
+          <p>Pat works 5 hours every night: research, analysis, task execution. Delivers an executive briefing by 7:30 AM so I start the day informed.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d5">
+          <div class="case-stat">20+</div>
+          <h4>Book Marketing Campaigns</h4>
+          <p>20+ podcast pitches crafted and sent. 7 bookstore proposals. Interview preparation for national radio on Europe 1. All AI-assisted.</p>
         </div>
       </div>
-
-      <!-- Right: Contact Form -->
-      <div class="fade-up fade-up-delay-2">
-        <h3 class="font-display text-2xl mb-6">Or send a message</h3>
-        <form action="https://formspree.io/f/xformid" method="POST" class="contact-form space-y-4">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <textarea name="message" placeholder="Tell me about your business and what you need" required></textarea>
-          <button type="submit" class="btn-primary w-full px-6 py-3.5 rounded-xl font-semibold transition text-lg">Send Message</button>
-        </form>
-        <p class="text-mist/40 text-xs mt-4">Replies typically within one business day.</p>
+      <div class="case-closing fade-up">
+        <p>Pat is accessible via phone (Telegram), voice commands, and desktop &mdash; from anywhere in the world. This is what I build for my clients.</p>
+        <a href="#contact" class="btn-primary large">I want my own Pat</a>
       </div>
+    </div>
+  </section>
 
+  <!-- ── TICKER ── -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <span><strong>Europe 1</strong> &mdash; Featured on Libre Antenne | April 2026</span>
+      <span><strong>$4.5M</strong> &mdash; Sold ClinCapture | 2015 exit</span>
+      <span><strong>10</strong> &mdash; Properties managed across 2 countries</span>
+      <span><strong>17,586</strong> &mdash; LinkedIn connections</span>
+      <span><strong>Europe 1</strong> &mdash; Featured on Libre Antenne | April 2026</span>
+      <span><strong>$4.5M</strong> &mdash; Sold ClinCapture | 2015 exit</span>
+      <span><strong>10</strong> &mdash; Properties managed across 2 countries</span>
+      <span><strong>17,586</strong> &mdash; LinkedIn connections</span>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="border-t border-white/5 py-12">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-mist/50">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-amber"></span>
-        <span class="font-display font-semibold text-mist">USHAIA</span>
-        <span>- AI consulting for small businesses</span>
-      </div>
-      <div class="flex gap-5">
-        <a href="https://www.linkedin.com/in/vaillant/" target="_blank" rel="noopener" class="hover:text-amber transition">LinkedIn</a>
-        <a href="https://www.youtube.com/@coachvaillant" target="_blank" rel="noopener" class="hover:text-amber transition">YouTube</a>
-        <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener" class="hover:text-amber transition">Instagram</a>
-      </div>
-    </div>
-    <div class="mt-6 text-center text-xs text-mist/30">
-      Based between Costa Rica, the United States, and Europe -- the magic triangle. &copy; 2026 USHAIA.
-    </div>
+  <!-- ── GEO BANNER ── -->
+  <div class="geo-banner">
+    <div class="geo-flags">&#127482;&#127480; &#127464;&#127479; &#127466;&#127482;</div>
+    <h3>Based between Costa Rica, the United States, and Europe</h3>
+    <p>The magic triangle.</p>
   </div>
-</footer>
 
-<!-- Scroll animation observer -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Get in Touch</p>
+      <h2 class="section-headline fade-up fade-up-d1">Let&rsquo;s talk about<br>your business.</h2>
+      <p class="contact-body fade-up fade-up-d2">We talk about your business, the workflows eating your week alive, and whether AI is the lever that fixes it. If I&rsquo;m not the right person, I&rsquo;ll tell you and point you somewhere better.</p>
+      <a href="https://calendly.com/vaillant-gicqueau/30min" target="_blank" class="btn-primary large fade-up fade-up-d3">Book a Free 30-Min Strategy Call</a>
+      <p class="contact-sub fade-up fade-up-d4">Free. No pitch. No obligation. EN / FR / ES.</p>
+      <div class="contact-socials fade-up fade-up-d5">
+        <a href="https://www.linkedin.com/in/vaillant/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@coachvaillant" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <hr class="contact-divider" />
+      <p class="contact-form-label fade-up">Or send a message</p>
+      <form action="https://formspree.io/f/xformid" method="POST" class="fade-up fade-up-d1">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email address" required />
+        <textarea name="message" placeholder="Tell me about your business and what you&rsquo;re trying to solve&hellip;" required></textarea>
+        <button type="submit" class="btn-primary large">Send Message</button>
+      </form>
+      <p class="form-note fade-up">Replies typically within one business day.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">USHAIA</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/vaillant/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@coachvaillant" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p>AI consulting for small businesses. Based between Costa Rica, the United States, and Europe &mdash; the magic triangle.</p>
+      <p style="margin-top:0.5rem;">&copy; 2026 USHAIA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+    }
+
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  });
-</script>
+  </script>
 
 </body>
 </html>
