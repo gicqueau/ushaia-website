@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <title>Vidéos — UshAIA</title>
+  <meta name="description" content="Vidéos hebdomadaires : automatisations IA pratiques pour petites entreprises, par UshAIA." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black:  #1d1d1f; --gray: #6e6e73; --lgray: #f5f5f7;
+      --border: #d2d2d7; --blue: #0071e3; --blue-h: #0077ed; --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      font-family: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 2.5rem; height: 52px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .nav-logo-mark { height: 30px; width: auto; display: block; }
+    .nav-logo-word { height: 21px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: var(--black); text-decoration: none; font-size: 0.76rem; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--gray); }
+    .nav-links a.active { font-weight: 700; }
+    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-lang { font-size: 0.72rem; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .nav-lang:hover { color: var(--black); }
+    .nav-lang.active { color: var(--black); font-weight: 600; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.6rem 1.3rem;
+      border-radius: 980px; background: var(--blue); color: #fff; font-size: 0.82rem;
+      text-decoration: none; transition: background 0.15s, transform 0.12s; white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--blue-h); transform: scale(1.02); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
+    .mobile-nav {
+      display: none; flex-direction: column; position: fixed; top: 52px; left: 0; right: 0;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); padding: 1.2rem 2.5rem 1.5rem; gap: 1rem; z-index: 99;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.88rem; color: var(--black); text-decoration: none; padding: 0.3rem 0; }
+    .mobile-nav .mobile-lang { display: flex; gap: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--border); margin-top: 0.2rem; }
+    .mobile-nav .mobile-lang a { font-size: 0.78rem; color: var(--gray); }
+    .mobile-nav .mobile-lang a.active { color: var(--black); font-weight: 600; }
+
+    .videos-wrap { max-width: 860px; margin: 0 auto; padding: 4.5rem 2rem 5rem; }
+    .videos-wrap h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.7rem; }
+    .videos-sub { color: var(--gray); font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .videos-note { color: var(--gray); font-size: 0.82rem; margin-bottom: 2.4rem; }
+    table.videos { width: 100%; border-collapse: collapse; }
+    table.videos th {
+      text-align: left; font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--gray); padding: 0 0.8rem 0.6rem 0.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    table.videos td { padding: 1.05rem 0.8rem 1.05rem 0.2rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    td.v-name { width: 42%; font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
+    td.v-name a { color: var(--blue); text-decoration: none; }
+    td.v-name a:hover { text-decoration: underline; }
+    td.v-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.55; }
+    tr[data-publish] .v-title { display: block; }
+    .coming-tag {
+      display: inline-block; margin-left: 0; font-size: 0.7rem; font-weight: 600;
+      color: var(--blue); border: 1px solid var(--blue); border-radius: 980px;
+      padding: 0.12rem 0.6rem; margin-top: 0.35rem;
+    }
+    footer { background: var(--lgray); border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo-img { height: 76px; width: auto; display: block; margin: 0 auto 0.8rem; }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 0 1.2rem; }
+      .nav-right .nav-lang, .nav-right .btn-primary { display: none; }
+      td.v-name { width: 48%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="fr.html" class="nav-logo"><img src="img/ushaia-mark.png" alt="" class="nav-logo-mark"><img src="img/ushaia-wordmark.png" alt="UshAIA" class="nav-logo-word"></a>
+    <ul class="nav-links">
+      <li><a href="fr.html#ushaia">UshAIA</a></li>
+      <li><a href="fr.html#why-me">Pourquoi moi</a></li>
+      <li><a href="fr.html#services">Services</a></li>
+      <li><a href="fr.html#digital-assistant">Assistant Digital</a></li>
+      <li><a href="fr.html#case-studies">Cas concrets</a></li>
+      <li><a href="videos-fr.html" class="active">Vidéos</a></li>
+      <li><a href="fr.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="videos.html" class="nav-lang">EN</a>
+      <a href="videos-fr.html" class="nav-lang active">FR</a>
+      <a href="videos-es.html" class="nav-lang">ES</a>
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary">Prendre RDV</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="fr.html#ushaia" onclick="closeMobileNav()">UshAIA</a>
+    <a href="fr.html#why-me" onclick="closeMobileNav()">Pourquoi moi</a>
+    <a href="fr.html#services" onclick="closeMobileNav()">Services</a>
+    <a href="fr.html#digital-assistant" onclick="closeMobileNav()">Assistant Digital</a>
+    <a href="fr.html#case-studies" onclick="closeMobileNav()">Cas concrets</a>
+    <a href="videos-fr.html" onclick="closeMobileNav()">Vidéos</a>
+    <a href="fr.html#contact" onclick="closeMobileNav()">Contact</a>
+    <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary" style="text-align:center; justify-content:center;">Prendre RDV</a>
+    <div class="mobile-lang">
+      <a href="videos.html">EN</a>
+      <a href="videos-fr.html" class="active">FR</a>
+      <a href="videos-es.html">ES</a>
+    </div>
+  </div>
+
+  <main class="videos-wrap">
+    <h1>Vidéos</h1>
+    <p class="videos-sub">L'IA pratique pour les petites entreprises — une réalisation concrète par semaine.</p>
+    <p class="videos-note">Nouvel épisode chaque mardi.</p>
+    <noscript><p class="videos-note">Activez JavaScript pour voir la liste des vidéos.</p></noscript>
+    <table class="videos">
+      <thead><tr><th>Vidéo</th><th>Contenu</th></tr></thead>
+      <tbody id="videoRows">
+        <tr data-publish="2026-07-22T14:00:00Z" data-v="OEVvbU9YZFk1SXE=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Découvrez PAT — Votre Assistant IA Personnel</span>
+            <span class="coming-tag" style="display:none">Disponible le 22 juillet 2026</span>
+          </td>
+          <td class="v-desc">Une visite guidée de PAT, l'assistant IA personnel qui gère recherche, e-mails et opérations pour une vraie petite entreprise.</td>
+        </tr>
+        <tr data-publish="2026-07-15T14:00:00Z" data-v="b3FrWTdOZFE1Q1A=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Regroupez Toutes Vos Finances Automatiquement avec l'IA</span>
+            <span class="coming-tag" style="display:none">Disponible le 15 juillet 2026</span>
+          </td>
+          <td class="v-desc">Comment l'IA rassemble comptes, prêts et biens dans une vue financière unique et à jour — sans tableurs ni saisie manuelle.</td>
+        </tr>
+        <tr data-publish="2026-07-08T14:00:00Z" data-v="a1dKNDhhbUFuY0M=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Créez un Vrai Site Web d'Entreprise avec l'IA — Sans Agence</span>
+            <span class="coming-tag" style="display:none">Disponible le 8 juillet 2026</span>
+          </td>
+          <td class="v-desc">Regardez un site d'entreprise complet et trilingue construit avec l'IA, pour une fraction du devis d'une agence.</td>
+        </tr>
+        <tr data-publish="2026-07-01T14:00:00Z" data-v="OHRaMlR5QTNtcUM=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Répondez aux Messages Clients 24/7 dans Toutes les Langues avec l'IA</span>
+            <span class="coming-tag" style="display:none">Disponible le 1 juillet 2026</span>
+          </td>
+          <td class="v-desc">Un répondeur IA qui traite les messages des clients de l'hôtel 24h/24, dans la langue de chaque client.</td>
+        </tr>
+        <tr data-publish="2026-06-24T14:00:00Z" data-v="STB6dk9RVGo0LUk=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Calculez les Primes du Personnel selon les Avis Clients avec l'IA</span>
+            <span class="coming-tag" style="display:none">Disponible le 24 juin 2026</span>
+          </td>
+          <td class="v-desc">Comment l'IA lit les avis clients sur quatre plateformes et les transforme en primes justes et automatiques pour le personnel.</td>
+        </tr>
+        <tr data-publish="2026-06-17T14:00:00Z" data-v="NHRiekNjT3d2Tlc=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Synchronisez Lodgify et Expedia Automatiquement avec l'IA</span>
+            <span class="coming-tag" style="display:none">Disponible le 17 juin 2026</span>
+          </td>
+          <td class="v-desc">Fini les surréservations : l'IA garde votre calendrier Lodgify parfaitement synchronisé avec Expedia et les autres OTA.</td>
+        </tr>
+        <tr data-publish="2026-06-10T14:00:00Z" data-v="QURBZzRSUDhTS2o=" style="display:none">
+          <td class="v-name">
+            <span class="v-title">Tarification Dynamique pour Votre Hôtel-Boutique avec l'IA</span>
+            <span class="coming-tag" style="display:none">Disponible le 10 juin 2026</span>
+          </td>
+          <td class="v-desc">Comment l'IA fixe le bon prix de chambre chaque nuit pour un hôtel-boutique — plus de 12 heures gagnées par mois, sans coût logiciel.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <img src="img/ushaia-logo.png" alt="UshAIA" class="footer-logo-img">
+  </footer>
+
+  <script>
+    // Reveal only episodes whose UTC publish time has passed (rows ship hidden:
+    // no JS means no unlisted link is ever exposed). The first still-unpublished
+    // episode shows as a link-free teaser.
+    (function () {
+      var now = Date.now();
+      var rows = document.querySelectorAll('#videoRows tr[data-publish]');
+      var pending = [];
+      rows.forEach(function (r) {
+        var t = Date.parse(r.getAttribute('data-publish'));
+        if (t <= now) {
+          // construct the link only once the episode is public
+          var id = atob(r.getAttribute('data-v')).split('').reverse().join('');
+          var span = r.querySelector('.v-title');
+          var a = document.createElement('a');
+          a.href = 'https://www.youtube.com/watch?v=' + id;
+          a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = span.textContent;
+          span.textContent = ''; span.appendChild(a);
+          r.style.display = '';
+        } else {
+          pending.push(r);
+        }
+      });
+      if (pending.length) {
+        var next = pending[pending.length - 1]; // oldest future episode = next up
+        next.querySelector('.coming-tag').style.display = 'inline-block';
+        next.style.display = '';
+      }
+    })();
+    var hb = document.getElementById('hamburgerBtn'), mn = document.getElementById('mobileNav');
+    hb.addEventListener('click', function () { mn.classList.toggle('open'); });
+    function closeMobileNav() { mn.classList.remove('open'); }
+  </script>
+</body>
+</html>
