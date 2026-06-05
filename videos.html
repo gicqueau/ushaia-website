@@ -132,56 +132,48 @@
     <h1>Videos</h1>
     <p class="videos-sub">Practical AI for small business — one real build per week.</p>
     <p class="videos-note">New episode every Tuesday.</p>
-    <noscript><p class="videos-note">Enable JavaScript to see the video list.</p></noscript>
     <table class="videos">
       <thead><tr><th>Video</th><th>What it covers</th></tr></thead>
       <tbody id="videoRows">
-        <tr data-publish="2026-07-22T14:00:00Z" data-v="azN6V0JvN1FLUW4=" style="display:none">
+        <tr data-publish="2026-07-22T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Meet PAT — Your Personal AI Assistant</span>
-            <span class="coming-tag" style="display:none">Coming July 22, 2026</span>
+            <a href="https://www.youtube.com/watch?v=nQKQ7oBWz3k" target="_blank" rel="noopener">Meet PAT — Your Personal AI Assistant</a><br><span class="coming-tag">Early access — public July 22, 2026</span>
           </td>
           <td class="v-desc">A tour of PAT, the personal AI assistant that runs research, email, and operations for a real small business.</td>
         </tr>
-        <tr data-publish="2026-07-15T14:00:00Z" data-v="Y1RsUnFPSklXam0=" style="display:none">
+        <tr data-publish="2026-07-15T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Aggregate All Your Finances Automatically with AI</span>
-            <span class="coming-tag" style="display:none">Coming July 15, 2026</span>
+            <a href="https://www.youtube.com/watch?v=mjWIJOqRlTc" target="_blank" rel="noopener">Aggregate All Your Finances Automatically with AI</a><br><span class="coming-tag">Early access — public July 15, 2026</span>
           </td>
           <td class="v-desc">How AI pulls every account, loan, and property into one live financial picture — no spreadsheets, no manual entry.</td>
         </tr>
-        <tr data-publish="2026-07-08T14:00:00Z" data-v="a01KaHRwMTdRS1M=" style="display:none">
+        <tr data-publish="2026-07-08T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Build a Real Business Website with AI — No Agency</span>
-            <span class="coming-tag" style="display:none">Coming July 8, 2026</span>
+            <a href="https://www.youtube.com/watch?v=SKQ71pthJMk" target="_blank" rel="noopener">Build a Real Business Website with AI — No Agency</a><br><span class="coming-tag">Early access — public July 8, 2026</span>
           </td>
           <td class="v-desc">Watch a complete, trilingual business website get built with AI for a fraction of an agency quote.</td>
         </tr>
-        <tr data-publish="2026-07-01T14:00:00Z" data-v="Z0x6blpxc21HUDg=" style="display:none">
+        <tr data-publish="2026-07-01T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Answer Guest Messages 24/7 in Any Language with AI</span>
-            <span class="coming-tag" style="display:none">Coming July 1, 2026</span>
+            <a href="https://www.youtube.com/watch?v=8PGmsqZnzLg" target="_blank" rel="noopener">Answer Guest Messages 24/7 in Any Language with AI</a><br><span class="coming-tag">Early access — public July 1, 2026</span>
           </td>
           <td class="v-desc">An AI auto-responder that answers hotel guest messages around the clock, in the guest's own language.</td>
         </tr>
-        <tr data-publish="2026-06-24T14:00:00Z" data-v="WUhKYzhSOHl4b0g=" style="display:none">
+        <tr data-publish="2026-06-24T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Auto-Calculate Staff Bonuses from Guest Reviews with AI</span>
-            <span class="coming-tag" style="display:none">Coming June 24, 2026</span>
+            <a href="https://www.youtube.com/watch?v=Hoxy8R8cJHY" target="_blank" rel="noopener">Auto-Calculate Staff Bonuses from Guest Reviews with AI</a><br><span class="coming-tag">Early access — public June 24, 2026</span>
           </td>
           <td class="v-desc">How AI reads guest reviews across four platforms and turns them into fair, automatic staff bonuses.</td>
         </tr>
-        <tr data-publish="2026-06-17T14:00:00Z" data-v="b1JFd2ZWN2hVQ20=" style="display:none">
+        <tr data-publish="2026-06-17T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Auto-Sync Lodgify to Expedia & OTAs with AI</span>
-            <span class="coming-tag" style="display:none">Coming June 17, 2026</span>
+            <a href="https://www.youtube.com/watch?v=mCUh7VfwERo" target="_blank" rel="noopener">Auto-Sync Lodgify to Expedia & OTAs with AI</a><br><span class="coming-tag">Early access — public June 17, 2026</span>
           </td>
           <td class="v-desc">End double-bookings: AI keeps your Lodgify calendar perfectly synced with Expedia and the other OTAs.</td>
         </tr>
-        <tr data-publish="2026-06-10T14:00:00Z" data-v="dzEzRXBwNGg5SUU=" style="display:none">
+        <tr data-publish="2026-06-10T14:00:00Z">
           <td class="v-name">
-            <span class="v-title">Dynamic Pricing for Your Boutique Hotel with AI</span>
-            <span class="coming-tag" style="display:none">Coming June 10, 2026</span>
+            <a href="https://www.youtube.com/watch?v=EI9h4ppE31w" target="_blank" rel="noopener">Dynamic Pricing for Your Boutique Hotel with AI</a><br><span class="coming-tag">Early access — public June 10, 2026</span>
           </td>
           <td class="v-desc">How AI sets the right room price every night for a boutique hotel — 12+ hours saved per month at zero software cost.</td>
         </tr>
@@ -194,34 +186,17 @@
   </footer>
 
   <script>
-    // Reveal only episodes whose UTC publish time has passed (rows ship hidden:
-    // no JS means no unlisted link is ever exposed). The first still-unpublished
-    // episode shows as a link-free teaser.
+    // Hide "coming" tags once their episode's publish time has passed.
     (function () {
       var now = Date.now();
-      var rows = document.querySelectorAll('#videoRows tr[data-publish]');
-      var pending = [];
-      rows.forEach(function (r) {
-        var t = Date.parse(r.getAttribute('data-publish'));
-        if (t <= now) {
-          // construct the link only once the episode is public
-          var id = atob(r.getAttribute('data-v')).split('').reverse().join('');
-          var span = r.querySelector('.v-title');
-          var a = document.createElement('a');
-          a.href = 'https://www.youtube.com/watch?v=' + id;
-          a.target = '_blank'; a.rel = 'noopener';
-          a.textContent = span.textContent;
-          span.textContent = ''; span.appendChild(a);
-          r.style.display = '';
-        } else {
-          pending.push(r);
+      document.querySelectorAll('#videoRows tr[data-publish]').forEach(function (r) {
+        var tag = r.querySelector('.coming-tag');
+        if (tag && Date.parse(r.getAttribute('data-publish')) <= now) {
+          tag.style.display = 'none';
+          var br = r.querySelector('.v-name br');
+          if (br) br.remove();
         }
       });
-      if (pending.length) {
-        var next = pending[pending.length - 1]; // oldest future episode = next up
-        next.querySelector('.coming-tag').style.display = 'inline-block';
-        next.style.display = '';
-      }
     })();
     var hb = document.getElementById('hamburgerBtn'), mn = document.getElementById('mobileNav');
     hb.addEventListener('click', function () { mn.classList.toggle('open'); });
