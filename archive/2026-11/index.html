@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../../img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../img/apple-touch-icon.png" />
+  <title>UshAIA — Skin in the game. Not slides in a deck.</title>
+  <meta name="description" content="AI consulting from an entrepreneur who's run many businesses, not just studied one. Skin in the game. Not slides in a deck." />
+  <meta property="og:title" content="UshAIA — Skin in the game. Not slides in a deck." />
+  <meta property="og:description" content="AI advice and operational implementation from someone who's run many businesses, not just studied one." />
+  <meta property="og:type" content="website" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:  #1d1d1f;
+      --gray:   #6e6e73;
+      --lgray:  #f5f5f7;
+      --border: #d2d2d7;
+      --blue:   #0071e3;
+      --blue-h: #0077ed;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      font-family: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-logo-mark { height: 30px; width: auto; display: block; }
+
+    .nav-logo-word { height: 21px; width: auto; display: block; }
+
+    .footer-logo-img { height: 76px; width: auto; display: block; margin: 0 auto 0.8rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.76rem;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--gray); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .nav-lang {
+      font-size: 0.72rem;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-lang:hover { color: var(--black); }
+    .nav-lang.active { color: var(--black); font-weight: 600; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 980px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--blue-h); transform: scale(1.02); }
+
+    .btn-primary.large {
+      font-size: 0.95rem;
+      padding: 0.78rem 1.8rem;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.78rem 0.4rem;
+      color: var(--blue);
+      font-size: 0.92rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-link:hover { opacity: 0.75; }
+
+    /* ── MOBILE NAV ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2.5rem 1.5rem;
+      gap: 1rem;
+      z-index: 99;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-size: 0.88rem;
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.3rem 0;
+    }
+
+    .mobile-nav .mobile-lang {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 0.2rem;
+    }
+
+    .mobile-nav .mobile-lang a {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    .mobile-nav .mobile-lang a.active {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    /* ── FADE-UP SCROLL ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d4 { transition-delay: 0.4s; }
+    .fade-up-d5 { transition-delay: 0.5s; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--white);
+      padding: 6rem 2rem 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      color: var(--black);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.55;
+      max-width: 560px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 0 auto 4rem;
+      max-width: 720px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--gray);
+      line-height: 1.4;
+      margin-top: 0.2rem;
+    }
+
+    /* Hero image */
+    .hero-image-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.12), 0 6px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.96));
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-headline {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── UshAIA ACRONYM ── */
+    .acronym-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .acronym-section .section-body { margin-bottom: 3rem; }
+
+    .acronym-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .acronym-card {
+      background: var(--white);
+      padding: 2.2rem 1.8rem;
+    }
+
+    .acronym-card:first-child  { border-radius: 14px 0 0 0; }
+    .acronym-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .acronym-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .acronym-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .acronym-letter {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .acronym-word {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.8rem;
+    }
+
+    .acronym-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .acronym-card p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Credential badges */
+    .credential-badges {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 980px;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    /* ── WHY ME ── */
+    .why-me-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .why-me-photo {
+      position: sticky;
+      top: 72px;
+    }
+
+    .why-me-photo img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    .why-me-photo .photo-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .bio-text p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.72;
+      margin-bottom: 1rem;
+    }
+
+    .pull-quote {
+      margin: 2rem 0;
+      padding: 1.4rem 1.6rem;
+      border-left: 3px solid var(--blue);
+      background: var(--lgray);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .pull-quote p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.55;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .why-me-sidebox {
+      margin-top: 2rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--lgray);
+      border-radius: 12px;
+    }
+
+    .why-me-sidebox h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+    }
+
+    .why-me-sidebox p {
+      font-size: 0.86rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── TRACK RECORD ── */
+    .track-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .track-card {
+      background: var(--white);
+      padding: 1.8rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.2s;
+    }
+
+    .track-card:hover { box-shadow: inset 0 0 0 2px var(--blue); }
+
+    .track-card:nth-child(1) { border-radius: 14px 0 0 0; }
+    .track-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .track-card:nth-child(7) { border-radius: 0 0 0 14px; }
+    .track-card:nth-child(9) { border-radius: 0 0 14px 0; }
+
+    .track-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .track-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .track-card p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .media-bar {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2.5rem;
+      opacity: 0.45;
+    }
+
+    .media-bar span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--black);
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+    .service-card.popular { border-color: var(--blue); }
+
+    .service-tag {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 980px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      background: var(--lgray);
+      color: var(--gray);
+    }
+
+    .service-card.popular .service-tag {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card > p {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.2rem;
+    }
+
+    .service-price-note {
+      font-size: 0.72rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 1.8rem;
+    }
+
+    .service-features li {
+      font-size: 0.78rem;
+      color: var(--gray);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .service-features li:last-child { border-bottom: none; }
+
+    /* ── DIGITAL ASSISTANT ── */
+    .da-section {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .da-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .da-card {
+      background: var(--white);
+      padding: 2rem 1.6rem;
+    }
+
+    .da-card:first-child  { border-radius: 14px 0 0 0; }
+    .da-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .da-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .da-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .da-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .da-card p {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    .da-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    /* How it works */
+    .how-it-works {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .how-it-works h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 2.5rem;
+    }
+
+    .how-nodes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .how-node {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      text-align: center;
+      width: 220px;
+    }
+
+    .how-arrow { font-size: 1.4rem; color: var(--gray); margin: 0 1rem; }
+
+    .how-node-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+
+    .how-node h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+
+    .how-node p { font-size: 0.72rem; color: var(--gray); line-height: 1.5; }
+
+    .da-tags {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* ── CASE STUDY ── */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    .case-card {
+      background: var(--lgray);
+      padding: 2.2rem 1.8rem;
+    }
+
+    .case-card:first-child  { border-radius: 14px 0 0 0; }
+    .case-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .case-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .case-card:last-child   { border-radius: 0 0 14px 0; }
+
+    .case-stat {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-card h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-card p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .case-closing {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .case-closing p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 4rem;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-inner span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .ticker-inner strong { color: #fff; font-weight: 600; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── GEO BANNER ── */
+    .geo-banner {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .geo-banner h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+
+    .geo-banner p { font-size: 0.88rem; color: var(--gray); }
+
+    .geo-flags { font-size: 2rem; margin-bottom: 1rem; letter-spacing: 0.3rem; }
+
+    /* ── CONTACT ── */
+    .contact-section { text-align: center; }
+
+    .contact-body {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 500px;
+      margin: 1rem auto 2.5rem;
+      line-height: 1.65;
+    }
+
+    .contact-sub { font-size: 0.8rem; color: var(--gray); margin-top: 0.8rem; }
+
+    .contact-socials {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-socials a {
+      font-size: 0.82rem;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .contact-socials a:hover { opacity: 0.7; }
+
+    .contact-divider {
+      margin: 3rem auto;
+      max-width: 400px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-form-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    form textarea { resize: vertical; min-height: 100px; }
+
+    .form-note { font-size: 0.72rem; color: var(--gray); margin-top: 0.4rem; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--lgray);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 800px; margin: 0 auto; }
+
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a { font-size: 0.72rem; color: var(--blue); text-decoration: none; }
+
+    footer p { font-size: 0.72rem; color: var(--gray); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-me-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .why-me-photo { position: static; }
+      .why-me-photo img { max-width: 260px; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .nav-right .nav-lang { display: none; }
+      .nav-right .btn-primary { display: none; }
+      .hamburger { display: flex; }
+      .acronym-grid, .track-grid, .da-grid, .case-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .how-nodes { flex-direction: column; }
+      .how-arrow { transform: rotate(90deg); }
+      .stats-bar { flex-direction: column; border-radius: 14px; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .acronym-card, .track-card, .da-card, .case-card { border-radius: 0 !important; }
+      .trilingual-callout { padding: 1rem 1.25rem; }
+    }
+  </style>
+
+  <style>
+    .trilingual-callout {
+      margin: 2rem auto 0;
+      max-width: 640px;
+      background: var(--lgray);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.75rem;
+      text-align: center;
+    }
+    .trilingual-langs {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .lang-pill {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.22rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: 0.01em;
+    }
+    .trilingual-callout p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="../../img/ushaia-mark.png" alt="" class="nav-logo-mark"><img src="../../img/ushaia-wordmark.png" alt="UshAIA" class="nav-logo-word"></a>
+    <ul class="nav-links">
+      <li><a href="#ushaia">UshAIA</a></li>
+      <li><a href="#why-me">Why Me</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#digital-assistant">Digital Assistant</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="../../videos.html">Videos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html" class="nav-lang active">EN</a>
+      <a href="fr.html" class="nav-lang">FR</a>
+      <a href="es.html" class="nav-lang">ES</a>
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary">Book a call</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#ushaia" onclick="closeMobileNav()">UshAIA</a>
+    <a href="#why-me" onclick="closeMobileNav()">Why Me</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#digital-assistant" onclick="closeMobileNav()">Digital Assistant</a>
+    <a href="#case-studies" onclick="closeMobileNav()">Case Studies</a>
+    <a href="../../videos.html" onclick="closeMobileNav()">Videos</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary" style="text-align:center; justify-content:center;">Book a call</a>
+    <div class="mobile-lang">
+      <a href="index.html" class="active">EN</a>
+      <a href="fr.html">FR</a>
+      <a href="es.html">ES</a>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <a href="https://www.anthropic.com" target="_blank" rel="noopener" class="fade-up" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;padding:6px 15px;border:1px solid rgba(0,0,0,0.12);border-radius:999px;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#D97757;background:rgba(0,0,0,0.03);text-decoration:none;">✦ Official Anthropic Claude Partner</a>
+    <span class="eyebrow fade-up">AI Consulting for Small Business Owners</span>
+    <h1 class="fade-up fade-up-d1">Skin in the game.<br>Not slides in a deck.</h1>
+    <p class="fade-up fade-up-d2" style="margin:2px auto 4px;max-width:680px;font-size:clamp(1.05rem,2.4vw,1.45rem);font-weight:600;font-style:italic;color:var(--blue);">With UshAIA, push the limits of what's possible</p>
+    <p class="hero-sub fade-up fade-up-d2">AI advice and operational implementation from a serial entrepreneur who's run many businesses, not just consulted.</p>
+    <div class="hero-actions fade-up fade-up-d3">
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large">Book a Free 30-Min Strategy Call</a>
+      <a href="#ushaia" class="btn-link">What is UshAIA? &rsaquo;</a>
+    </div>
+
+    <div class="stats-bar fade-up fade-up-d4">
+      <div class="stat">
+        <span class="stat-number">22</span>
+        <span class="stat-label">Years as entrepreneur and business executive in Silicon Valley</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">$4.5M</span>
+        <span class="stat-label">Company sold (Clinovo, 2015)</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">10</span>
+        <span class="stat-label">Residential and Commercial Properties managed with AI</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">160K+</span>
+        <span class="stat-label">Documents indexed by my AI</span>
+      </div>
+    </div>
+
+    <div class="trilingual-callout fade-up">
+      <div class="trilingual-langs">
+        <span class="lang-pill">🇺🇸 English</span>
+        <span class="lang-pill">🇫🇷 Français</span>
+        <span class="lang-pill">🇪🇸 Español</span>
+      </div>
+      <p>Trilingual consultant with hands-on business experience across North America, Europe, and Latin America.</p>
+    </div>
+
+    <div class="hero-image-wrap fade-up fade-up-d5">
+      <img
+        src="https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?fm=jpg&q=85&w=1800&auto=format&fit=crop"
+        alt="Robot and human hands reaching toward AI"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- ── UshAIA ACRONYM ── -->
+  <section class="acronym-section" id="ushaia">
+    <div class="section-inner">
+      <p class="section-label fade-up">What is UshAIA</p>
+      <h2 class="section-headline fade-up fade-up-d1">Six letters. Six principles.</h2>
+      <p class="section-body fade-up fade-up-d2">UshAIA isn&rsquo;t a brand exercise. It&rsquo;s a filter for every decision I make and every piece of advice I give.</p>
+      <div class="acronym-grid">
+        <div class="acronym-card fade-up">
+          <div class="acronym-letter">U</div>
+          <div class="acronym-word">Unbullshitted</div>
+          <h3>Straight talk, no fluff.</h3>
+          <p>I won&rsquo;t wrap bad news in consultant-speak. You get the truth, fast, so you can act on it.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d1">
+          <div class="acronym-letter">S</div>
+          <div class="acronym-word">Street-smart</div>
+          <h3>Learned in the field, not the classroom.</h3>
+          <p>My expertise comes from decades of building, failing, pivoting, and shipping.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d2">
+          <div class="acronym-letter">H</div>
+          <div class="acronym-word">Human-first</div>
+          <h3>AI that serves real people, real businesses.</h3>
+          <p>Technology is a tool, not the destination. People always come first.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d3">
+          <div class="acronym-letter">A</div>
+          <div class="acronym-word">Accountable</div>
+          <h3>We&rsquo;ve met payroll &mdash; we know what&rsquo;s at stake.</h3>
+          <p>I don&rsquo;t give advice I wouldn&rsquo;t follow with my own money on the line.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d4">
+          <div class="acronym-letter">I</div>
+          <div class="acronym-word">Impact-driven</div>
+          <h3>Not theoretical, measurable.</h3>
+          <p>Every recommendation has an ROI attached. If we can&rsquo;t measure it, we don&rsquo;t do it.</p>
+        </div>
+        <div class="acronym-card fade-up fade-up-d5">
+          <div class="acronym-letter">A</div>
+          <div class="acronym-word">Actionable</div>
+          <h3>Advice you can use Monday morning.</h3>
+          <p>No 60-page decks that collect dust. Concrete steps you implement this week.</p>
+        </div>
+      </div>
+      <div class="credential-badges fade-up">
+        <span class="badge">Ecole Centrale Paris</span>
+        <span class="badge">M.S. UC Davis</span>
+        <span class="badge">IBM Alumni</span>
+        <span class="badge">EN / FR / ES</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY ME ── -->
+  <section id="why-me">
+    <div class="section-inner">
+      <p class="section-label fade-up">Why Me</p>
+      <h2 class="section-headline fade-up fade-up-d1">Vaillant (Ale) Gicqueau</h2>
+      <p class="section-body fade-up fade-up-d2" style="color:var(--gray); margin-bottom:0;">Franco-American entrepreneur, 53</p>
+      <div class="why-me-layout">
+        <div class="why-me-photo fade-up">
+          <img src="../../img/vaillant-gicqueau.png" alt="Vaillant Gicqueau" />
+          <div class="photo-badges">
+            <span class="badge">Ecole Centrale Paris</span>
+            <span class="badge">M.S. UC Davis</span>
+            <span class="badge">IBM Alumni</span>
+            <span class="badge">EN / FR / ES</span>
+          </div>
+        </div>
+        <div class="bio-text fade-up fade-up-d1">
+          <p>I started as a software engineer at IBM, spent 7 years in startups across multiple roles, then 22 years as an entrepreneur and business executive. I sold Clinovo in 2015 for $4.5M and founded ClinCapture &mdash; the leading AI platform for clinical research, a profitable company I still run today.</p>
+          <p>Today I manage a US real estate portfolio (6 properties including a 4-plex), a Costa Rica portfolio (4 properties including Jane&rsquo;s Beach Resort boutique hotel), a personal coaching practice at vaillant.blog, and multiple cross-border ventures. I work across high-tech AND traditional industries, and I&rsquo;ve navigated complex legal matters as both plaintiff and defendant.</p>
+          <p>I&rsquo;m an ex-husband and friend of famous influencer Teal Swan. I was recently featured on Europe 1 radio (Libre Antenne, April 28, 2026) and I&rsquo;m the author of <em>&ldquo;Alienation Parentale: de l&rsquo;ombre a la lumiere&rdquo;</em> (Amazon, 2025). Based between Costa Rica, the United States, and Europe &mdash; the magic triangle.</p>
+          <div class="pull-quote">
+            <p>&ldquo;AI has transformed my entrepreneur mindset &mdash; lowering financial risk considerably because I can do much more with fewer employees. I want other small business owners to do the same.&rdquo;</p>
+          </div>
+          <p style="font-size:0.88rem; color:var(--black); font-weight:500;">Work by passion, not obligation. Leave the tedious tasks to AI to focus on the exciting parts of your business.</p>
+          <div class="why-me-sidebox" style="margin-top:2rem;">
+            <h3>The Paradox: AI Makes Us More Human</h3>
+            <p>AI makes us more human, not less. We focus more on human contact and creative endeavors. We drastically improve profit margins by cutting operational overhead. The businesses that embrace AI aren&rsquo;t cold and robotic &mdash; they&rsquo;re the ones where the owner finally has time to be present.</p>
+          </div>
+          <div class="why-me-sidebox">
+            <h3>Holistic Consulting</h3>
+            <p>I don&rsquo;t just consult on technology. I consult on your whole business &mdash; and your whole life, because everything is connected. AI is just a tool. My consulting is holistic: financial strategy, legal navigation, operational efficiency, personal development, and human connection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRACK RECORD ── -->
+  <section class="track-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Track Record</p>
+      <h2 class="section-headline fade-up fade-up-d1">Visible for 30 years.</h2>
+      <p class="section-body fade-up fade-up-d2">Not an overnight expert. A career of building, leading, publishing, and being recognized &mdash; in public, on the record.</p>
+      <div class="track-grid">
+        <a href="https://consulofmonaco.com/2011/03/22/las-vegas-consulate-welcomes-monacos-san-francisco-vice-consul/" target="_blank" rel="noopener" class="track-card fade-up">
+          <span class="track-icon">&#9734;</span>
+          <h4>Vice Consul of Monaco</h4>
+          <p>Principality of Monaco, San Francisco. 9 years of diplomatic service.</p>
+        </a>
+        <a href="https://monacodc.org/news13.html" target="_blank" rel="noopener" class="track-card fade-up fade-up-d1">
+          <span class="track-icon">&#9734;</span>
+          <h4>Monaco Diplomatic Club</h4>
+          <p>Member of the Monaco Diplomatic Club international network.</p>
+        </a>
+        <a href="https://www.lejdd.fr/Economie/Ces-Francais-caches-de-la-Silicon-Valley-90113-3085784" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+          <span class="track-icon">&#9998;</span>
+          <h4>Le Journal du Dimanche</h4>
+          <p>&ldquo;Ces Francais caches de la Silicon Valley&rdquo; &mdash; featured profile in major French newspaper.</p>
+        </a>
+        <div class="track-card fade-up fade-up-d3">
+          <span class="track-icon">&#9835;</span>
+          <h4>Europe 1 Radio</h4>
+          <p>Featured on Libre Antenne, April 28, 2026. National French radio interview.</p>
+        </div>
+        <a href="https://web.archive.org/web/20240221234550/https://www.lexjansen.com/wuss/2011/applications/Papers_Gicqueau_A_75003.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d4">
+          <span class="track-icon">&#9998;</span>
+          <h4>Published Academic Papers</h4>
+          <p>WUSS 2011 conference publication on clinical data systems.</p>
+        </a>
+        <a href="https://www.anjusoftware.com/insights/eclinical/edc/the-anatomy-of-an-electronic-data-capture-system-edcs/" target="_blank" rel="noopener" class="track-card fade-up fade-up-d5">
+          <span class="track-icon">&#9998;</span>
+          <h4>Published Tech Author</h4>
+          <p>Authored &ldquo;The Anatomy of an EDC System&rdquo; &mdash; definitive guide to electronic data capture.</p>
+        </a>
+        <a href="https://www.globenewswire.com/fr/news-release/2016/08/09/862627/0/en/clincapture-appoints-scott-weidley-chief-executive-officer.html" target="_blank" rel="noopener" class="track-card fade-up">
+          <span class="track-icon">&#9432;</span>
+          <h4>ClinCapture in the Press</h4>
+          <p>GlobeNewsWire 2016 &mdash; company leadership and growth covered by global news wire.</p>
+        </a>
+        <div class="track-card fade-up fade-up-d1">
+          <span class="track-icon">&#9997;</span>
+          <h4>Author: Alienation Parentale</h4>
+          <p><em>&ldquo;De l&rsquo;ombre a la lumiere&rdquo;</em> &mdash; published on Amazon (2025). Parental alienation advocacy.</p>
+        </div>
+        <a href="https://www.investinprovence.com/download/interfrenchgb.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+          <span class="track-icon">&#9733;</span>
+          <h4>InterFrench SV Leader</h4>
+          <p>Silicon Valley French-American business community leadership.</p>
+        </a>
+      </div>
+      <div class="media-bar fade-up">
+        <span>Europe 1</span>
+        <span>Le Journal du Dimanche</span>
+        <span>GlobeNewsWire</span>
+        <span>WUSS Conference</span>
+        <span>Monaco DC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label fade-up">Services</p>
+      <h2 class="section-headline fade-up fade-up-d1">Clear offerings. Clear ROI.</h2>
+      <p class="section-body fade-up fade-up-d2">I match my offering to you with clear ROI to eliminate risk. Pick the engagement that fits where you are.</p>
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <span class="service-tag">2 Weeks</span>
+          <h3>AI Audit &amp; Strategy</h3>
+          <p>A 2-week deep dive into your business. I identify the top 5 AI opportunities with detailed ROI projections.</p>
+          <div class="service-price">$2,500</div>
+          <div class="service-price-note">Fixed price</div>
+          <ul class="service-features">
+            <li>Full business process audit</li>
+            <li>Top 5 AI opportunities ranked by ROI</li>
+            <li>Implementation roadmap with timelines</li>
+            <li>Technology stack recommendations</li>
+            <li>Executive summary + detailed tech plan</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Start with an audit</a>
+        </div>
+
+        <div class="service-card popular fade-up fade-up-d1">
+          <span class="service-tag">Most Popular &middot; 4&ndash;8 Weeks</span>
+          <h3>Implementation Sprint</h3>
+          <p>Build and deploy AI systems in your business. End-to-end implementation from design to production.</p>
+          <div class="service-price">$5K&ndash;$15K</div>
+          <div class="service-price-note">Depending on scope</div>
+          <ul class="service-features">
+            <li>Scoped from audit or fresh assessment</li>
+            <li>Built in your stack &mdash; no vendor lock-in</li>
+            <li>Live training for you and your team</li>
+            <li>30-day post-launch support included</li>
+            <li>Documentation you actually understand</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Scope a sprint</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d2">
+          <span class="service-tag">Monthly Retainer</span>
+          <h3>Embedded AI Advisor</h3>
+          <p>Ongoing monthly advisory, system maintenance, and new opportunity identification.</p>
+          <div class="service-price">$2,000<span style="font-size:1rem;font-weight:400"> / mo</span></div>
+          <div class="service-price-note">Month-to-month</div>
+          <ul class="service-features">
+            <li>Weekly working sessions</li>
+            <li>System monitoring &amp; maintenance</li>
+            <li>New AI opportunities surfaced monthly</li>
+            <li>Direct access via WhatsApp / email</li>
+            <li>Quarterly strategy review</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Talk about a retainer</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d3">
+          <span class="service-tag">Premium</span>
+          <h3>Digital Assistant Build</h3>
+          <p>A custom Personal AI Assistant built for you &mdash; like Pat, the system that runs my businesses.</p>
+          <div class="service-price">$10K&ndash;$25K</div>
+          <div class="service-price-note">Custom build</div>
+          <ul class="service-features">
+            <li>Full business data indexing</li>
+            <li>24/7 autonomous operation</li>
+            <li>Phone, voice &amp; desktop access</li>
+            <li>Runs on your hardware &mdash; fully private</li>
+            <li>Multi-language: EN, FR, ES</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Discuss your DA</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIGITAL ASSISTANT ── -->
+  <section class="da-section" id="digital-assistant">
+    <div class="section-inner">
+      <p class="section-label fade-up">Premium Offering</p>
+      <h2 class="section-headline fade-up fade-up-d1">Your Own AI Chief of Staff</h2>
+      <p class="section-body fade-up fade-up-d2">A custom-built Digital Assistant that knows your business inside out. Not a chatbot. Not a template. A purpose-built system that works for you 24/7.</p>
+      <div class="da-grid">
+        <div class="da-card fade-up">
+          <span class="da-icon">&#128194;</span>
+          <h4>Index Everything</h4>
+          <p>Index ALL your business data &mdash; emails, messages, documents, CRM. Answer any question about your business in seconds.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d1">
+          <span class="da-icon">&#9997;&#65039;</span>
+          <h4>Draft in Your Voice</h4>
+          <p>Draft emails, proposals, and contracts that sound like you. Your DA learns your tone, style, and preferences.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d2">
+          <span class="da-icon">&#128065;&#65039;</span>
+          <h4>Monitor 24/7</h4>
+          <p>Monitor systems around the clock and alert you to issues before they become problems. Never miss a deadline, filing, or renewal.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d3">
+          <span class="da-icon">&#127769;</span>
+          <h4>Work Overnight</h4>
+          <p>Research, analysis, and reports generated while you sleep. Wake up to an executive briefing every morning.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d4">
+          <span class="da-icon">&#128172;</span>
+          <h4>Auto-Communicate</h4>
+          <p>Manage customer communications automatically across email, booking platforms, and messaging apps.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d5">
+          <span class="da-icon">&#128274;</span>
+          <h4>Fully Private</h4>
+          <p>Runs on your own hardware. Your data never leaves your network. Fully secure, fully yours.</p>
+        </div>
+      </div>
+
+      <div class="how-it-works fade-up">
+        <h3>How It Works</h3>
+        <div class="how-nodes">
+          <div class="how-node">
+            <div class="how-node-icon">&#128100;</div>
+            <h4>You</h4>
+            <p>Phone / Desktop<br>Telegram / Voice</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#129302;</div>
+            <h4>Your DA</h4>
+            <p>Dedicated machine<br>Always running</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#128451;&#65039;</div>
+            <h4>Your Data</h4>
+            <p>Business data + AI models<br>+ Tools &amp; integrations</p>
+          </div>
+        </div>
+        <div class="da-tags">
+          <span class="badge">Multi-language: EN / FR / ES</span>
+          <span class="badge">Learns &amp; improves over time</span>
+          <span class="badge">Accessible from anywhere in the world</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CASE STUDY ── -->
+  <section id="case-studies">
+    <div class="section-inner">
+      <p class="section-label fade-up">Case Study</p>
+      <h2 class="section-headline fade-up fade-up-d1">My AI Chief of Staff: How Pat Runs My Businesses While I Sleep</h2>
+      <p class="section-body fade-up fade-up-d2">Pat is my own Digital Assistant. I built Pat to manage 10 properties across 2 countries, handle legal defense, launch a book, and deliver an executive briefing every morning.</p>
+      <div class="case-grid">
+        <div class="case-card fade-up">
+          <div class="case-stat">160,000+</div>
+          <h4>Documents Indexed</h4>
+          <p>108K emails, 20K SMS, 15K WhatsApp messages &mdash; all searchable, all contextual. Pat knows my business history better than I do.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d1">
+          <div class="case-stat">10</div>
+          <h4>Properties Managed</h4>
+          <p>Autonomous property management across the US and Costa Rica. Dynamic pricing adjusts rates based on demand. Guest communications handled 24/7.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d2">
+          <div class="case-stat">24/7</div>
+          <h4>Guest Auto-Response</h4>
+          <p>Auto-responds to hotel guests around the clock on Booking.com, Airbnb, and WhatsApp. No guest waits. No message missed.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d3">
+          <div class="case-stat">$100K+</div>
+          <h4>Legal Fees Saved</h4>
+          <p>Pat prepared legal defense documents, organized evidence, drafted motions &mdash; saving over $100K in attorney fees across active litigations.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d4">
+          <div class="case-stat">5 hrs</div>
+          <h4>Night Sessions</h4>
+          <p>Pat works 5 hours every night: research, analysis, task execution. Delivers an executive briefing by 7:30 AM so I start the day informed.</p>
+        </div>
+        <div class="case-card fade-up fade-up-d5">
+          <div class="case-stat">20+</div>
+          <h4>Book Marketing Campaigns</h4>
+          <p>20+ podcast pitches crafted and sent. 7 bookstore proposals. Interview preparation for national radio on Europe 1. All AI-assisted.</p>
+        </div>
+      </div>
+      <div class="case-closing fade-up">
+        <p>Pat is accessible via phone (Telegram), voice commands, and desktop &mdash; from anywhere in the world. This is what I build for my clients.</p>
+        <p style="font-size:0.82rem;color:var(--gray);margin-top:0.6rem;font-style:italic;">PAT stands for Personal Assistant Technology.</p>
+        <a href="#contact" class="btn-primary large">I want my own Pat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TICKER ── -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <span><strong>Europe 1</strong> &mdash; Featured on Libre Antenne | April 2026</span>
+      <span><strong>$4.5M</strong> &mdash; Sold ClinCapture | 2015 exit</span>
+      <span><strong>10</strong> &mdash; Properties managed across 2 countries</span>
+      <span><strong>17,586</strong> &mdash; LinkedIn connections</span>
+      <span><strong>Europe 1</strong> &mdash; Featured on Libre Antenne | April 2026</span>
+      <span><strong>$4.5M</strong> &mdash; Sold ClinCapture | 2015 exit</span>
+      <span><strong>10</strong> &mdash; Properties managed across 2 countries</span>
+      <span><strong>17,586</strong> &mdash; LinkedIn connections</span>
+    </div>
+  </div>
+
+  <!-- ── GEO BANNER ── -->
+  <div class="geo-banner">
+    <div class="geo-flags">&#127482;&#127480; &#127464;&#127479; &#127466;&#127482;</div>
+    <h3>Based between Costa Rica, the United States, and Europe</h3>
+    <p>The magic triangle.</p>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Get in Touch</p>
+      <h2 class="section-headline fade-up fade-up-d1">Let&rsquo;s talk about<br>your business.</h2>
+      <p class="contact-body fade-up fade-up-d2">We talk about your business, the workflows eating your week alive, and whether AI is the lever that fixes it. If I&rsquo;m not the right person, I&rsquo;ll tell you and point you somewhere better.</p>
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large fade-up fade-up-d3">Book a Free 30-Min Strategy Call</a>
+      <p class="contact-sub fade-up fade-up-d4">Free. No pitch. No obligation. EN / FR / ES.</p>
+      <div class="contact-socials fade-up fade-up-d5">
+        <a href="https://www.linkedin.com/in/gicqueau/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@VaillantGicqueau" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <hr class="contact-divider" />
+      <p class="contact-form-label fade-up">Or send a message</p>
+      <div class="fade-up fade-up-d1" style="text-align:center;margin-top:1.5rem;">
+        <a href="mailto:gicqueau@gmail.com?subject=Message%20via%20ushaia.com" class="btn-primary large">Send me an email</a>
+      </div>
+      <p class="form-note fade-up">Replies typically within one business day.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <img src="../../img/ushaia-logo.png" alt="UshAIA" class="footer-logo-img">
+      <p style="margin-top:0.4rem;font-size:0.72rem;font-weight:600;color:#D97757;">✦ Official member of the Anthropic Claude Partner Network</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/gicqueau/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@VaillantGicqueau" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p>AI consulting for small businesses. Based between Costa Rica, the United States, and Europe &mdash; the magic triangle.</p>
+      <p style="margin-top:0.5rem;">&copy; 2026 UshAIA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

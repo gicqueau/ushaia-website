@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
-  <title>UshAIA — Experiencia real. No slides en un deck.</title>
-  <meta name="description" content="Consultoria en IA de un emprendedor que ha dirigido muchos negocios, no solo estudiado uno. Experiencia real. No slides en un deck." />
-  <meta property="og:title" content="UshAIA — Experiencia real. No slides en un deck." />
-  <meta property="og:description" content="Consultoria en IA e implementacion operativa de alguien que ha dirigido muchos negocios, no solo estudiado uno." />
+  <title>UshAIA — Su jefe de gabinete con IA, dirigido por un empresario sénior</title>
+  <meta name="description" content="Pat, su propio jefe de gabinete con IA en su propio servidor, dirigido por un empresario con 25 años de experiencia. El rendimiento de un pequeño equipo, sin contratar. Todo sigue siendo suyo." />
+  <meta property="og:title" content="UshAIA — No deje que la IA lo reemplace. Deje que lo multiplique." />
+  <meta property="og:description" content="Su jefe de gabinete con IA + un operador sénior responsable del resultado. Preaviso de 30 días, todo sigue siendo suyo." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://ushaia.com/es" />
+  <link rel="alternate" hreflang="en" href="https://ushaia.com/" />
+  <link rel="alternate" hreflang="fr" href="https://ushaia.com/fr" />
+  <link rel="alternate" hreflang="es" href="https://ushaia.com/es" />
+  <link rel="alternate" hreflang="x-default" href="https://ushaia.com/" />
+  <meta property="og:url" content="https://ushaia.com/es" />
   <meta property="og:type" content="website" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -568,6 +575,49 @@
       color: var(--black);
     }
 
+
+    /* ── TWO PATHS ── */
+    .paths-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+    .path-card { border-radius:18px; padding:1.6rem 1.6rem 1.4rem; background:var(--white); border:1px solid var(--border); }
+    .path-card.b { border-color:var(--blue); }
+    .path-num { display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--blue); margin-bottom:0.5rem; }
+    .path-card h3 { font-size:1.25rem; font-weight:700; letter-spacing:-0.02em; color:var(--black); margin-bottom:0.5rem; }
+    .path-card p { font-size:0.9rem; color:var(--gray); line-height:1.6; }
+    .path-card .path-plans { margin-top:0.8rem; font-size:0.8rem; font-weight:600; color:var(--black); }
+    @media (max-width: 680px) { .paths-grid { grid-template-columns:1fr; } }
+
+
+    /* ── LADDER + EDGE ── */
+    .ladder { margin-top:2.5rem; display:flex; flex-direction:column; gap:0.9rem; }
+    .ladder-row { display:grid; grid-template-columns:260px 1fr; gap:1rem; align-items:center; }
+    .ladder-lab { font-size:0.85rem; color:var(--black); font-weight:600; line-height:1.35; }
+    .ladder-lab span { display:block; font-weight:400; color:var(--gray); font-size:0.74rem; }
+    .ladder-bar { height:34px; border-radius:9px; background:var(--lgray); position:relative; }
+    .ladder-fill { height:100%; border-radius:9px; background:#b7d4f5; display:flex; align-items:center; justify-content:flex-end; padding-right:10px; font-size:0.8rem; font-weight:700; color:var(--black); white-space:nowrap; }
+    .ladder-fill.pat { background:var(--blue); color:#fff; }
+    .edge-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+    .edge { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:1.4rem; }
+    .edge h4 { font-size:0.98rem; font-weight:700; color:var(--black); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+    .edge p { font-size:0.84rem; color:var(--gray); line-height:1.6; }
+    .edge .vs { display:block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--blue); margin-bottom:0.4rem; }
+    @media (max-width: 900px) { .edge-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width: 680px) { .edge-grid { grid-template-columns:1fr; } .ladder-row { grid-template-columns:1fr; gap:0.35rem; } }
+
+
+    /* ── APPS ── */
+    .app-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin:1.6rem auto 2.2rem; }
+    .app-pill { display:inline-flex; align-items:center; gap:6px; padding:0.45rem 0.95rem; border-radius:980px; background:var(--lgray); font-size:0.8rem; font-weight:600; color:var(--black); }
+    .apps-band { margin-top:3.5rem; background:var(--white); border:1px solid var(--border); border-radius:22px; padding:2.4rem 2rem; }
+    .apps-band h3 { font-size:1.6rem; font-weight:800; letter-spacing:-0.03em; color:var(--black); margin-bottom:0.5rem; }
+    .apps-band > p { font-size:0.95rem; color:var(--gray); line-height:1.6; max-width:720px; }
+    .apps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:1.8rem; }
+    .app-card { background:var(--lgray); border-radius:16px; padding:1.4rem; }
+    .app-card .app-icon { font-size:1.8rem; }
+    .app-card h4 { font-size:1rem; font-weight:700; color:var(--black); margin:0.5rem 0 0.35rem; }
+    .app-card p { font-size:0.84rem; color:var(--gray); line-height:1.55; }
+    .app-feats { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.6rem; }
+    @media (max-width: 680px) { .apps-grid { grid-template-columns:1fr; } }
+
     /* ── SERVICES ── */
     .services-grid {
       display: grid;
@@ -1015,18 +1065,79 @@
       line-height: 1.55;
     }
   </style>
+
+  <style>
+    /* ── refonte 13/11/2026 ── */
+    .stat-foot { font-size: 0.7rem; color: var(--gray); max-width: 720px; margin: -3rem auto 3.5rem; line-height: 1.5; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .pillar { border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.6rem; background: var(--white); }
+    .pillar .pillar-icon { font-size: 1.6rem; display: block; margin-bottom: 0.8rem; }
+    .pillar h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+    .pillar p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+    .pillar p + p { margin-top: 0.6rem; }
+    .pillar .pillar-quote { color: var(--black); font-weight: 600; font-style: italic; }
+    .measure-table, .compare-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; font-size: 0.82rem; }
+    .measure-table th, .measure-table td, .compare-table th, .compare-table td { padding: 0.75rem 0.8rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.45; }
+    .measure-table th, .compare-table th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray); font-weight: 600; }
+    .measure-table td.num { font-weight: 700; color: var(--black); white-space: nowrap; }
+    .measure-table tr.total td { font-weight: 700; color: var(--black); border-top: 2px solid var(--black); }
+    .compare-table td:first-child { font-weight: 600; color: var(--black); width: 24%; }
+    .compare-table td.pat { color: var(--black); background: rgba(0,113,227,0.05); font-weight: 500; }
+    .compare-table td { color: var(--gray); }
+    .note { font-size: 0.74rem; color: var(--gray); line-height: 1.55; margin-top: 1rem; max-width: 820px; }
+    .growth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .growth-card { background: var(--lgray); border-radius: 14px; padding: 1.4rem 1.2rem; text-align: center; }
+    .growth-card .g-num { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.04em; color: var(--blue); }
+    .growth-card .g-lab { font-size: 0.74rem; color: var(--gray); line-height: 1.45; margin-top: 0.3rem; }
+    .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .addon { border: 1px dashed var(--border); border-radius: 18px; padding: 1.6rem 1.4rem; }
+    .addon h4 { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .addon .addon-price { font-size: 0.9rem; font-weight: 700; color: var(--black); margin: 0.4rem 0 0.6rem; }
+    .addon p { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+    .plans-note { font-size: 0.78rem; color: var(--gray); text-align: center; margin-top: 2rem; line-height: 1.6; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
+    .gallery-card { border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.4rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s; background: var(--white); }
+    a.gallery-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+    .gallery-card .g-kind { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+    .gallery-card h4 { font-size: 0.95rem; font-weight: 700; margin: 0.4rem 0; letter-spacing: -0.01em; }
+    .gallery-card p { font-size: 0.78rem; color: var(--gray); line-height: 1.55; }
+    .gallery-card .g-link { font-size: 0.74rem; color: var(--blue); margin-top: 0.6rem; display: inline-block; }
+    .who-list { list-style: none; margin-top: 2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem 2rem; }
+    .who-list li { font-size: 0.9rem; color: var(--black); padding-left: 1.6rem; position: relative; line-height: 1.5; }
+    .who-list li::before { content: '✓'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+    .faq { margin-top: 2.5rem; max-width: 820px; }
+    .faq details { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+    .faq summary { font-size: 0.98rem; font-weight: 600; cursor: pointer; list-style: none; color: var(--black); }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; float: right; color: var(--blue); font-weight: 400; font-size: 1.2rem; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { font-size: 0.86rem; color: var(--gray); line-height: 1.65; margin-top: 0.7rem; }
+    @media (max-width: 900px) {
+      .pillars-grid, .addons-grid, .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .growth-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .pillars-grid, .addons-grid, .gallery-grid, .who-list { grid-template-columns: 1fr; }
+      .measure-table, .compare-table { font-size: 0.74rem; }
+      .compare-wrap, .measure-wrap { overflow-x: auto; }
+    }
+  </style>
 </head>
 <body>
+
 
   <!-- ── NAV ── -->
   <nav>
     <a href="#" class="nav-logo"><img src="img/ushaia-mark.png" alt="" class="nav-logo-mark"><img src="img/ushaia-wordmark.png" alt="UshAIA" class="nav-logo-word"></a>
     <ul class="nav-links">
-      <li><a href="#ushaia">UshAIA</a></li>
-      <li><a href="#why-me">Por qu&eacute; yo</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#digital-assistant">Asistente Digital</a></li>
-      <li><a href="#case-studies">Casos reales</a></li>
+      <li><a href="#hybrid">Por qué híbrido</a></li>
+      <li><a href="#measure">Las cifras</a></li>
+      <li><a href="#services">Planes</a></li>
+      <li><a href="#team-pat">Pat</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#work">Nuestro trabajo</a></li>
+      <li><a href="#comparison">Pat vs ChatGPT</a></li>
+      <li><a href="#why-me">Sobre mí</a></li>
       <li><a href="videos-es.html">Videos</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
@@ -1034,8 +1145,8 @@
       <a href="index.html" class="nav-lang">EN</a>
       <a href="fr.html" class="nav-lang">FR</a>
       <a href="es.html" class="nav-lang active">ES</a>
-      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary">Agendar llamada</a>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir men&uacute;">
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary">Reserve una llamada</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1043,14 +1154,17 @@
 
   <!-- Mobile nav -->
   <div class="mobile-nav" id="mobileNav">
-    <a href="#ushaia" onclick="closeMobileNav()">UshAIA</a>
-    <a href="#why-me" onclick="closeMobileNav()">Por qu&eacute; yo</a>
-    <a href="#services" onclick="closeMobileNav()">Servicios</a>
-    <a href="#digital-assistant" onclick="closeMobileNav()">Asistente Digital</a>
-    <a href="#case-studies" onclick="closeMobileNav()">Casos reales</a>
+    <a href="#hybrid" onclick="closeMobileNav()">Por qué híbrido</a>
+    <a href="#measure" onclick="closeMobileNav()">Las cifras</a>
+    <a href="#services" onclick="closeMobileNav()">Planes</a>
+    <a href="#team-pat" onclick="closeMobileNav()">Pat</a>
+    <a href="#apps" onclick="closeMobileNav()">Apps</a>
+    <a href="#work" onclick="closeMobileNav()">Nuestro trabajo</a>
+    <a href="#comparison" onclick="closeMobileNav()">Pat vs ChatGPT</a>
+    <a href="#why-me" onclick="closeMobileNav()">Sobre mí</a>
     <a href="videos-es.html" onclick="closeMobileNav()">Videos</a>
     <a href="#contact" onclick="closeMobileNav()">Contacto</a>
-    <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary" style="text-align:center; justify-content:center;">Agendar llamada</a>
+    <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary" style="text-align:center; justify-content:center;">Reserve una llamada</a>
     <div class="mobile-lang">
       <a href="index.html">EN</a>
       <a href="fr.html">FR</a>
@@ -1060,34 +1174,41 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <a href="https://www.anthropic.com" target="_blank" rel="noopener" class="fade-up" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;padding:6px 15px;border:1px solid rgba(0,0,0,0.12);border-radius:999px;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#D97757;background:rgba(0,0,0,0.03);text-decoration:none;">✦ Partner oficial de Anthropic Claude</a>
-    <span class="eyebrow fade-up">Consultor&iacute;a en IA para due&ntilde;os de pymes</span>
-    <h1 class="fade-up fade-up-d1">Experiencia real.<br>No slides en un deck.</h1>
-    <p class="fade-up fade-up-d2" style="margin:2px auto 4px;max-width:680px;font-size:clamp(1.05rem,2.4vw,1.45rem);font-weight:600;font-style:italic;color:var(--blue);">Con UshAIA, ampliar los l&iacute;mites de lo posible</p>
-    <p class="hero-sub fade-up fade-up-d2">Consultor&iacute;a en IA e implementaci&oacute;n operativa de un emprendedor en serie que ha dirigido muchos negocios, no solo consultado.</p>
+    <a href="https://www.anthropic.com" target="_blank" rel="noopener" class="fade-up" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;padding:6px 15px;border:1px solid rgba(0,0,0,0.12);border-radius:999px;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#D97757;background:rgba(0,0,0,0.03);text-decoration:none;">✦ Socio oficial de Anthropic Claude</a>
+    <span class="eyebrow fade-up">Humano + IA &middot; la forma híbrida de trabajar</span>
+    <h1 class="fade-up fade-up-d1">No deje que la IA lo reemplace.<br>Deje que lo multiplique.</h1>
+    <p class="fade-up fade-up-d2" style="margin:2px auto 4px;max-width:680px;font-size:clamp(1.05rem,2.4vw,1.45rem);font-weight:600;font-style:italic;color:var(--blue);">Una IA que lo conoce perfectamente, a su lado, nunca en su lugar.</p>
+    <p class="hero-sub fade-up fade-up-d2">Pat, su propio jefe de gabinete con IA, aprende su negocio, sus valores y cómo usted escribe a cada persona, y mejora con cada corrección. Dos formas de trabajar con nosotros: usted maneja Pat y nosotros nos encargamos del soporte, o nos entrega el trabajo y simplemente gestiona los resultados.</p>
     <div class="hero-actions fade-up fade-up-d3">
-      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large">Agenda una llamada estrat&eacute;gica gratuita de 30 min</a>
-      <a href="#ushaia" class="btn-link">&iquest;Qu&eacute; es UshAIA? &rsaquo;</a>
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large">Muéstreme una tarea que ya no quiera hacer</a>
+      <a href="#measure" class="btn-link">Cómo lo mido &rsaquo;</a>
+    </div>
+    <div class="app-pills fade-up fade-up-d3">
+      <a href="#apps" class="app-pill" style="text-decoration:none;">&#128241; App para iPhone</a>
+      <a href="#apps" class="app-pill" style="text-decoration:none;">&#129302; App para Android</a>
+      <a href="#apps" class="app-pill" style="text-decoration:none;">&#127760; Web</a>
+      <span class="app-pill">&#128172; WhatsApp &middot; Correo</span>
     </div>
 
     <div class="stats-bar fade-up fade-up-d4">
       <div class="stat">
-        <span class="stat-number">22</span>
-        <span class="stat-label">A&ntilde;os como emprendedor y ejecutivo en Silicon Valley</span>
+        <span class="stat-number">≈1,000 h</span>
+        <span class="stat-label">de trabajo empresarial al mes, de septiembre a noviembre de 2026</span>
       </div>
       <div class="stat">
-        <span class="stat-number">$4.5M</span>
-        <span class="stat-label">Empresa vendida (Clinovo, 2015)</span>
+        <span class="stat-number">×5+</span>
+        <span class="stat-label">el trabajo que yo podría hacer solo sin IA (≈6 empleados a tiempo completo)</span>
       </div>
       <div class="stat">
-        <span class="stat-number">10</span>
-        <span class="stat-label">Propiedades residenciales y comerciales gestionadas con IA</span>
+        <span class="stat-number">$135</span>
+        <span class="stat-label">al mes en suscripciones de IA (Claude, ChatGPT, Kimi)</span>
       </div>
       <div class="stat">
-        <span class="stat-number">160K+</span>
-        <span class="stat-label">Documentos indexados por mi IA</span>
+        <span class="stat-number">×3</span>
+        <span class="stat-label">mi producción de trabajo en 6 meses con Pat</span>
       </div>
     </div>
+    <p class="stat-foot fade-up">Caso del fundador, medido con mis propios datos y un método documentado (<a href="#measure" style="color:var(--blue);text-decoration:none;">vea los detalles</a>). Son equivalentes de trabajo, no ahorros netos. Soy un usuario muy intensivo: los resultados de un cliente típico serán menores.</p>
 
     <div class="trilingual-callout fade-up">
       <div class="trilingual-langs">
@@ -1095,358 +1216,517 @@
         <span class="lang-pill">🇫🇷 Français</span>
         <span class="lang-pill">🇪🇸 Español</span>
       </div>
-      <p>Consultor trilingüe con experiencia operativa en Norteamérica, Europa y América Latina.</p>
+      <p>Trilingüe, con experiencia empresarial práctica en Norteamérica, Europa y Latinoamérica.</p>
     </div>
 
     <div class="hero-image-wrap fade-up fade-up-d5">
       <img
         src="https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?fm=jpg&q=85&w=1800&auto=format&fit=crop"
-        alt="Manos de robot y humano alcanzando la IA"
+        alt="Manos de un robot y de un humano que se acercan entre sí"
         loading="eager"
       />
     </div>
   </section>
 
-  <!-- ── UshAIA ACRONYM ── -->
-  <section class="acronym-section" id="ushaia">
+  <!-- ── HYBRID ── -->
+  <section class="acronym-section" id="hybrid">
     <div class="section-inner">
-      <p class="section-label fade-up">Qu&eacute; es UshAIA</p>
-      <h2 class="section-headline fade-up fade-up-d1">Seis letras. Seis principios.</h2>
-      <p class="section-body fade-up fade-up-d2">UshAIA no es un ejercicio de marca. Es un filtro para cada decisi&oacute;n que tomo y cada consejo que doy.</p>
-      <div class="acronym-grid">
-        <div class="acronym-card fade-up">
-          <div class="acronym-letter">U</div>
-          <div class="acronym-word">Ultra-concreto</div>
-          <h3>Hablar claro, sin relleno.</h3>
-          <p>No envuelvo las malas noticias en jerga de consultor. Tienes la verdad, r&aacute;pido, para que puedas actuar.</p>
+      <p class="section-label fade-up">Por qué híbrido</p>
+      <h2 class="section-headline fade-up fade-up-d1">La IA sola no basta.<br>Un humano solo tampoco.</h2>
+      <p class="section-body fade-up fade-up-d2">La IA todavía necesita dirección, criterio y revisión. Un humano sin IA produce una fracción de lo posible. El valor está en la combinación: un operador con experiencia + Pat.</p>
+      <div class="pillars-grid">
+        <div class="pillar fade-up">
+          <span class="pillar-icon">&#9889;</span>
+          <h3>Productividad</h3>
+          <p>Con Pat a tiempo completo, yo produzco el equivalente a más de $80,000 de trabajo al mes, incluido el soporte de una docena de clientes. Con el plan Gestionado de $2,000/mes, usted recibe una parte de esa capacidad: aproximadamente 10 veces lo que paga.</p>
+          <p class="pillar-quote">&ldquo;El rendimiento de una contratación sénior, sin la nómina.&rdquo;</p>
         </div>
-        <div class="acronym-card fade-up fade-up-d1">
-          <div class="acronym-letter">S</div>
-          <div class="acronym-word">Sin filtro</div>
-          <h3>Aprendido en la cancha, no en el aula.</h3>
-          <p>Mi experiencia viene de d&eacute;cadas construyendo, fracasando, pivoteando y entregando.</p>
+        <div class="pillar fade-up fade-up-d1">
+          <span class="pillar-icon">&#129309;</span>
+          <h3>Responsabilidad</h3>
+          <p>La IA comete errores. Por eso alguien tiene que responder por el resultado. Yo defino el rumbo, reviso lo importante y detecto los errores antes de que lleguen a un cliente, un banco o un tribunal. Cada error se convierte en una regla para que no se repita.</p>
+          <p class="pillar-quote">&ldquo;La velocidad de la IA, la responsabilidad de una persona.&rdquo;</p>
         </div>
-        <div class="acronym-card fade-up fade-up-d2">
-          <div class="acronym-letter">H</div>
-          <div class="acronym-word">Híbrido</div>
-          <h3>IA al servicio de personas reales, negocios reales.</h3>
-          <p>La tecnolog&iacute;a es una herramienta, no el destino. Las personas siempre van primero.</p>
+        <div class="pillar fade-up fade-up-d2">
+          <span class="pillar-icon">&#128260;</span>
+          <h3>Flexibilidad</h3>
+          <p>Cancele con 30 días de preaviso y vuelva cuando quiera. Sin periodo de prueba, sin liquidación, sin despidos. Usted contrata a UshAIA LLC, una empresa estadounidense, no a un empleado: cargas sociales, seguros, equipos, capacitación, vacaciones y reclutamiento corren por nuestra cuenta. Una sola factura, cero recursos humanos.</p>
+          <p class="pillar-quote">&ldquo;Cancele con 30 días de preaviso, vuelva cuando quiera.&rdquo;</p>
         </div>
-        <div class="acronym-card fade-up fade-up-d3">
-          <div class="acronym-letter">A</div>
-          <div class="acronym-word">Arraigado</div>
-          <h3>Hemos firmado n&oacute;minas &mdash; sabemos lo que est&aacute; en juego.</h3>
-          <p>No doy consejos que no seguir&iacute;a con mi propio dinero en la l&iacute;nea.</p>
+        <div class="pillar fade-up fade-up-d3">
+          <span class="pillar-icon">&#128273;</span>
+          <h3>Todo sigue siendo suyo</h3>
+          <p>Su Pat, sus datos, sus apps, sus automatizaciones: todo es suyo. Cuando termina un contrato, usted sigue por su cuenta con el plan Alojamiento, o se lleva todo. No se pierde nada.</p>
         </div>
-        <div class="acronym-card fade-up fade-up-d4">
-          <div class="acronym-letter">I</div>
-          <div class="acronym-word">Itinerante</div>
-          <h3>No te&oacute;rico, concreto.</h3>
-          <p>Cada recomendaci&oacute;n tiene un ROI asociado. Si no lo podemos medir, no lo hacemos.</p>
+        <div class="pillar fade-up fade-up-d4">
+          <span class="pillar-icon">&#128176;</span>
+          <h3>Cada dólar de su plan de IA, puesto a trabajar</h3>
+          <p>La mayoría de las personas usa solo una pequeña parte de la suscripción de IA que paga. Pat llena la capacidad sin usar con trabajo útil en segundo plano, y se detiene antes de los límites para que sus propias conversaciones nunca se bloqueen.</p>
         </div>
-        <div class="acronym-card fade-up fade-up-d5">
-          <div class="acronym-letter">A</div>
-          <div class="acronym-word">Actor</div>
-          <h3>Consejos que puedes usar el lunes por la ma&ntilde;ana.</h3>
-          <p>Nada de decks de 60 p&aacute;ginas que juntan polvo. Pasos concretos que implementas esta semana.</p>
+        <div class="pillar fade-up fade-up-d5">
+          <span class="pillar-icon">&#128737;&#65039;</span>
+          <h3>Continuidad garantizada</h3>
+          <p>¿Y si me pasara algo? Su Pat sigue funcionando. Dos colaboradores, Nicolas y Pauline, ya trabajan con Pat y pueden asumir el soporte, con acceso de emergencia sellado y una guía de traspaso por escrito.</p>
         </div>
-      </div>
-      <div class="credential-badges fade-up">
-        <span class="badge">Ecole Centrale Paris</span>
-        <span class="badge">M.S. UC Davis</span>
-        <span class="badge">IBM Alumni</span>
-        <span class="badge">EN / FR / ES</span>
       </div>
     </div>
   </section>
 
-  <!-- ── WHY ME ── -->
-  <section id="why-me">
+  <!-- ── MEASURE ── -->
+  <section id="measure">
     <div class="section-inner">
-      <p class="section-label fade-up">Por qu&eacute; yo</p>
+      <p class="section-label fade-up">Las cifras</p>
+      <h2 class="section-headline fade-up fade-up-d1">Lo que Pat realmente hace, medido.</h2>
+      <p class="section-body fade-up fade-up-d2">Indexé más de 12,000 registros del trabajo hecho con Pat desde mayo de 2026: sesiones, documentos entregados, cambios de código, notas de proyecto. Cada sesión se pondera por el trabajo realmente hecho, es decir, lo que tardaría una persona en hacer lo mismo. Se excluyen las pruebas técnicas, las sesiones vacías y el trabajo para mejorar el propio Pat.</p>
+      <div class="measure-wrap fade-up">
+        <table class="measure-table">
+          <tr><th>Función</th><th>Sep</th><th>Oct</th><th>1–13 nov</th></tr>
+          <tr><td>Contabilidad y finanzas (conciliaciones, estados de cuenta, alquileres)</td><td class="num">215 h</td><td class="num">76 h</td><td class="num">84 h</td></tr>
+          <tr><td>Proyectos de clientes (sitios web, tienda, apps)</td><td class="num">181 h</td><td class="num">88 h</td><td class="num">75 h</td></tr>
+          <tr><td>Gobernanza y asuntos legales</td><td class="num">115 h</td><td class="num">66 h</td><td class="num">59 h</td></tr>
+          <tr><td>Hotelería (respuestas a huéspedes, precios, sincronización)</td><td class="num">67 h</td><td class="num">101 h</td><td class="num">62 h</td></tr>
+          <tr><td>Administración de propiedades</td><td class="num">63 h</td><td class="num">46 h</td><td class="num">51 h</td></tr>
+          <tr><td>Asistente ejecutivo (clasificación de 5 bandejas de entrada, borradores)</td><td class="num">53 h</td><td class="num">149 h</td><td class="num">44 h</td></tr>
+          <tr><td>Marketing y contenido</td><td class="num">44 h</td><td class="num">53 h</td><td class="num">18 h</td></tr>
+          <tr><td>Otros (desarrollo, investigación, impuestos)</td><td class="num">156 h</td><td class="num">85 h</td><td class="num">73 h</td></tr>
+          <tr><td>+ ≈90 tareas automatizadas funcionando 24/7</td><td class="num">80–150 h</td><td class="num">80–150 h</td><td class="num">40–65 h</td></tr>
+          <tr class="total"><td>Total</td><td>≈1,000 h &middot; ≈6 ETC</td><td>≈780 h &middot; ≈4.5 ETC</td><td>≈520 h en 13 días</td></tr>
+        </table>
+      </div>
+      <p class="note fade-up">Valorado al costo de empleador en EE. UU. por función (salario mediano + ≈43% de cargas, BLS), eso equivale a unos <strong>$55,000 de trabajo al mes</strong> en promedio para mis propios negocios. Si se suma el trabajo hecho en los Pat de la docena de clientes que atiendo, noviembre va a un ritmo de <strong>≈1,900–2,000 h/mes, o unos 11 ETC</strong>. Costo de las suscripciones de IA: $135/mes. Mi propio tiempo no se descuenta. Es una estimación del fundador, no el resultado de un cliente típico.</p>
+
+      <h3 class="fade-up" style="font-size:1.3rem;font-weight:700;letter-spacing:-0.02em;margin-top:3.5rem;">Una persona con Pat ≈ 5 a 6 personas sin IA</h3>
+      <div class="ladder fade-up">
+        <div class="ladder-row"><div class="ladder-lab">Yo solo, sin IA<span>una persona a tiempo completo ≈ 173 h/mes</span></div><div class="ladder-bar"><div class="ladder-fill" style="width:17%">1×</div></div></div>
+        <div class="ladder-row"><div class="ladder-lab">Mayo de 2026: los inicios de Pat<span>Claude + primera versión de Pat ≈ 300–350 h</span></div><div class="ladder-bar"><div class="ladder-fill" style="width:34%">≈2×</div></div></div>
+        <div class="ladder-row"><div class="ladder-lab">Sep–Nov de 2026: Pat hoy<span>medido ≈ 1,000 h/mes</span></div><div class="ladder-bar"><div class="ladder-fill pat" style="width:100%">≈6×</div></div></div>
+      </div>
+      <p class="note fade-up">La misma persona, los mismos negocios. Los modelos de IA ya eran excelentes en mayo. Lo que triplicó mi producción desde entonces es lo que Pat agregó a su alrededor: una memoria duradera de mis negocios, de 21 a 90 tareas permanentes, y un ciclo de mejora que convierte cada corrección en una regla. Mayo es una estimación (ya no existen los registros de sus sesiones); de septiembre a noviembre es medido.</p>
+
+      <h3 class="fade-up" style="font-size:1.3rem;font-weight:700;letter-spacing:-0.02em;margin-top:3.5rem;">6 meses con Pat: mi productividad se triplicó</h3>
+      <div class="growth-grid">
+        <div class="growth-card fade-up"><div class="g-num">20 → 68</div><div class="g-lab">proyectos activos por mes (mayo → oct)</div></div>
+        <div class="growth-card fade-up fade-up-d1"><div class="g-num">21 → 90</div><div class="g-lab">tareas automatizadas funcionando 24/7</div></div>
+        <div class="growth-card fade-up fade-up-d2"><div class="g-num">×10</div><div class="g-lab">cambios de código entregados (de 51 a 500 por mes)</div></div>
+        <div class="growth-card fade-up fade-up-d3"><div class="g-num">≈400</div><div class="g-lab">documentos entregados por mes (13 en julio)</div></div>
+      </div>
+      <p class="note fade-up">Pat mejora cada semana: una memoria duradera de más de 360 hechos y reglas, unas 1,300 mejoras automáticas al mes desde septiembre, y varios motores de IA desde finales de octubre.</p>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services" class="track-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Planes</p>
+      <h2 class="section-headline fade-up fade-up-d1">Dos formas de trabajar con nosotros.</h2>
+      <p class="section-body fade-up fade-up-d2">Precios claros, preaviso de 30 días y su propia suscripción de IA (pagada directamente por usted): sin recargos ocultos, y usted conserva el control de sus cuentas.</p>
+      <div class="paths-grid">
+        <div class="path-card fade-up">
+          <span class="path-num">Opción 1</span>
+          <h3>Usted maneja Pat. Nosotros lo apoyamos.</h3>
+          <p>Para dueños que quieren usar la IA por sí mismos. Pat se convierte en su propia herramienta y nosotros la mantenemos funcionando: servidor, actualizaciones, copias de seguridad, nuevas conexiones y una persona real a quien llamar cuando necesite ayuda.</p>
+          <p class="path-plans">&rarr; Activar Pat + Pat Alojamiento</p>
+        </div>
+        <div class="path-card b fade-up fade-up-d1">
+          <span class="path-num">Opción 2</span>
+          <h3>Nosotros hacemos el trabajo. Usted gestiona los resultados.</h3>
+          <p>Refuerzo de personal, sin contratar. Usted nunca tiene que pensar en la IA: nos dice lo que necesita, lo entregamos con Pat y usted evalúa los resultados. Un operador sénior, responsable ante usted.</p>
+          <p class="path-plans">&rarr; Pat Gestionado o Gestionado Plus</p>
+        </div>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card fade-up" style="background:var(--white);">
+          <span class="service-tag">Opción 1 &middot; empiece aquí</span>
+          <h3>Activar Pat</h3>
+          <p>Su propio Pat, conectado a su correo real, sus documentos y un proceso clave, con un primer resultado medible en dos semanas.</p>
+          <div class="service-price">$1,500</div>
+          <div class="service-price-note">Pago único, acreditado a la configuración</div>
+          <ul class="service-features">
+            <li>Llamada de definición con el dueño</li>
+            <li>Un proceso prioritario automatizado</li>
+            <li>Conexiones con sus herramientas</li>
+            <li>Prueba de aceptación + revisión a las 2 semanas</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Activar mi Pat</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d1" style="background:var(--white);">
+          <span class="service-tag">Opción 1 &middot; usted maneja</span>
+          <h3>Pat Alojamiento</h3>
+          <p>Para dueños cómodos con la tecnología: usted maneja su Pat, nosotros nos encargamos del resto.</p>
+          <div class="service-price">$250<span style="font-size:1rem;font-weight:400"> / mes</span></div>
+          <div class="service-price-note">+ configuración según la cantidad de sistemas por conectar</div>
+          <ul class="service-features">
+            <li>Servidor dedicado, monitoreo, actualizaciones, copias de seguridad</li>
+            <li>Soporte humano por correo / WhatsApp</li>
+            <li>Módulos listos para usar y premium disponibles</li>
+            <li>Acceso desde iPhone, Android y web</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Alojar mi Pat</a>
+        </div>
+
+        <div class="service-card popular fade-up fade-up-d2" style="background:var(--white);">
+          <span class="service-tag">Opción 2 &middot; la más popular</span>
+          <h3>Pat Gestionado</h3>
+          <p>Usted habla conmigo, no con una máquina. Ideal para dueños no técnicos: yo manejo Pat y entrego el trabajo.</p>
+          <div class="service-price">$2,000<span style="font-size:1rem;font-weight:400"> / mes</span></div>
+          <div class="service-price-note">Alojamiento incluido &middot; preaviso de 30 días</div>
+          <div class="service-value" style="margin-top:0.55rem;font-size:0.8rem;font-weight:700;color:var(--blue);line-height:1.35;">Equivale a más de $10,000 al mes de personal contratado*</div>
+          <ul class="service-features">
+            <li>Hasta 8 horas de mi tiempo al mes</li>
+            <li>Pat sigue trabajando entre nuestras conversaciones</li>
+            <li>Su Pat en iPhone, Android y la web</li>
+            <li>Finanzas, legal, marketing, operaciones, desarrollo</li>
+            <li>Todo se construye dentro de SU Pat, para que usted y su equipo lo usen</li>
+            <li>Puede pasarse a Alojamiento en cualquier momento</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Hablar de Pat Gestionado</a>
+        </div>
+
+        <div class="service-card fade-up fade-up-d3" style="background:var(--white);">
+          <span class="service-tag">Opción 2 &middot; a medida que crece</span>
+          <h3>Pat Gestionado Plus</h3>
+          <p>La capacidad de un pequeño equipo, a medida que crecen sus necesidades.</p>
+          <div class="service-price">$5,000<span style="font-size:1rem;font-weight:400"> / mes</span></div>
+          <div class="service-price-note">Alojamiento incluido &middot; preaviso de 30 días</div>
+          <div class="service-value" style="margin-top:0.55rem;font-size:0.8rem;font-weight:700;color:var(--blue);line-height:1.35;">Equivale a más de $40,000 al mes de personal contratado*</div>
+          <ul class="service-features">
+            <li>Hasta 20 horas de mi tiempo al mes</li>
+            <li>Varias líneas de trabajo en paralelo, respuesta prioritaria</li>
+            <li>Varios usuarios</li>
+            <li>&ldquo;Su rostro, su voz&rdquo; incluido</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Conversar sobre Gestionado Plus</a>
+        </div>
+
+      </div>
+
+      <div class="addons-grid">
+        <div class="addon fade-up">
+          <h4>&#127909; Su rostro, su voz</h4>
+          <div class="addon-price">$750 de configuración + $500/mes</div>
+          <p>Su propio avatar digital, y videos hechos como los míos, a partir de su experiencia y sus productos, en inglés, francés o español (+$150/mes por idioma). Publicación automática en YouTube, Facebook, Instagram, LinkedIn, X y TikTok, un boletín informativo y respuestas a los comentarios redactadas para su aprobación. Esté en todas partes, sin grabar cada semana.</p>
+        </div>
+        <div class="addon fade-up fade-up-d1">
+          <h4>&#128187; Desarrollo a la medida</h4>
+          <div class="addon-price">Precio fijo, con cotización</div>
+          <p>Sitios web, tiendas en línea, apps empresariales y apps móviles (iPhone y Android), diseñados y construidos en días o semanas. Usted aprueba en un enlace de vista previa antes de que algo salga en vivo. El código, el dominio y el alojamiento son suyos.</p>
+        </div>
+        <div class="addon fade-up fade-up-d2">
+          <h4>&#129513; Módulos listos para usar</h4>
+          <div class="addon-price">Opcional</div>
+          <p>Conciliación bancaria, respuestas automáticas a huéspedes, precios dinámicos para hoteles, control de alquileres, clasificación de la bandeja de entrada, canal de producción de videos, constructor de sitios web: ya construidos y probados en mis propios negocios.</p>
+        </div>
+      </div>
+      <div class="apps-band fade-up" id="modules" style="margin-top:2.5rem;">
+        <p class="section-label" style="margin-bottom:0.6rem;">Módulos premium</p>
+        <h3>Dos módulos que hacen a Pat aún más potente.</h3>
+        <p>Disponibles dentro de cualquier Pat, como opción. Ambos funcionan todos los días en mis propios negocios.</p>
+        <div class="apps-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="app-card"><span class="app-icon">&#128236;</span><h4>Mensajes: una sola bandeja para todo</h4><p>Cada hora, Pat reúne su correo (varias cuentas), WhatsApp, SMS, Signal y Telegram en una sola lista, ordenada por prioridad y por proyecto, con un resumen de una línea de cada conversación. Para todo lo que requiere respuesta, se redacta una respuesta con su voz y la revisa una segunda IA. Usted lee, ajusta y envía. Nada sale sin usted.</p>
+            <ul class="service-features" style="margin-top:0.9rem;">
+              <li>Un cuadro &ldquo;Dígale a Pat&rdquo; en cada mensaje: escriba, dicte o adjunte un archivo, y Pat actúa</li>
+              <li>Marque una conversación como en espera de respuesta, y Pat redacta el seguimiento</li>
+              <li>Posibles estafas señaladas, avisos de rutina apartados; sus correcciones se convierten en reglas</li>
+            </ul></div>
+          <div class="app-card"><span class="app-icon">&#128640;</span><h4>Pat que se mejora solo</h4><p>Cada hora, Pat revisa cuánto de su plan de IA sigue sin usarse y lo pone a trabajar para mejorarse a sí mismo por usted: corrigiendo lo que salió mal, terminando lo que usted pidió y construyendo nuevas herramientas para su negocio. Se detiene mucho antes de sus límites, así que sus propias conversaciones nunca se ralentizan.</p>
+            <ul class="service-features" style="margin-top:0.9rem;">
+              <li>Los cambios mayores le llegan como propuestas que usted aprueba o rechaza</li>
+              <li>Un informe semanal de sus correcciones y solicitudes repetidas, para que el mismo problema se resuelva de una vez por todas</li>
+              <li>Un panel con todo lo que hizo. En mi propio Pat: unas 1,300 ejecuciones de mejora al mes</li>
+            </ul></div>
+        </div>
+      </div>
+      <p class="plans-note fade-up">* Cálculo propio: con Pat a tiempo completo, yo produzco unas 1,900–2,000 horas de trabajo al mes (ritmo de noviembre de 2026, incluidos los clientes que atiendo), valoradas al costo actual de contratar cada función en EE. UU. (salario mediano + ≈43% de costos del empleador, BLS): más de $100,000 al mes. Pat Gestionado le da aproximadamente una cuarta parte de esa capacidad, y Gestionado Plus unas dos veces y media más. Es una estimación del fundador, no un resultado garantizado.</p>
+      <p class="plans-note fade-up">Es posible un prototipo gratuito cuando hay una oportunidad de negocio real y el dueño se involucra. Su suscripción de IA (Claude, ChatGPT…) la factura directamente el proveedor, a su nombre.</p>
+    </div>
+  </section>
+
+  <!-- ── TEAM PAT ── -->
+  <section class="da-section" id="team-pat">
+    <div class="section-inner">
+      <p class="section-label fade-up">Pat</p>
+      <h2 class="section-headline fade-up fade-up-d1">Todo un equipo,<br>en un solo asistente.</h2>
+      <p class="section-body fade-up fade-up-d2">Pat conoce su negocio, sus valores, cómo usted escribe a cada persona y cada corrección que le ha dado. Redacta, concilia, da seguimiento y vigila. Usted decide: nada sale sin su aprobación.</p>
+      <div class="da-grid">
+        <div class="da-card fade-up">
+          <span class="da-icon">&#128202;</span>
+          <h4>Finanzas</h4>
+          <p>Cada línea bancaria conciliada y asignada a la entidad correcta, estados de cuenta recopilados automáticamente, alquileres verificados cada mes.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d1">
+          <span class="da-icon">&#128719;</span>
+          <h4>Atención a huéspedes</h4>
+          <p>Respuestas a huéspedes en varios idiomas, con un puntaje de confianza y su aprobación, en plataformas de reservas, WhatsApp y correo.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d2">
+          <span class="da-icon">&#9878;&#65039;</span>
+          <h4>Investigación legal</h4>
+          <p>Expedientes organizados, documentos hallados en segundos, leyes consultadas, borradores preparados para su abogado o para usted.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d3">
+          <span class="da-icon">&#128227;</span>
+          <h4>Marketing</h4>
+          <p>Videos, boletines, redes sociales, sitios web: publicados automáticamente, con un panel de sus estadísticas.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d4">
+          <span class="da-icon">&#128229;</span>
+          <h4>Asistente ejecutivo</h4>
+          <p>Cada bandeja de entrada clasificada cada hora (Gmail, WhatsApp, SMS, Signal), borradores listos para enviar, nada importante se pierde.</p>
+        </div>
+        <div class="da-card fade-up fade-up-d5">
+          <span class="da-icon">&#128736;&#65039;</span>
+          <h4>Desarrollador</h4>
+          <p>¿Falta una conexión con alguna de sus herramientas? Pat la construye y nosotros la mantenemos. Sus herramientas funcionan en su servidor, no en su computadora portátil.</p>
+        </div>
+      </div>
+
+      <div class="how-it-works fade-up">
+        <h3>Cómo funciona</h3>
+        <div class="how-nodes">
+          <div class="how-node">
+            <div class="how-node-icon">&#128100;</div>
+            <h4>Usted</h4>
+            <p>App para iPhone / Android<br>Web &middot; WhatsApp &middot; Correo</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#129302;</div>
+            <h4>Su Pat</h4>
+            <p>Su servidor dedicado<br>Siempre activo</p>
+          </div>
+          <div class="how-arrow">&rarr;</div>
+          <div class="how-node">
+            <div class="how-node-icon">&#128451;&#65039;</div>
+            <h4>Sus sistemas + varias IA</h4>
+            <p>Claude, ChatGPT, Kimi<br>+ sus herramientas y sus datos</p>
+          </div>
+        </div>
+        <div class="da-tags">
+          <span class="badge">Multilingüe: EN / FR / ES</span>
+          <span class="badge">Aprende y mejora cada semana</span>
+          <span class="badge">Nada sale sin su aprobación</span>
+        </div>
+      </div>
+
+      <div class="apps-band fade-up" id="apps">
+        <p class="section-label" style="margin-bottom:0.6rem;">Pat en su bolsillo</p>
+        <h3>Su Pat en iPhone, Android y la web.</h3>
+        <p>No es un sitio web que tenga que acordarse de abrir: su propia app de Pat en el teléfono, más acceso web completo desde cualquier computadora. El mismo Pat, las mismas conversaciones y documentos, esté donde esté.</p>
+        <div class="apps-grid">
+          <div class="app-card"><span class="app-icon">&#128241;</span><h4>App para iPhone</h4><p>Publicada por UshAIA y ya usada por clientes. Se instala de forma privada mediante TestFlight de Apple, solo para usted y su equipo.</p></div>
+          <div class="app-card"><span class="app-icon">&#129302;</span><h4>App para Android</h4><p>En funcionamiento desde septiembre, con actualizaciones automáticas. Las nuevas funciones llegan sin reinstalar nada.</p></div>
+          <div class="app-card"><span class="app-icon">&#127760;</span><h4>Web</h4><p>Acceso completo desde cualquier navegador, en su propia dirección segura, para sesiones más largas en un escritorio.</p></div>
+        </div>
+        <div class="app-feats">
+          <span class="badge">Escriba o hable con Pat</span>
+          <span class="badge">Notificaciones cuando Pat termina o necesita su visto bueno</span>
+          <span class="badge">Comparta una foto, un PDF o un correo con Pat desde cualquier app</span>
+          <span class="badge">Sus documentos, listos para abrir</span>
+          <span class="badge">También por WhatsApp y correo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OUR WORK ── -->
+  <section id="work">
+    <div class="section-inner">
+      <p class="section-label fade-up">Nuestro trabajo</p>
+      <h2 class="section-headline fade-up fade-up-d1">Lo construimos. De verdad.</h2>
+      <p class="section-body fade-up fade-up-d2">Un ingeniero de software con 30 años de experiencia, buen ojo para el diseño y una IA que programa toda la noche. Algunos resultados de 2026, todos construidos con Pat. Los clientes se nombran solo por su nombre de pila, y algunos nombres están cambiados, para proteger su confidencialidad.</p>
+      <div class="gallery-grid">
+        <div class="gallery-card fade-up">
+          <span class="g-kind">Larry &middot; maestro de qigong</span>
+          <h4>Un sitio web completo en un día</h4>
+          <p>Reconstruido desde cero con un programa de retiros y depósitos en línea, en vivo el mismo día.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d1">
+          <span class="g-kind">Christin &middot; alimentos especiales</span>
+          <h4>Una tienda en línea que se maneja conversando</h4>
+          <p>Una tienda en línea completa con su propia área de administración: páginas, pedidos y boletines gestionados simplemente hablando con Pat.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d2">
+          <span class="g-kind">Jeremy &middot; dueño de una empresa de servicios para el hogar</span>
+          <h4>Un Pat privado que se mejora solo</h4>
+          <p>Un Pat dedicado en su propio servidor, usado desde la app de iPhone, que sigue mejorando con el plan de IA del propio dueño.</p>
+        </div>
+        <div class="gallery-card fade-up">
+          <span class="g-kind">Jean-Paul &middot; abogado</span>
+          <h4>Una oficina administrativa digital para un bufete</h4>
+          <p>Expedientes indexados cada noche, historias clínicas resumidas para los casos, además de paneles de facturación, IVA y contabilidad.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d1">
+          <span class="g-kind">John &middot; consultor de dispositivos médicos</span>
+          <h4>Un sitio web de consultoría pulido</h4>
+          <p>Un sitio profesional para un experto independiente, con el logotipo redibujado en vectores nítidos a partir de una tarjeta de presentación.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d2">
+          <span class="g-kind">Joselyn &middot; dueña de un hotel boutique</span>
+          <h4>Un hotel que funciona solo de noche</h4>
+          <p>Precios ajustados cada noche, respuestas a huéspedes en tres idiomas, plataformas de reservas sincronizadas, cada pago conciliado.</p>
+        </div>
+        <div class="gallery-card fade-up">
+          <span class="g-kind">Vaillant &middot; inversionista inmobiliario</span>
+          <h4>Alquileres en dos países, en piloto automático</h4>
+          <p>Sitios web de alquiler y venta, alquileres verificados cada mes, estados de cuenta recopilados automáticamente, cada línea bancaria conciliada.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d1">
+          <span class="g-kind">Pat para iPhone y Android</span>
+          <h4>Apps móviles desde una sola base de código</h4>
+          <p>App de Android en funcionamiento con actualizaciones automáticas; app de iPhone en funcionamiento para clientes mediante TestFlight de Apple.</p>
+        </div>
+        <div class="gallery-card fade-up fade-up-d2">
+          <span class="g-kind">Mi propia serie de videos</span>
+          <h4>Seis plataformas, cero días de grabación</h4>
+          <p>23 episodios en 3 idiomas con un avatar digital, publicados automáticamente, más un boletín cada martes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON ── -->
+  <section class="track-section" id="comparison">
+    <div class="section-inner">
+      <p class="section-label fade-up">Pat vs asistentes de consumo</p>
+      <h2 class="section-headline fade-up fade-up-d1">Construido sobre la mejor IA.<br>Construido alrededor de su negocio.</h2>
+      <p class="section-body fade-up fade-up-d2">ChatGPT y Claude son cerebros excelentes, y Pat los usa. La diferencia es todo lo que los rodea: control, adaptación a su negocio, independencia y una persona responsable del resultado.</p>
+      <p class="section-label fade-up" style="margin-top:4rem;">Pat vs un asistente de chat</p>
+      <h2 class="section-headline fade-up fade-up-d1">La misma IA. Mucho más rendimiento.</h2>
+      <p class="section-body fade-up fade-up-d2">Olvide por un momento los datos y la privacidad. Incluso en productividad pura, un asistente de chat y Pat son cosas distintas. ChatGPT y Claude son herramientas brillantes que usted opera. Pat es un miembro del equipo que opera, bajo su dirección.</p>
+      <div class="edge-grid">
+        <div class="edge fade-up fade-up-d0"><span class="vs">Un asistente de chat responde</span><h4>Pat hace el trabajo</h4><p>No se queda en el consejo. Pat trabaja dentro de su correo, sus exportaciones bancarias, plataformas de reservas, archivos y sitios web, prepara el resultado terminado y espera su visto bueno.</p></div>
+        <div class="edge fade-up fade-up-d1"><span class="vs">Usted dirige cada tarea</span><h4>Pat inicia el trabajo</h4><p>Unas 90 tareas permanentes creadas para mis negocios: bandejas de entrada clasificadas cada hora, precios fijados cada noche, pagos conciliados, alertas enviadas antes de que yo las pida.</p></div>
+        <div class="edge fade-up fade-up-d2"><span class="vs">Un chat, un tema</span><h4>Muchos proyectos a la vez</h4><p>Decenas de proyectos avanzan en paralelo: 68 proyectos activos en octubre, con Pat siguiendo el hilo de cada uno.</p></div>
+        <div class="edge fade-up fade-up-d0"><span class="vs">Memoria de sus chats</span><h4>Memoria de todo su negocio</h4><p>Más de 360 hechos y reglas sobre mi gente, propiedades, casos y preferencias, compartidos entre todos los proyectos. Un correo puede actualizar los libros, una fecha límite y una respuesta de una sola vez.</p></div>
+        <div class="edge fade-up fade-up-d1"><span class="vs">El mismo error dos veces</span><h4>Cada corrección se convierte en una regla</h4><p>Cuando corrijo a Pat, la lección se guarda para siempre y se verifica cada vez después. Además, unas 1,300 ejecuciones automáticas de mejora al mes.</p></div>
+        <div class="edge fade-up fade-up-d2"><span class="vs">Un cerebro</span><h4>Un cerebro con manos, memoria y agenda</h4><p>En pruebas de programación independientes, el mismo modelo de IA obtiene de 7 a 15 puntos más con un mejor &ldquo;arnés&rdquo; a su alrededor. Pat es ese arnés, construido para los negocios.</p></div>
+      </div>
+      <p class="note fade-up">Lo que esto significa en la práctica: con un asistente de chat, usted recibe ayuda. Con Pat, yo obtengo el rendimiento de 5 a 6 personas. Cifras del fundador, no un resultado garantizado; los resultados de un cliente típico serán menores.</p>
+
+      <div class="compare-wrap fade-up">
+        <table class="compare-table">
+          <tr><th></th><th>Asistentes de consumo</th><th>Pat</th></tr>
+          <tr><td>Sus datos</td><td>En los servidores del proveedor; publicidad en ChatGPT gratuito desde febrero de 2026</td><td class="pat">Su servidor, sus cuentas, el entrenamiento desactivado en todas partes, nunca publicidad</td></tr>
+          <tr><td>Proveedor de IA</td><td>Solo uno</td><td class="pat">Claude, ChatGPT y Kimi: si uno falla o cambia sus reglas, Pat sigue funcionando</td></tr>
+          <tr><td>Conocerlo a usted</td><td>La memoria de una app</td><td class="pat">Configurado y mantenido al día por una persona: sus prioridades, su tono, sus relaciones, sus reglas</td></tr>
+          <tr><td>Sus herramientas</td><td>Los conectores que ofrecen</td><td class="pat">¿Falta una conexión? La construimos y la mantenemos</td></tr>
+          <tr><td>Trabajo permanente</td><td>En la nube del proveedor</td><td class="pat">En su propio servidor dedicado, con ≈90 tareas automatizadas funcionando para mí</td></tr>
+          <tr><td>Costo</td><td>Su suscripción, a menudo subutilizada</td><td class="pat">Reutiliza lo que ya leyó, resume el historial antiguo, busca solo lo relevante, pasa el trabajo rutinario a modelos más económicos y pone a trabajar toda su suscripción</td></tr>
+          <tr><td>Almacenamiento</td><td>Limitado según el plan</td><td class="pat">Crece con su servidor</td></tr>
+          <tr><td>Quién responde</td><td>Un centro de ayuda</td><td class="pat">Una persona con nombre, accesible, que conoce su negocio</td></tr>
+          <tr><td>Si usted se va</td><td>Una exportación</td><td class="pat">Usted conserva todo: datos, configuración, apps</td></tr>
+        </table>
+      </div>
+      <p class="note fade-up">Para ser honesto: si solo necesita ayuda general, empiece con ChatGPT o Claude, es más barato. Pat es para dueños que quieren que su negocio realmente funcione. Pat tarda un poco más en responder, porque está hecho para el trabajo que usted delega, en varios proyectos a la vez. Información de la competencia verificada el 13 de noviembre de 2026.</p>
+    </div>
+  </section>
+
+  <!-- ── WHO IT'S FOR ── -->
+  <section id="who">
+    <div class="section-inner">
+      <p class="section-label fade-up">Para quién es</p>
+      <h2 class="section-headline fade-up fade-up-d1">Para emprendedores con demasiado en su plato, y sin ganas de contratar.</h2>
+      <p class="section-body fade-up fade-up-d2">Pat funciona para cualquier pequeña empresa, en cualquier sector y en cualquier país. Un solo requisito: acceso directo al dueño, porque Pat aprende el negocio de la persona que toma las decisiones.</p>
+      <ul class="who-list fade-up">
+        <li>Una vida compleja, muchos proyectos en marcha a la vez</li>
+        <li>Organizado, decidido, orientado a la acción</li>
+        <li>Hace las preguntas correctas, se siente cómodo con la tecnología</li>
+        <li>Demasiado trabajo, pero sin querer asumir el costo, el riesgo y la molestia de una contratación</li>
+        <li>Una visión clara de lo que quiere construir</li>
+        <li>Hotelería, bienes raíces, firmas profesionales, oficios, comercio minorista, productores agrícolas, dueños de varios negocios…</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── WHY ME ── -->
+  <section id="why-me" class="track-section">
+    <div class="section-inner">
+      <p class="section-label fade-up">Sobre mí</p>
       <h2 class="section-headline fade-up fade-up-d1">Vaillant (Ale) Gicqueau</h2>
-      <p class="section-body fade-up fade-up-d2" style="color:var(--gray); margin-bottom:0;">Emprendedor franco-americano, 53 a&ntilde;os</p>
+      <p class="section-body fade-up fade-up-d2" style="color:var(--gray); margin-bottom:0;">Empresario franco-estadounidense, 53 años. Usted no recibe un asistente: recibe a un fundador, ejecutivo y operador con 25 años de experiencia, multiplicado por Pat.</p>
       <div class="why-me-layout">
         <div class="why-me-photo fade-up">
           <img src="img/vaillant-gicqueau.png" alt="Vaillant Gicqueau" />
           <div class="photo-badges">
             <span class="badge">Ecole Centrale Paris</span>
             <span class="badge">M.S. UC Davis</span>
-            <span class="badge">IBM Alumni</span>
+            <span class="badge">Ex-IBM</span>
             <span class="badge">EN / FR / ES</span>
           </div>
         </div>
         <div class="bio-text fade-up fade-up-d1">
-          <p>Empec&eacute; como ingeniero de software en IBM, pas&eacute; 7 a&ntilde;os en startups en m&uacute;ltiples roles, y luego 22 a&ntilde;os como emprendedor y ejecutivo. Vend&iacute; Clinovo en 2015 por $4.5M y fund&eacute; ClinCapture &mdash; la plataforma IA l&iacute;der para investigaci&oacute;n cl&iacute;nica, una empresa rentable que sigo dirigiendo hoy.</p>
-          <p>Hoy gestiono un portafolio inmobiliario en Estados Unidos (6 propiedades incluyendo un cu&aacute;druplex), un portafolio en Costa Rica (4 propiedades incluyendo el hotel boutique Jane&rsquo;s Beach Resort), una pr&aacute;ctica de coaching personal en vaillant.blog, y m&uacute;ltiples proyectos transfronterizos. Trabajo en tech Y en industrias tradicionales, y he navegado asuntos legales complejos como demandante y demandado.</p>
-          <p>Soy el ex esposo y amigo de la famosa influencer Teal Swan. Recientemente fui entrevistado en Europe 1 radio (Libre Antenne, 28 de abril de 2026) y soy el autor de <em>&ldquo;Alienation Parentale: de l&rsquo;ombre a la lumiere&rdquo;</em> (Amazon, 2025). Basado entre Costa Rica, Estados Unidos y Europa &mdash; el tri&aacute;ngulo m&aacute;gico.</p>
+          <p><strong style="color:var(--black);">Empecé como desarrollador de software.</strong> Ingeniero de software sénior en IBM (en un proyecto ganador de una medalla de oro), líder del equipo que construyó el primer portal de pacientes en Internet, y luego gerente sénior de ingeniería a cargo de 3 equipos y 12 ingenieros en Silicon Valley.</p>
+          <p><strong style="color:var(--black);">Después, 22 años como empresario y ejecutivo.</strong> Fundé Clinovo, una empresa de servicios de investigación clínica, y la hice crecer desde cero hasta más de 50 empleados, con clientes como Abbott, Roche/Genentech, Johnson &amp; Johnson, Gilead y Nestlé, antes de venderla en 2015. También fundé y dirigí (como director ejecutivo, luego presidente ejecutivo) una empresa de software de datos clínicos en la nube, donde sigo siendo miembro de la junta directiva. Como consultor sénior para Genentech y Abbott Vascular, mis automatizaciones ahorraron unos $100,000 por estudio al año.</p>
+          <p><strong style="color:var(--black);">Hoy, un operador en el terreno.</strong> Dirijo un hotel boutique con restaurante en Costa Rica (Jane&rsquo;s Beach Resort), alquileres de corta y larga estadía en varios estados de EE. UU. y en Costa Rica, varios casos legales que manejo yo mismo con Pat, y una práctica de coaching ejecutivo desde 2018. Exvicecónsul honorario de Mónaco (2009–2017) y fundador de redes empresariales franco-estadounidenses en Silicon Valley.</p>
+          <p>Consultoría, tecnología, medicina, bienes raíces, hotelería, legal, finanzas, dirección general, coaching: asesoro sobre todo su negocio, y su vida, porque todo está conectado.</p>
           <div class="pull-quote">
-            <p>&ldquo;La IA ha transformado mi mentalidad de emprendedor &mdash; reduciendo considerablemente el riesgo financiero porque puedo hacer mucho m&aacute;s con menos empleados. Quiero que otros due&ntilde;os de pymes hagan lo mismo.&rdquo;</p>
-          </div>
-          <p style="font-size:0.88rem; color:var(--black); font-weight:500;">Trabajar por pasi&oacute;n, no por obligaci&oacute;n. Dejar las tareas tediosas a la IA para concentrarte en lo que te apasiona de tu negocio.</p>
-          <div class="why-me-sidebox" style="margin-top:2rem;">
-            <h3>La Paradoja: la IA nos hace m&aacute;s humanos</h3>
-            <p>La IA nos hace m&aacute;s humanos, no menos. Nos enfocamos m&aacute;s en el contacto humano y los proyectos creativos. Mejoramos dr&aacute;sticamente los m&aacute;rgenes reduciendo costos operativos. Los negocios que adoptan la IA no son fr&iacute;os y rob&oacute;ticos &mdash; son aquellos donde el due&ntilde;o por fin tiene tiempo para estar presente.</p>
+            <p>&ldquo;La IA ha transformado mi vida como empresario: hago mucho más con mucho menos riesgo, porque ya no necesito contratar para crecer. Quiero que otros dueños de pequeños negocios hagan lo mismo.&rdquo;</p>
           </div>
           <div class="why-me-sidebox">
-            <h3>Consultor&iacute;a hol&iacute;stica</h3>
-            <p>No solo asesoro en tecnolog&iacute;a. Asesoro sobre todo tu negocio &mdash; y toda tu vida, porque todo est&aacute; conectado. La IA es solo una herramienta. Mi consultor&iacute;a es hol&iacute;stica: estrategia financiera, navegaci&oacute;n legal, eficiencia operativa, desarrollo personal y conexi&oacute;n humana.</p>
+            <h3>La paradoja: la IA nos hace más humanos</h3>
+            <p>Nos concentramos más en el contacto humano y en los proyectos creativos, y mejoramos los márgenes al reducir los costos de operación. Los negocios que adoptan la IA no son fríos ni robóticos: son aquellos donde el dueño por fin tiene tiempo para estar presente.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── TRACK RECORD ── -->
-  <section class="track-section">
-    <div class="section-inner">
-      <p class="section-label fade-up">Trayectoria</p>
-      <h2 class="section-headline fade-up fade-up-d1">Visible desde hace 30 a&ntilde;os.</h2>
-      <p class="section-body fade-up fade-up-d2">No soy un experto de la noche a la ma&ntilde;ana. Una carrera de construir, liderar, publicar y ser reconocido &mdash; en p&uacute;blico, con nombre y apellido.</p>
-      <div class="track-grid">
+      <div class="track-grid" style="margin-top:3.5rem;">
         <a href="https://consulofmonaco.com/2011/03/22/las-vegas-consulate-welcomes-monacos-san-francisco-vice-consul/" target="_blank" rel="noopener" class="track-card fade-up">
           <span class="track-icon">&#9734;</span>
-          <h4>Vicec&oacute;nsul de M&oacute;naco</h4>
-          <p>Principado de M&oacute;naco, San Francisco. 9 a&ntilde;os de servicio diplom&aacute;tico.</p>
+          <h4>Vicecónsul de Mónaco</h4>
+          <p>Principado de Mónaco, San Francisco. Servicio diplomático honorario.</p>
         </a>
-        <a href="https://monacodc.org/news13.html" target="_blank" rel="noopener" class="track-card fade-up fade-up-d1">
-          <span class="track-icon">&#9734;</span>
-          <h4>Club Diplom&aacute;tico de M&oacute;naco</h4>
-          <p>Miembro de la red internacional del Club Diplom&aacute;tico de M&oacute;naco.</p>
-        </a>
-        <a href="https://www.lejdd.fr/Economie/Ces-Francais-caches-de-la-Silicon-Valley-90113-3085784" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+        <a href="https://www.lejdd.fr/Economie/Ces-Francais-caches-de-la-Silicon-Valley-90113-3085784" target="_blank" rel="noopener" class="track-card fade-up fade-up-d1">
           <span class="track-icon">&#9998;</span>
           <h4>Le Journal du Dimanche</h4>
-          <p>&ldquo;Ces Francais caches de la Silicon Valley&rdquo; &mdash; perfil destacado en un importante peri&oacute;dico franc&eacute;s.</p>
+          <p>&ldquo;Los franceses ocultos de Silicon Valley&rdquo;: perfil en un importante periódico francés.</p>
         </a>
-        <div class="track-card fade-up fade-up-d3">
-          <span class="track-icon">&#9835;</span>
-          <h4>Europe 1 Radio</h4>
-          <p>Invitado en Libre Antenne, 28 de abril de 2026. Entrevista en la radio nacional francesa.</p>
-        </div>
-        <a href="https://web.archive.org/web/20240221234550/https://www.lexjansen.com/wuss/2011/applications/Papers_Gicqueau_A_75003.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d4">
+        <a href="https://www.linkedin.com/in/gicqueau/" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+          <span class="track-icon">in</span>
+          <h4>LinkedIn</h4>
+          <p>Toda mi trayectoria, de ingeniero de IBM a fundador. Ver mi perfil &rsaquo;</p>
+        </a>
+        <a href="https://web.archive.org/web/20240221234550/https://www.lexjansen.com/wuss/2011/applications/Papers_Gicqueau_A_75003.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d3">
           <span class="track-icon">&#9998;</span>
-          <h4>Publicaciones acad&eacute;micas</h4>
-          <p>Publicaci&oacute;n en la conferencia WUSS 2011 sobre sistemas de datos cl&iacute;nicos.</p>
+          <h4>Publicaciones técnicas</h4>
+          <p>Artículo de la conferencia WUSS 2011 sobre sistemas de datos clínicos.</p>
         </a>
-        <a href="https://www.anjusoftware.com/insights/eclinical/edc/the-anatomy-of-an-electronic-data-capture-system-edcs/" target="_blank" rel="noopener" class="track-card fade-up fade-up-d5">
+        <a href="https://www.anjusoftware.com/insights/eclinical/edc/the-anatomy-of-an-electronic-data-capture-system-edcs/" target="_blank" rel="noopener" class="track-card fade-up fade-up-d4">
           <span class="track-icon">&#9998;</span>
-          <h4>Autor t&eacute;cnico publicado</h4>
-          <p>Autor de &ldquo;The Anatomy of an EDC System&rdquo; &mdash; gu&iacute;a definitiva sobre captura electr&oacute;nica de datos.</p>
+          <h4>Autor técnico</h4>
+          <p>&ldquo;The Anatomy of an EDC System&rdquo;, una guía de referencia sobre captura electrónica de datos.</p>
         </a>
-        <a href="https://www.globenewswire.com/fr/news-release/2016/08/09/862627/0/en/clincapture-appoints-scott-weidley-chief-executive-officer.html" target="_blank" rel="noopener" class="track-card fade-up">
-          <span class="track-icon">&#9432;</span>
-          <h4>ClinCapture en la prensa</h4>
-          <p>GlobeNewsWire 2016 &mdash; liderazgo y crecimiento cubierto por un servicio global de noticias.</p>
-        </a>
-        <div class="track-card fade-up fade-up-d1">
-          <span class="track-icon">&#9997;</span>
-          <h4>Autor: Alienation Parentale</h4>
-          <p><em>&ldquo;De l&rsquo;ombre a la lumiere&rdquo;</em> &mdash; publicado en Amazon (2025). Defensa contra la alienaci&oacute;n parental.</p>
-        </div>
-        <a href="https://www.investinprovence.com/download/interfrenchgb.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d2">
+        <a href="https://www.investinprovence.com/download/interfrenchgb.pdf" target="_blank" rel="noopener" class="track-card fade-up fade-up-d5">
           <span class="track-icon">&#9733;</span>
-          <h4>L&iacute;der InterFrench SV</h4>
-          <p>Liderazgo de la comunidad de negocios franco-americana de Silicon Valley.</p>
+          <h4>InterFrench Silicon Valley</h4>
+          <p>Fundador de la red empresarial franco-estadounidense en Silicon Valley.</p>
         </a>
       </div>
-      <div class="media-bar fade-up">
-        <span>Europe 1</span>
-        <span>Le Journal du Dimanche</span>
-        <span>GlobeNewsWire</span>
-        <span>WUSS Conference</span>
-        <span>Monaco DC</span>
-      </div>
     </div>
   </section>
 
-  <!-- ── SERVICES ── -->
-  <section id="services">
+  <!-- ── FAQ ── -->
+  <section id="faq">
     <div class="section-inner">
-      <p class="section-label fade-up">Servicios</p>
-      <h2 class="section-headline fade-up fade-up-d1">Ofertas claras. ROI claro.</h2>
-      <p class="section-body fade-up fade-up-d2">Adapto mi oferta a tu situaci&oacute;n con un ROI claro para eliminar el riesgo. Elige la modalidad que se ajuste a d&oacute;nde est&aacute;s.</p>
-      <div class="services-grid">
-
-        <div class="service-card fade-up">
-          <span class="service-tag">2 semanas</span>
-          <h3>Auditor&iacute;a &amp; Estrategia IA</h3>
-          <p>Un diagn&oacute;stico profundo de 2 semanas de tu negocio. Identifico las 5 mejores oportunidades de IA con proyecciones detalladas de ROI.</p>
-          <div class="service-price">$2,500</div>
-          <div class="service-price-note">Precio fijo</div>
-          <ul class="service-features">
-            <li>Auditor&iacute;a completa de procesos de negocio</li>
-            <li>Top 5 oportunidades de IA por ROI</li>
-            <li>Hoja de ruta con cronograma</li>
-            <li>Recomendaciones de stack tecnol&oacute;gico</li>
-            <li>Resumen ejecutivo + plan t&eacute;cnico detallado</li>
-          </ul>
-          <a href="#contact" class="btn-primary">Empezar con una auditor&iacute;a</a>
-        </div>
-
-        <div class="service-card popular fade-up fade-up-d1">
-          <span class="service-tag">M&aacute;s popular &middot; 4&ndash;8 semanas</span>
-          <h3>Sprint de implementaci&oacute;n</h3>
-          <p>Construir y desplegar sistemas de IA en tu negocio. Implementaci&oacute;n de principio a fin, del dise&ntilde;o a la producci&oacute;n.</p>
-          <div class="service-price">$5K&ndash;$15K</div>
-          <div class="service-price-note">Seg&uacute;n el alcance</div>
-          <ul class="service-features">
-            <li>Definido a partir de la auditor&iacute;a o evaluaci&oacute;n nueva</li>
-            <li>Construido en tu stack &mdash; sin dependencia de proveedor</li>
-            <li>Capacitaci&oacute;n en vivo para ti y tu equipo</li>
-            <li>30 d&iacute;as de soporte post-lanzamiento incluidos</li>
-            <li>Documentaci&oacute;n que realmente entiendes</li>
-          </ul>
-          <a href="#contact" class="btn-primary">Definir un sprint</a>
-        </div>
-
-        <div class="service-card fade-up fade-up-d2">
-          <span class="service-tag">Retainer mensual</span>
-          <h3>Asesor IA integrado</h3>
-          <p>Asesor&iacute;a mensual continua, mantenimiento de sistemas e identificaci&oacute;n de nuevas oportunidades.</p>
-          <div class="service-price">$2,000<span style="font-size:1rem;font-weight:400"> / mes</span></div>
-          <div class="service-price-note">Mes a mes</div>
-          <ul class="service-features">
-            <li>Sesiones de trabajo semanales</li>
-            <li>Monitoreo y mantenimiento de sistemas</li>
-            <li>Nuevas oportunidades de IA identificadas cada mes</li>
-            <li>Acceso directo v&iacute;a WhatsApp / email</li>
-            <li>Revisi&oacute;n estrat&eacute;gica trimestral</li>
-          </ul>
-          <a href="#contact" class="btn-primary">Hablemos de un retainer</a>
-        </div>
-
-        <div class="service-card fade-up fade-up-d3">
-          <span class="service-tag">Premium</span>
-          <h3>Construcci&oacute;n de Asistente Digital</h3>
-          <p>Un Asistente IA Personal construido a tu medida &mdash; como Pat, el sistema que gestiona mis negocios.</p>
-          <div class="service-price">$10K&ndash;$25K</div>
-          <div class="service-price-note">A medida</div>
-          <ul class="service-features">
-            <li>Indexaci&oacute;n completa de datos de negocio</li>
-            <li>Operaci&oacute;n aut&oacute;noma 24/7</li>
-            <li>Acceso por tel&eacute;fono, voz y desktop</li>
-            <li>Corre en tu hardware &mdash; totalmente privado</li>
-            <li>Multiling&uuml;e: EN, FR, ES</li>
-          </ul>
-          <a href="#contact" class="btn-primary">Hablemos de tu AD</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DIGITAL ASSISTANT ── -->
-  <section class="da-section" id="digital-assistant">
-    <div class="section-inner">
-      <p class="section-label fade-up">Oferta premium</p>
-      <h2 class="section-headline fade-up fade-up-d1">Tu propio Director de IA</h2>
-      <p class="section-body fade-up fade-up-d2">Un Asistente Digital construido a tu medida que conoce tu negocio de punta a punta. No es un chatbot. No es un template. Un sistema hecho a prop&oacute;sito que trabaja para ti 24/7.</p>
-      <div class="da-grid">
-        <div class="da-card fade-up">
-          <span class="da-icon">&#128194;</span>
-          <h4>Indexar todo</h4>
-          <p>Indexa TODOS tus datos de negocio &mdash; emails, mensajes, documentos, CRM. Responde cualquier pregunta sobre tu negocio en segundos.</p>
-        </div>
-        <div class="da-card fade-up fade-up-d1">
-          <span class="da-icon">&#9997;&#65039;</span>
-          <h4>Redactar con tu voz</h4>
-          <p>Redacta emails, propuestas y contratos que suenan como t&uacute;. Tu AD aprende tu tono, estilo y preferencias.</p>
-        </div>
-        <div class="da-card fade-up fade-up-d2">
-          <span class="da-icon">&#128065;&#65039;</span>
-          <h4>Monitorear 24/7</h4>
-          <p>Monitorea sistemas las 24 horas y te alerta sobre problemas antes de que se vuelvan cr&iacute;ticos. Nunca pierdas un plazo, tr&aacute;mite o renovaci&oacute;n.</p>
-        </div>
-        <div class="da-card fade-up fade-up-d3">
-          <span class="da-icon">&#127769;</span>
-          <h4>Trabajar de noche</h4>
-          <p>Investigaci&oacute;n, an&aacute;lisis y reportes generados mientras duermes. Despierta con un briefing ejecutivo cada ma&ntilde;ana.</p>
-        </div>
-        <div class="da-card fade-up fade-up-d4">
-          <span class="da-icon">&#128172;</span>
-          <h4>Comunicar autom&aacute;ticamente</h4>
-          <p>Gestiona las comunicaciones con clientes autom&aacute;ticamente por email, plataformas de reservas y apps de mensajer&iacute;a.</p>
-        </div>
-        <div class="da-card fade-up fade-up-d5">
-          <span class="da-icon">&#128274;</span>
-          <h4>Totalmente privado</h4>
-          <p>Corre en tu propio hardware. Tus datos nunca salen de tu red. Totalmente seguro, totalmente tuyo.</p>
-        </div>
-      </div>
-
-      <div class="how-it-works fade-up">
-        <h3>C&oacute;mo funciona</h3>
-        <div class="how-nodes">
-          <div class="how-node">
-            <div class="how-node-icon">&#128100;</div>
-            <h4>T&uacute;</h4>
-            <p>Tel&eacute;fono / Desktop<br>Telegram / Voz</p>
-          </div>
-          <div class="how-arrow">&rarr;</div>
-          <div class="how-node">
-            <div class="how-node-icon">&#129302;</div>
-            <h4>Tu AD</h4>
-            <p>M&aacute;quina dedicada<br>Siempre activo</p>
-          </div>
-          <div class="how-arrow">&rarr;</div>
-          <div class="how-node">
-            <div class="how-node-icon">&#128451;&#65039;</div>
-            <h4>Tus datos</h4>
-            <p>Datos de negocio + modelos IA<br>+ Herramientas e integraciones</p>
-          </div>
-        </div>
-        <div class="da-tags">
-          <span class="badge">Multiling&uuml;e: EN / FR / ES</span>
-          <span class="badge">Aprende y mejora con el tiempo</span>
-          <span class="badge">Accesible desde cualquier parte del mundo</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CASE STUDY ── -->
-  <section id="case-studies">
-    <div class="section-inner">
-      <p class="section-label fade-up">Caso real</p>
-      <h2 class="section-headline fade-up fade-up-d1">Mi Director de IA: c&oacute;mo Pat gestiona mis negocios mientras duermo</h2>
-      <p class="section-body fade-up fade-up-d2">Pat es mi propio Asistente Digital. Constru&iacute; a Pat para gestionar 10 propiedades en 2 pa&iacute;ses, preparar defensa legal, lanzar un libro y entregar un briefing ejecutivo cada ma&ntilde;ana.</p>
-      <div class="case-grid">
-        <div class="case-card fade-up">
-          <div class="case-stat">160,000+</div>
-          <h4>Documentos indexados</h4>
-          <p>108K emails, 20K SMS, 15K mensajes de WhatsApp &mdash; todo buscable, todo contextual. Pat conoce la historia de mi negocio mejor que yo.</p>
-        </div>
-        <div class="case-card fade-up fade-up-d1">
-          <div class="case-stat">10</div>
-          <h4>Propiedades gestionadas</h4>
-          <p>Gesti&oacute;n inmobiliaria aut&oacute;noma entre Estados Unidos y Costa Rica. Precios din&aacute;micos ajustados seg&uacute;n demanda. Comunicaciones con hu&eacute;spedes 24/7.</p>
-        </div>
-        <div class="case-card fade-up fade-up-d2">
-          <div class="case-stat">24/7</div>
-          <h4>Respuesta autom&aacute;tica</h4>
-          <p>Responde autom&aacute;ticamente a los hu&eacute;spedes del hotel las 24 horas en Booking.com, Airbnb y WhatsApp. Ning&uacute;n hu&eacute;sped espera. Ning&uacute;n mensaje se pierde.</p>
-        </div>
-        <div class="case-card fade-up fade-up-d3">
-          <div class="case-stat">$100K+</div>
-          <h4>Honorarios legales ahorrados</h4>
-          <p>Pat prepar&oacute; documentos de defensa, organiz&oacute; evidencia, redact&oacute; mociones &mdash; ahorrando m&aacute;s de $100K en honorarios de abogados en litigios activos.</p>
-        </div>
-        <div class="case-card fade-up fade-up-d4">
-          <div class="case-stat">5 hrs</div>
-          <h4>Sesiones nocturnas</h4>
-          <p>Pat trabaja 5 horas cada noche: investigaci&oacute;n, an&aacute;lisis, ejecuci&oacute;n de tareas. Entrega un briefing ejecutivo a las 7:30 AM para empezar el d&iacute;a informado.</p>
-        </div>
-        <div class="case-card fade-up fade-up-d5">
-          <div class="case-stat">20+</div>
-          <h4>Campa&ntilde;as de marketing del libro</h4>
-          <p>20+ pitches de podcasts redactados y enviados. 7 propuestas a librer&iacute;as. Preparaci&oacute;n de entrevista para Europe 1. Todo asistido por IA.</p>
-        </div>
-      </div>
-      <div class="case-closing fade-up">
-        <p>Pat es accesible por tel&eacute;fono (Telegram), comandos de voz y desktop &mdash; desde cualquier parte del mundo. Esto es lo que construyo para mis clientes.</p>
-        <p style="font-size:0.82rem;color:var(--gray);margin-top:0.6rem;font-style:italic;">PAT significa Personal Assistant Technology.</p>
-        <a href="#contact" class="btn-primary large">Quiero mi propio Pat</a>
+      <p class="section-label fade-up">Preguntas frecuentes</p>
+      <h2 class="section-headline fade-up fade-up-d1">Las preguntas de verdad.</h2>
+      <div class="faq fade-up">
+        <details><summary>¿Están seguros mis datos?</summary>
+          <p>Su Pat funciona en su propio servidor, con sus propias cuentas. Nada se comparte entre clientes. Solo usamos proveedores de IA con el entrenamiento sobre sus datos desactivado (Claude, ChatGPT, Kimi). Los proveedores de IA, por supuesto, procesan el texto que se les envía, pero no lo usan para entrenar sus modelos.</p></details>
+        <details><summary>¿Y si la IA se equivoca?</summary>
+          <p>A veces lo hace: por eso hay una persona responsable. Nada sale sin su aprobación, Pat cita sus fuentes, una segunda IA revisa el trabajo importante, y yo reviso todo lo legal, financiero o dirigido a clientes. Cada error se convierte en una regla permanente.</p></details>
+        <details><summary>No soy técnico.</summary>
+          <p>Para eso mismo existe el plan Pat Gestionado: usted habla conmigo y yo manejo Pat. También puede usarlo directamente desde la app de iPhone o Android, la web, WhatsApp o el correo.</p></details>
+        <details><summary>¿Y si le pasa algo a usted?</summary>
+          <p>Su Pat sigue funcionando: es suyo. Nicolas y Pauline, que ya trabajan con Pat, pueden asumir el soporte gracias a un acceso de emergencia sellado y una guía de traspaso por escrito.</p></details>
+        <details><summary>¿Con quién firmo?</summary>
+          <p>UshAIA LLC, una empresa estadounidense registrada en Utah. Un solo contrato y una sola factura, en dólares estadounidenses, esté donde esté su negocio.</p></details>
+        <details><summary>¿Puedo dejarlo?</summary>
+          <p>Sí, con 30 días de preaviso. Usted conserva sus datos, su configuración y sus apps, y puede volver cuando quiera.</p></details>
+        <details><summary>¿Cuánto cuesta la IA en sí?</summary>
+          <p>Usted contrata su propia suscripción (por ejemplo Claude o ChatGPT, de $20 a $200/mes según el uso), facturada directamente por el proveedor. Pat se asegura de que usted aproveche cada dólar.</p></details>
+        <details><summary>¿Por qué no usar simplemente ChatGPT o Claude?</summary>
+          <p>Si solo necesita ayuda general, empiece por ahí. Pat usa esos mismos modelos, pero conectados a su negocio, en su servidor, con varios proveedores y una persona responsable del resultado.</p></details>
       </div>
     </div>
   </section>
@@ -1454,43 +1734,41 @@
   <!-- ── TICKER ── -->
   <div class="ticker-wrap">
     <div class="ticker-inner">
-      <span><strong>Europe 1</strong> &mdash; Invitado en Libre Antenne | Abril 2026</span>
-      <span><strong>$4.5M</strong> &mdash; ClinCapture vendido | Exit 2015</span>
-      <span><strong>10</strong> &mdash; Propiedades gestionadas en 2 pa&iacute;ses</span>
-      <span><strong>17,586</strong> &mdash; Conexiones LinkedIn</span>
-      <span><strong>Europe 1</strong> &mdash; Invitado en Libre Antenne | Abril 2026</span>
-      <span><strong>$4.5M</strong> &mdash; ClinCapture vendido | Exit 2015</span>
-      <span><strong>10</strong> &mdash; Propiedades gestionadas en 2 pa&iacute;ses</span>
-      <span><strong>17,586</strong> &mdash; Conexiones LinkedIn</span>
+      <span><strong>≈1,000 h</strong> de trabajo empresarial al mes con Pat</span>
+      <span><strong>$4.5M</strong> &mdash; Clinovo vendida | 2015</span>
+      <span><strong>$135</strong> al mes de IA</span>
+      <span><strong>≈1,000 h</strong> de trabajo empresarial al mes con Pat</span>
+      <span><strong>$4.5M</strong> &mdash; Clinovo vendida | 2015</span>
+      <span><strong>$135</strong> al mes de IA</span>
     </div>
   </div>
 
   <!-- ── GEO BANNER ── -->
   <div class="geo-banner">
     <div class="geo-flags">&#127482;&#127480; &#127464;&#127479; &#127466;&#127482;</div>
-    <h3>Basado entre Costa Rica, Estados Unidos y Europa</h3>
-    <p>El tri&aacute;ngulo m&aacute;gico.</p>
+    <h3>Con base entre Costa Rica, Estados Unidos y Europa</h3>
+    <p>El triángulo mágico.</p>
   </div>
 
   <!-- ── CONTACT ── -->
   <section id="contact" class="contact-section">
     <div class="section-inner">
       <p class="section-label fade-up">Contacto</p>
-      <h2 class="section-headline fade-up fade-up-d1">Hablemos de<br>tu negocio.</h2>
-      <p class="contact-body fade-up fade-up-d2">Hablamos de tu negocio, de los workflows que te comen la semana, y de si la IA es la palanca que lo arregla. Si no soy la persona indicada, te lo digo y te apunto hacia algo mejor.</p>
-      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large fade-up fade-up-d3">Agenda una llamada estrat&eacute;gica gratuita de 30 min</a>
-      <p class="contact-sub fade-up fade-up-d4">Gratis. Sin pitch. Sin compromiso. EN / FR / ES.</p>
+      <h2 class="section-headline fade-up fade-up-d1">Muéstreme una tarea<br>que ya no quiera hacer.</h2>
+      <p class="contact-body fade-up fade-up-d2">En 30 minutos revisamos las tareas que le consumen la semana, y le muestro concretamente qué haría Pat. Si no soy la persona indicada, se lo digo y lo oriento en la dirección correcta.</p>
+      <a href="https://cal.com/gicqueau" target="_blank" class="btn-primary large fade-up fade-up-d3">Reserve una llamada gratuita de 30 min</a>
+      <p class="contact-sub fade-up fade-up-d4">Gratis. Sin discurso de ventas. Sin compromiso. EN / FR / ES.</p>
       <div class="contact-socials fade-up fade-up-d5">
         <a href="https://www.linkedin.com/in/gicqueau/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.youtube.com/@VaillantGicqueau" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
       </div>
       <hr class="contact-divider" />
-      <p class="contact-form-label fade-up">O env&iacute;a un mensaje</p>
+      <p class="contact-form-label fade-up">O envíe un mensaje</p>
       <div class="fade-up fade-up-d1" style="text-align:center;margin-top:1.5rem;">
-        <a href="mailto:gicqueau@gmail.com?subject=Mensaje%20via%20ushaia.com" class="btn-primary large">Enviar un email</a>
+        <a href="mailto:gicqueau@gmail.com?subject=Message%20via%20ushaia.com" class="btn-primary large">Enviar un correo</a>
       </div>
-      <p class="form-note fade-up">Respuesta generalmente en un d&iacute;a h&aacute;bil.</p>
+      <p class="form-note fade-up">Normalmente respondo en un día hábil.</p>
     </div>
   </section>
 
@@ -1504,8 +1782,9 @@
         <a href="https://www.youtube.com/@VaillantGicqueau" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.instagram.com/coachvaillant" target="_blank" rel="noopener">Instagram</a>
       </div>
-      <p>Consultor&iacute;a en IA para pymes. Basado entre Costa Rica, Estados Unidos y Europa &mdash; el tri&aacute;ngulo m&aacute;gico.</p>
-      <p style="margin-top:0.5rem;">&copy; 2026 UshAIA. Todos los derechos reservados.</p>
+      <p>Su jefe de gabinete con IA, dirigido por un empresario sénior. Con base entre Costa Rica, Estados Unidos y Europa.</p>
+      <p style="margin-top:0.5rem;">Cifras: caso del fundador, estimaciones documentadas (sep–nov de 2026), no resultados típicos ni ahorros netos.</p>
+      <p style="margin-top:0.5rem;">&copy; 2026 UshAIA LLC, una empresa estadounidense registrada en Utah. Todos los derechos reservados.</p>
     </div>
   </footer>
 
